@@ -75,4 +75,14 @@ class User extends Authenticatable
         return $this->hasMany('App\order');
     }
 
+    
+
+    public function isAdmin(){
+        if($this->role->name == 'superadmin'){
+            return true;
+        }
+            return false;
+    }
+
+
 }
