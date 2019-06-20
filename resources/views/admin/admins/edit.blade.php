@@ -4,6 +4,8 @@
 
 
 
+
+
 <div class="row">
         <div class="col-lg-8 offset-3">
             <div class="card">
@@ -85,19 +87,19 @@
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>Update Admin</button>    
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>Update Admin</button>
                         </div>
 
 
                         @if($errors->any())
                             <div class="alert alert-danger">
                                 @foreach($errors->all() as $error)
-                                  
+
                                        <p> {{$error}} </p>
-                                    
+
                                 @endforeach
                             </div>
-                           
+
                         @endif
                     </form>
                 </div>

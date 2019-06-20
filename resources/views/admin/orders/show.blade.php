@@ -3,9 +3,6 @@
 @include('layouts.navigation')
 
 
-<div style="margin-top: 100px;width:50%;margin-right:auto;margin-left:auto">
-        @include('flash::message')
-</div>
 
 <div class="container-fluid">
     <!-- ============================================================== -->
@@ -38,36 +35,22 @@
                             <table class="table color-table success-table">
                                 <thead>
                                         <tr>
-                                            <th>Author</th>
-                                            <th>Photo</th>
-                                            <th>title</th>
-                                            <th>Content</th>
-                                            <th>Status</th>
-                                            <th>View Comments</th>
-                                            <th>Edit Blog</th>
-                                            <th>Delete Blog</th>
+                                            <th>Course Name</th>
+                                            <th>User Name</th>
+                                            <th>Address</th>
+                                            <th>Deliver Time</th>
                                         </tr>
-
                                 </thead>
                                 <tbody>
-                                    @foreach($blogs as $blog)
+                                         @foreach ($orders as $order)
                                             <tr>
-                                                <td>{{$blog->author_id}}</td>
-                                                <td>{{$blog->photo_id}}</td>
-                                                <td>{{$blog->title}}</td>
-                                                <td>{{$blog->content}}</td>
-                                                <td>{{$blog->status}}</td>
-                                            <td><a href="{{route('blogcomments.show',$blog->id)}}">view comments</a></td>
-                                                <td><a href="{{route('blog.edit',$blog->id)}}">Edit</a></td>
-                                                <td>
-                                                    <form action="{{route('blog.delete',$blog->id)}}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button class="btn btn-link" type="submit">Delete</button>
-                                                    </form>
-                                                </td>
+                                                <td>{{$order->user->name}}</td>
+                                                <td>{{$order->course->name}}</td>
+                                                <td>{{$order->address}}</td>
+                                                <td>{{$order->deliver_time}}</td>
                                             </tr>
-                                    @endforeach
+                                         @endforeach
+
                                 </tbody>
                             </table>
                         </div>
@@ -85,3 +68,7 @@
 
 
 @include('layouts.footer')
+
+
+
+

@@ -34,7 +34,7 @@
                 <li class=""><a href="javascript:void(0)"><i class="mdi mdi-bullseye"></i></a>
                     <div class="sidebarmenu">
                         <!-- Left navbar-header -->
-                        <h3 class="menu-title">Users</h3>
+                        <h3 class="menu-title">Blogs</h3>
                         <ul class="sidebar-menu">
                             <li><a href="{{route('blog.index')}}">All Blogs</a></li>
                             <li><a href="{{route('blog.create')}}">Create Blog</a></li>
@@ -43,35 +43,29 @@
                     </div>
                 </li>
 
-                <li class=""><a href="javascript:void(0)"><i class="mdi mdi-email"></i></a>
+                <li class=""><a href="javascript:void(0)"><i class="mdi mdi-bullseye"></i></a>
                     <div class="sidebarmenu">
                         <!-- Left navbar-header -->
-                        <h3 class="menu-title">Inbox</h3>
+                        <h3 class="menu-title">Courses</h3>
                         <ul class="sidebar-menu">
-                            <li><a href="app-email.html">Mailbox</a></li>
-                            <li><a href="app-email-detail.html">Mailbox Detail</a></li>
-                            <li><a href="app-compose.html">Compose Mail</a></li>
+                            <li><a href="{{route('course.index')}}">All Courses</a></li>
+                            <li><a href="{{route('course.create')}}">Create Course</a></li>
                         </ul>
                         <!-- Left navbar-header end -->
                     </div>
                 </li>
-                <li class=""><a href="javascript:void(0)"><i class="mdi mdi-file-chart"></i></a>
+
+
+                <li class=""><a href="javascript:void(0)"><i class="mdi mdi-bullseye"></i></a>
                     <div class="sidebarmenu">
                         <!-- Left navbar-header -->
-                        <h3 class="menu-title">Charts</h3>
+                        <h3 class="menu-title">Orders</h3>
                         <ul class="sidebar-menu">
-                            <li><a href="chart-morris.html">Morris Chart</a></li>
-                            <li><a href="chart-chartist.html">Chartis Chart</a></li>
-                            <li><a href="chart-echart.html">Echarts</a></li>
-                            <li><a href="chart-flot.html">Flot Chart</a></li>
-                            <li><a href="chart-knob.html">Knob Chart</a></li>
-                            <li><a href="chart-chart-js.html">Chartjs</a></li>
-                            <li><a href="chart-sparkline.html">Sparkline Chart</a></li>
-                            <li><a href="chart-extra-chart.html">Extra chart</a></li>
-                            <li><a href="chart-peity.html">Peity Charts</a></li>
+                            <li><a href="{{route('orders.index')}}">All Orders</a></li>
                         </ul>
                         <!-- Left navbar-header end -->
                     </div>
                 </li>
+
             </ul>
         </div>

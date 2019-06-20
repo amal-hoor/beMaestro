@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use App\blog;
+use App\comment;
 use Illuminate\Http\Request;
-use App\Blog;
-class AdminBlogsController extends Controller
+
+class AdminBlogCommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +15,7 @@ class AdminBlogsController extends Controller
      */
     public function index()
     {
-        $blogs=blog::all();
-        return view('admin.blogs.index',compact('blogs'));
+        //
     }
 
     /**
@@ -24,7 +25,7 @@ class AdminBlogsController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        //
     }
 
     /**
@@ -46,7 +47,9 @@ class AdminBlogsController extends Controller
      */
     public function show($id)
     {
-        //
+        $blog=blog::find($id);
+        $comments=$blog->comments;
+        return view('admin.blogcomments.show',compact('comments','blog'));
     }
 
     /**
@@ -69,7 +72,19 @@ class AdminBlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comment=comment::find($id);
+       // return $request->all();
+
+        if($request->input('approve')){
+         $comment->update(['status' => 1 ]);
+        }
+
+        if( $request->input('unapprove')){
+            $comment->update(['status' => 0 ]);
+        }
+
+        return back();
+
     }
 
     /**
@@ -80,8 +95,6 @@ class AdminBlogsController extends Controller
      */
     public function destroy($id)
     {
-        $blog=blog::find($id);
-        $blog->delete();
-        return redirect()->back();
+        //
     }
 }

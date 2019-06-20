@@ -27,6 +27,10 @@ class Comment extends Model
             return $this->belongsTo('App\course', 'course_id');
         }
 
+        public function likes(){
+            return $this->hasMany('App\likes');
+        }
+
 }
 
 

@@ -20,7 +20,6 @@ class CreateCoursesTable extends Migration
             $table->float('price');
             $table->biginteger('hours');
             $table->integer('instructor_id');
-            $table->biginteger('status')->unsigned();
             $table->timestamps();
         });
     }

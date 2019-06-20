@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Role;
 use App\Country;
-
-class AdminUsersController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        $users =User::where('role_id',"!=",2)->where('role_id',"!=",1)->get();
-        return view('admin.users.index',compact('users'));
+        $admins =User::where('role_id',2)->get();
+        return view('admin.admins.index',compact('admins'));
     }
 
     /**
@@ -30,7 +30,7 @@ class AdminUsersController extends Controller
     {
         $roles=role::all();
         $countries=country::all();
-        return view('admin.users.create',compact('roles','countries'));
+        return view('admin.admins.create',compact('roles','countries'));
     }
 
     /**
@@ -41,7 +41,8 @@ class AdminUsersController extends Controller
      */
     public function store(Request $request)
     {
-          
+        //return $request->all();
+
         request()->validate([
             'name'        => 'required|min:4|max:255',
             'email'       => 'required|email|string|unique:users',
@@ -66,8 +67,8 @@ class AdminUsersController extends Controller
             'password'   => Hash::make($request->input('password'))
 
         ]);
-
-        return redirect()->route('user.index');
+        flash('Admin added.......');
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -91,8 +92,8 @@ class AdminUsersController extends Controller
     {
         $roles=role::all();
         $countries=country::all();
-        $user=user::find($id);
-        return view('admin.users.edit',compact('roles','countries','user'));
+        $admin=user::find($id);
+        return view('admin.admins.edit',compact('roles','countries','admin'));
     }
 
     /**
@@ -104,7 +105,7 @@ class AdminUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=user::find($id);
+        $admin=user::find($id);
 
         request()->validate([
             'name'        => 'required|min:4',
@@ -114,7 +115,7 @@ class AdminUsersController extends Controller
             'password'    => 'required|min:6'
         ]);
 
-         
+
         if(trim($request->input('password')) == ''){
 
            request()->validate([
@@ -122,7 +123,7 @@ class AdminUsersController extends Controller
            ]);
         }
 
-        $user->update([
+        $admin->update([
 
             'name'       => $request->input('name'),
             'email'      => $request->input('email'),
@@ -132,7 +133,8 @@ class AdminUsersController extends Controller
 
         ]);
 
-        return redirect()->route('user.index');
+        flash('Admin Updated.......');
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -143,8 +145,9 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        $user=user::find($id);
-        $user->delete();
+        $admin=user::find($id);
+        $admin->delete();
+        flash('Admin deleted........');
         return redirect()->back();
     }
 }

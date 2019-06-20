@@ -4,6 +4,7 @@
 use App\User;
 use App\Role;
 use App\Country;
+use App\Course;
 use App\Instructor;
 
 use Illuminate\Support\Str;
@@ -48,6 +49,8 @@ $factory->define(Instructor::class, function (Faker $faker) {
         'photo_id' => $faker->numberBetween(1,10),
     ];
 });
+
+
 
 
 
