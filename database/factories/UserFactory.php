@@ -23,7 +23,7 @@ use Faker\Generator as Faker;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'country_id' => $faker->numberBetween(1,10),
+        'country_id' => $faker->numberBetween(1,4),
         'role_id'   =>  $faker->numberBetween(1,3),
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
@@ -49,6 +49,7 @@ $factory->define(Instructor::class, function (Faker $faker) {
         'photo_id' => $faker->numberBetween(1,10),
     ];
 });
+
 
 
 

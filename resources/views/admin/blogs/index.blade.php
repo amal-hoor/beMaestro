@@ -11,21 +11,6 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
-    <div class="row page-titles">
-        <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor">Table Layout</h3>
-        </div>
-        <div class="col-md-7 align-self-center">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item">pages</li>
-                <li class="breadcrumb-item active">Table Layout</li>
-            </ol>
-        </div>
-        <div>
-            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-        </div>
-    </div>
 
 
 
@@ -40,9 +25,10 @@
                                         <tr>
                                             <th>Author</th>
                                             <th>Photo</th>
-                                            <th>title</th>
-                                            <th>Content</th>
-                                            <th>Status</th>
+                                            <th>title En</th>
+                                            <th>العنوان</th>
+                                            <th>Content En</th>
+                                            <th>المحتوي</th>
                                             <th>View Comments</th>
                                             <th>Edit Blog</th>
                                             <th>Delete Blog</th>
@@ -52,11 +38,13 @@
                                 <tbody>
                                     @foreach($blogs as $blog)
                                             <tr>
-                                                <td>{{$blog->author_id}}</td>
-                                                <td>{{$blog->photo_id}}</td>
-                                                <td>{{$blog->title}}</td>
-                                                <td>{{$blog->content}}</td>
-                                                <td>{{$blog->status}}</td>
+                                                <td>{{$blog->user->name}}</td>
+                                                <td><img src="/images/{{$blog->photo->name}}" width="60" height="60"></td>
+                                                <td>{{$blog->title_en}}</td>
+                                                <td>{{$blog->title_ar}}</td>
+                                                <td>{{$blog->content_en}}</td>
+                                                <td>{{$blog->content_ar}}</td>
+                                                
                                             <td><a href="{{route('blogcomments.show',$blog->id)}}">view comments</a></td>
                                                 <td><a href="{{route('blog.edit',$blog->id)}}">Edit</a></td>
                                                 <td>

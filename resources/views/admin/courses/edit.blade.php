@@ -19,9 +19,13 @@
                             <hr>
                             <div class="row p-t-20">
                                 <div class="col-md-8">
+                                        <div class="form-group">
+                                                <label class="control-label">الاسم</label>
+                                            <input type="text" name="name_ar" class="form-control" value="{{$course->name_ar}}">
+                                            </div>
                                     <div class="form-group">
                                         <label class="control-label">Name</label>
-                                    <input type="text" name="name" class="form-control" value="{{$course->name}}">
+                                    <input type="text" name="name_en" class="form-control" value="{{$course->name_en}}">
                                     </div>
                                 </div>
                             </div>
@@ -33,6 +37,7 @@
                                             <label>Instructor</label>
                                         <input type="text" class="form-control" name="instructor_id" value="{{$course->instructor->name}}">
                                         </div>
+                                        
                                     </div>
                                     <!--/span-->
                             </div>
@@ -52,10 +57,15 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
-                                        <label class="control-label">Details</label>
-                                    <textarea name="details" class="form-control" rows="3">{{$course->details}}</textarea>
+                                        <label class="control-label">التفاصيل</label>
+                                    <textarea name="details_ar" class="form-control" rows="3">{{$course->details_ar}}</textarea>
 
                                     </div>
+                                    <div class="form-group">
+                                            <label class="control-label">Details</label>
+                                        <textarea name="details_en" class="form-control" rows="3">{{$course->details_en}}</textarea>
+    
+                                        </div>
                                 </div>
                                 <!--/span-->
                             </div>
@@ -91,7 +101,7 @@
 
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>update Course</button>
+                            <button type="submit" class="btn btn-success mb-2"> <i class="fa fa-check"></i>update Course</button>
                         </div>
 
 

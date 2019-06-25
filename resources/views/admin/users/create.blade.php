@@ -78,20 +78,38 @@
                                 <!--/span-->
                         </div>
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Create user</button>    
+                        <div class="row p-t-20">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="form-control custom-select"  name="block" tabindex="1">
+
+                                            <option value="1">un blocked</option>
+                                            <option value="0"> blocked</option>
+
+                                        </select>
+                                    </div>
+                                </div>
                         </div>
+
+
+
+
+
+                                <div class="form-actions mb-5">
+                                    <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Create user</button>
+                                </div>
 
 
                         @if($errors->any())
                             <div class="alert alert-danger">
                                 @foreach($errors->all() as $error)
-                                  
+
                                        <p> {{$error}} </p>
-                                    
+
                                 @endforeach
                             </div>
-                           
+
                         @endif
                     </form>
                 </div>

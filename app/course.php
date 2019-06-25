@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class course extends Model
 {
     protected $fillable=[
-        'name','details','price','hours','instructor_id','status','photo_id'
+        'name_ar','name_en','details_ar','details_en','price','hours','instructor_id','status','photo_id','category_id',
     ];
 
 
@@ -41,6 +41,23 @@ class course extends Model
 
         public function likes(){
             return $this->hasMany('App\Likes');
+        }
+
+
+        public function offers(){
+            return $this->hasMany('App\Offer');
+        }
+
+        public function videos(){
+            return $this->hasMany('App\Video');
+        }
+
+        public function notifications(){
+            return $this->hasMany('App\Notification');
+        }
+
+        public function Category(){
+            return $this->belongsTo('App\Category');
         }
 }
 

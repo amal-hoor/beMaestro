@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','country_id','role_id'
+        'name', 'email', 'password','country_id','role_id','block',
     ];
 
     /**
@@ -75,13 +75,19 @@ class User extends Authenticatable
         return $this->hasMany('App\order');
     }
 
-    
+
 
     public function isAdmin(){
-        if($this->role->name == 'superadmin'){
+        if($this->role->name == 'superadmin' || 'administrator'){
             return true;
         }
             return false;
+    }
+
+
+    public function notifications()
+    {
+        return $this->belongsToMany('App\Role', 'user_notifications', 'user_id', 'notification_id');
     }
 
 

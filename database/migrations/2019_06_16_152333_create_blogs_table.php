@@ -17,8 +17,10 @@ class CreateBlogsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('author_id')->unsigned();
             $table->integer('photo_id')->unsigned()->nullable();
-            $table->string('title');
-            $table->text('content');
+            $table->string('title_ar')->nullable();
+            $table->string('title_en')->nullable();
+            $table->text('content_ar')->nullable();
+            $table->text('content_en')->nullable();
             $table->timestamps();
         });
     }

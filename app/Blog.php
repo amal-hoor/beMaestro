@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     protected $fillable=[
-        'content','title','author_id','photo_id','status',
+        'content_en','content_ar','title_en','title_ar','author_id','photo_id','status','author_id'
     ];
 
 
@@ -18,7 +18,7 @@ class Blog extends Model
 
 
     public function user(){
-        return $this->belongsTo('App\user');
+        return $this->belongsTo('App\user','author_id');
     }
 
 
@@ -34,6 +34,10 @@ class Blog extends Model
 
     public function likes(){
         return $this->hasMany('App\Likes');
+    }
+
+    public function notifications(){
+        return $this->hasMany('App\Notification');
     }
 }
 

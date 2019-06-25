@@ -22,8 +22,11 @@
                             <table class="table color-table success-table">
                                 <thead>
                                         <tr>
+                                            <th>الاسم</th>
                                             <th>Name</th>
                                             <th>Instructor</th>
+                                            <th>Category</th>
+                                            <th>التفاصيل</th>
                                             <th>Details</th>
                                             <th>Price</th>
                                             <th>Hours</th>
@@ -38,9 +41,12 @@
 
 
                                             <tr>
-                                                <td>{{$course->name}}</td>
+                                                <td>{{$course->name_ar}}</td>
+                                                <td>{{$course->name_en}}</td>
                                                 <td>{{$course->instructor->name}}</td>
-                                                <td>{{$course->details}}</td>
+                                                <td>{{$course->category ? $course->category->name : 'unCategorized' }}</td>
+                                                <td>{{str_limit($course->details_ar,50)}}</td>
+                                                <td>{{str_limit($course->details_en,50)}}</td>
                                                 <td>{{$course->price}}</td>
                                                 <td>{{$course->hours}}</td>
                                                 <td><a href="{{route('coursecomments.show',$course->id)}}">view comments</a></td>

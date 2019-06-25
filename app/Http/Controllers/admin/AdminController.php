@@ -58,17 +58,26 @@ class AdminController extends Controller
             ]);
          }
 
-        user::create([
+         if(auth()->user()->role_id == 1){
 
-            'name'       => $request->input('name'),
-            'email'      => $request->input('email'),
-            'role_id'    => $request->input('role_id'),
-            'country_id' => $request->input('country_id'),
-            'password'   => Hash::make($request->input('password'))
+            user::create([
 
-        ]);
-        flash('Admin added.......');
-        return redirect()->route('admin.index');
+                'name'       => $request->input('name'),
+                'email'      => $request->input('email'),
+                'role_id'    => $request->input('role_id'),
+                'country_id' => $request->input('country_id'),
+                'password'   => Hash::make($request->input('password'))
+    
+            ]);
+
+            flash('Admin added.......');
+            return redirect()->route('admin.index');
+         }else{
+            flash('Not Allowed.......');
+           return redirect()->back();
+         }
+     
+        
     }
 
     /**

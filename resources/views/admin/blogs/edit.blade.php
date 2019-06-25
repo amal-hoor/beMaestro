@@ -8,7 +8,10 @@
 
 
 <div class="row">
-        <div class="col-lg-8 offset-3">
+        <div class="col-lg-2 offset-2" style="margin-top:100px">
+           <img src="/images/{{$blog->photo->name}}" alt="" class="img-responsive">
+        </div>
+        <div class="col-lg-8">
             <div class="card">
 
                 <div class="card-body">
@@ -21,8 +24,10 @@
                             <div class="row p-t-20">
                                 <div class="col-md-8">
                                     <div class="form-group">
-                                        <label class="control-label">Title</label>
-                                    <input type="text" name="title" class="form-control" value="{{$blog->title}}">
+                                        <label class="control-label"> العنوان </label>
+                                    <input type="text" name="title_ar" class="form-control" value="{{$blog->title_ar}}">
+                                    <label class="control-label mt-1">Title English</label>
+                                    <input type="text" name="title_en" class="form-control" value="{{$blog->title_en}}">
                                     </div>
                                 </div>
                             </div>
@@ -46,8 +51,10 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
-                                        <label class="control-label">Content</label>
-                                    <textarea name="content" class="form-control" rows="3">{{$blog->content}}</textarea>
+                                        <label class="control-label">المحتوي </label>
+                                    <textarea name="content_ar" class="form-control" rows="3">{{$blog->content_ar}}</textarea>
+                                    <label class="control-label">Content English</label>
+                                    <textarea name="content_en" class="form-control" rows="3">{{$blog->content_en}}</textarea>
 
                                     </div>
                                 </div>
@@ -55,35 +62,19 @@
                             </div>
                             <!--/row-->
 
-                            <div class="row">
-                                 <div class="col-md-8">
-                                    <label class="control-label">Status</label>
-                                        <select class="form-control custom-select"  name="status" tabindex="1">
-                                               @if ($blog->status == 0)
-                                               <option value="0">Un Approved</option>
-                                               @else
-                                               <option value="1">Approved</option>
-                                               @endif
-
-                                               <option value="1">Approved</option>
-                                               <option value="0">Un Approved</option>
-                                        </select>
-                                </div>
-                            </div>
-
 
                             <div class="row p-t-20">
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label>Author</label>
-                                        <input type="text" class="form-control" name="author_id" value={{$blog->user ? $blog->user->name : ""}}>
+                                        <input type="text" class="form-control" name="author_id" value={{$blog->user->name}}>
                                     </div>
                                 </div>
                                 <!--/span-->
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>Update Blog</button>
+                            <button type="submit" class="btn btn-success mb-2"> <i class="fa fa-check"></i>Update Blog</button>
                         </div>
 
 
@@ -101,8 +92,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Row -->
+</div>
+<!-- Row -->
 
 
 

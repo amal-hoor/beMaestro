@@ -20,8 +20,10 @@
                             <div class="row p-t-20">
                                 <div class="col-md-8">
                                     <div class="form-group">
+                                        <label class="control-label">العنوان</label>
+                                        <input type="text" name="title_ar" class="form-control" placeholder="ادخل العنوان">
                                         <label class="control-label">Title</label>
-                                        <input type="text" name="title" class="form-control" placeholder="Enter Title">
+                                        <input type="text" name="title_en" class="form-control" placeholder="Enter Title English">
                                     </div>
                                 </div>
                             </div>
@@ -42,26 +44,16 @@
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-group">
+                                        <label class="control-label">المحتوي</label>
+                                        <textarea name="content_ar" class="form-control" rows="3" placeholder="ادخل المحتوي"></textarea>
                                         <label class="control-label">Content</label>
-                                        <textarea name="content" class="form-control" rows="3" placeholder="Enter Content"></textarea>
+                                        <textarea name="content_en" class="form-control" rows="3" placeholder="Enter Content English"></textarea>
 
                                     </div>
                                 </div>
                                 <!--/span-->
                             </div>
                             <!--/row-->
-
-                            <div class="row">
-                                 <div class="col-md-8">
-                                    <label class="control-label">Status</label>
-                                        <select class="form-control custom-select"  name="status" tabindex="1">
-
-                                              <option value="0">Approved</option>
-                                              <option value="1">Un Approved</option>
-
-                                        </select>
-                                </div>
-                            </div>
 
 
                             <div class="row p-t-20">
@@ -72,10 +64,10 @@
                                     </div>
                                 </div>
                                 <!--/span-->
-                        </div>
+                           </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Create Blog</button>
+                            <button type="submit" class="btn btn-success mb-2"> <i class="fa fa-check"></i> Create Blog</button>
                         </div>
 
 

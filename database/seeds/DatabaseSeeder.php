@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
        DB::table('users')->truncate();
        DB::table('roles')->truncate();
        DB::table('instructors')->truncate();
-
-
+    
 
        factory(App\User::class,10)->create();
        factory(App\Role::class,3)->create();
        factory(App\Instructor::class,5)->create();
+
 
 
     }

@@ -8,27 +8,13 @@
     <!-- ============================================================== -->
     <!-- Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
-    <div class="row page-titles">
-        <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor">Table Layout</h3>
-        </div>
-        <div class="col-md-7 align-self-center">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item">pages</li>
-                <li class="breadcrumb-item active">Table Layout</li>
-            </ol>
-        </div>
-        <div>
-            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-        </div>
-    </div>
 
 
 
-    <div class="row">
+    <div class="row" style="margin-top:50px">
 
-            <div class="col-lg-8 offset-3">
+            <div class="col-lg-8 offset-3 mt-2">
+                    @include('flash::message')
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
@@ -41,6 +27,7 @@
                                             <th>Email</th>
                                             <th>Edit User</th>
                                             <th>Delete User</th>
+                                            <th>Status</th>
                                         </tr>
 
                                 </thead>
@@ -57,8 +44,16 @@
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-link" type="submit">Delete</button>
-                                                </form>
-                                            </td>
+                                                    </form>
+                                                </td>
+
+                                                <td>
+                                                    @if($user->block == 1)
+                                                      <p>un blocked</p>
+                                                    @else
+                                                      <p>blocked</p>
+                                                    @endif
+                                                </td>
                                             </tr>
                                     @endforeach
                                 </tbody>

@@ -55,6 +55,29 @@
                     </div>
                 </li>
 
+                <li class=""><a href="javascript:void(0)"><i class="mdi mdi-bullseye"></i></a>
+                    <div class="sidebarmenu">
+                        <!-- Left navbar-header -->
+                        <h3 class="menu-title">Offers</h3>
+                        <ul class="sidebar-menu">
+                        <li><a href="{{route('offers.index')}}">All Offers</a></li>
+                        <li><a href="{{route('offers.create')}}">Create Offer</a></li>
+                        </ul>
+                        <!-- Left navbar-header end -->
+                    </div>
+                </li>
+
+                <li class=""><a href="javascript:void(0)"><i class="mdi mdi-bullseye"></i></a>
+                    <div class="sidebarmenu">
+                        <!-- Left navbar-header -->
+                        <h3 class="menu-title">Categories</h3>
+                        <ul class="sidebar-menu">
+                        <li><a href="{{route('categories.index')}}">All Categories</a></li>
+                        </ul>
+                        <!-- Left navbar-header end -->
+                    </div>
+                </li>
+
 
                 <li class=""><a href="javascript:void(0)"><i class="mdi mdi-bullseye"></i></a>
                     <div class="sidebarmenu">
@@ -67,5 +90,32 @@
                     </div>
                 </li>
 
+
+                
+                <li class=""><a href="javascript:void(0)"><i class="mdi mdi-bullseye"></i></a>
+                    <div class="sidebarmenu">
+                        <!-- Left navbar-header -->
+                        <h3 class="menu-title">Contacts</h3>
+                        <ul class="sidebar-menu">
+                            <li><a href="{{route('contacts.index')}}">All Contacts</a></li>
+                        </ul>
+                        <!-- Left navbar-header end -->
+                    </div>
+                </li>
+
+                <li class=""><a href="javascript:void(0)"><i class="mdi mdi-bullseye"></i></a>
+                    <div class="sidebarmenu">
+                        <!-- Left navbar-header -->
+                        <h3 class="menu-title">Videos</h3>
+                        <ul class="sidebar-menu">
+                            <li><a href="{{route('videos.index')}}">All Videos</a></li>
+                            <li><a href="{{route('videos.create')}}">Create Video</a></li>
+                        </ul>
+                        <!-- Left navbar-header end -->
+                    </div>
+                </li>
+
+
             </ul>
         </div>
+

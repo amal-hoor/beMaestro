@@ -31,6 +31,10 @@ class Comment extends Model
             return $this->hasMany('App\likes');
         }
 
+        public function notifications(){
+            return $this->hasMany('App\Notification');
+        }
+
 }
 
 

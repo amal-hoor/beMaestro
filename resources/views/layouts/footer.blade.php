@@ -1,6 +1,6 @@
  <!-- footer -->
             <!-- ============================================================== -->
-            <footer class="footer">
+            <footer class="footer col-6 m-auto mt-5">
                 © 2019 Admin Pro by wrappixel.com
             </footer>
             <!-- ============================================================== -->
@@ -37,6 +37,7 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{asset('assets/plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+    @yield('script')
 </body>
 
 </html>
