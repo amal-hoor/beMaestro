@@ -59,7 +59,7 @@
                                     <div class="form-group">
                                             <label class="control-label">Details</label>
                                             <textarea name="details_en" class="form-control" rows="3" placeholder="Enter Details"></textarea>
-    
+
                                         </div>
                                 </div>
                                 <!--/span-->
@@ -88,7 +88,7 @@
                                             <select name="category_id" class="form-control">
 
                                                 @foreach ($categories as $category)
-                                                  <option value="{{$category->id}}" class="form-control">{{$category->name}}</option>
+                                                  <option value="{{$category->id}}" class="form-control">{{$category->name_en}}</option>
                                                 @endforeach
 
                                             </select>

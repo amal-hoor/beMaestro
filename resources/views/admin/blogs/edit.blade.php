@@ -6,14 +6,12 @@
 
 
 
-
 <div class="row">
         <div class="col-lg-2 offset-2" style="margin-top:100px">
            <img src="/images/{{$blog->photo->name}}" alt="" class="img-responsive">
         </div>
         <div class="col-lg-8">
             <div class="card">
-
                 <div class="card-body">
                     <form action="{{route('blog.update',$blog->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf

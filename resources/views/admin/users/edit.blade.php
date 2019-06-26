@@ -44,11 +44,9 @@
                                         <select class="form-control custom-select" data-placeholder="Choose a Category" name="role_id" tabindex="1">
 
                                             @foreach($roles as $role)
-                                              @if($user->role->name == $role->name)
-                                              <option value="{{$role->id}}" selected>{{$role->name}}</option>
-                                              @else
-                                              <option value="{{$role->id}}">{{$role->name}}</option>
-                                              @endif
+
+                                              <option value="{{$role->id}}"  @if($user->role->name == $role->name) selected @endif>{{$role->name}}</option>
+
                                             @endforeach
                                         </select>
                                     </div>
@@ -63,11 +61,9 @@
                                         <select class="form-control custom-select" data-placeholder="Choose a Category" name="country_id" tabindex="1">
 
                                             @foreach($countries as $country)
-                                            @if($user->country->name == $country->name)
-                                              <option value="{{$country->id}}" selected>{{$country->name}}</option>
-                                            @else
-                                              <option value="{{$country->id}}">{{$country->name}}</option>
-                                            @endif
+
+                                              <option value="{{$country->id}}" @if($user->country->name==$country->name) selected @endif>{{$country->name}}</option>
+
                                             @endforeach
                                         </select>
                                 </div>
@@ -90,7 +86,7 @@
                                         <label>Status</label>
                                         <select class="form-control custom-select"  name="block" tabindex="1">
 
-                                            @if($user->block == 1)
+
                                               <option value="1" selected>un blocked</option>
                                             @else
                                               <option value="0" selected> blocked</option>

@@ -19,8 +19,10 @@
                      @csrf
                      @method('PATCH')
                         <div class="form-group">
-                                <label for="name_ar">الفئه</label>
+                                <label for="name_ar">اسم الفئه</label>
                                 <input type="text" name="name_ar" class="form-control" value="{{$category->name_ar}}">
+                        </div>
+                        <div class="form-group">
                                 <label for="name">Category Name:</label>
                                 <input type="text" name="name_en" class="form-control" value="{{$category->name_en}}">
                         </div>

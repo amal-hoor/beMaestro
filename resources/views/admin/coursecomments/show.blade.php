@@ -9,10 +9,10 @@
 <div class="timeline-badge info"> </div>
 <div class="timeline-panel">
     <div class="timeline-heading">
-        <h4 class="timeline-title">{{$course->name}}</h4>
+        <h4 class="timeline-title">{{$course->name_en}}</h4>
     </div>
     <div class="timeline-body">
-        <p>{{$course->details}}</p>
+        <p>{{$course->details_en}}</p>
         <hr>
         <div class="btn-group">
                 <a href="javascript:void(0)"><span class="ti-heart p-2"></span></a>

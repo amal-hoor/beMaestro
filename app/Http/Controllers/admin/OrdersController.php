@@ -15,4 +15,16 @@ class OrdersController extends Controller
         return view('admin.orders.show',compact('orders'));
 
     }
+
+    public function update(Request $request, $id)
+    {
+
+        $order=order::find($id);
+        $order->update([
+
+            'status' => $request->input('status'),
+        ]);
+
+        return back();
+    }
 }

@@ -70,6 +70,7 @@ class BlogsController extends Controller
              'content_ar'   => $request->input('content_ar'),
              'content_en'   => $request->input('content_en'),
              'author_id' => $author_id,
+             'photo_id'  => $photo_id,
 
        ]);
 
@@ -109,6 +110,7 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->all());
         $blog=blog::find($id);
         request()->validate([
 
@@ -116,7 +118,7 @@ class BlogsController extends Controller
             'title_en'     => 'required|max:255',
             'content_ar'   => 'required|min:5',
             'content_en'   => 'required|min:5',
-            'author_id' => 'required',
+            'author_id'   => 'required',
 
           ]);
 

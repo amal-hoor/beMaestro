@@ -43,7 +43,7 @@ class CoursesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+     {
         request()->validate([
 
             'name_ar'             => 'required|max:255',
@@ -70,14 +70,14 @@ class CoursesController extends Controller
 
           $instructor=instructor::where('name',request('instructor_id'))->first();
           $instructor_id=$instructor->id;
-          
+
           $course =course::create([
 
                 'name_ar'          => $request->input('name_ar'),
                 'name_en'          => $request->input('name_en'),
                 'details_ar'       => $request->input('details_ar'),
                 'details_en'       => $request->input('details_en'),
-                'instructor_id'    => $instructor_id,
+                'instructor_id'    => 1,
                 'price'            => $request->input('price'),
                 'hours'            => $request->input('hours'),
                 'photo_id'         => $photo_id,
@@ -88,40 +88,25 @@ class CoursesController extends Controller
 
           if($request->input('videos_number')){
 
-            $videos[]=[
-
-                'names_ar' => $request->input('video_name_ar'),
-                'names_en' => $request->input('video_name_en'),
-                'urls' => $request->input('video_url'),
-                'description_ar' => $request->input('video_description_ar'),
-                'description_en' => $request->input('video_description_en'),
-
-            ];
 
                 $n=$request->input('videos_number');
 
-                foreach($videos as $video){
 
-                                $name_ar=$video['names_ar'];
-                                $name_en=$video['names_en'];
-                                $url=$video['urls'];
-                                $description_ar=$video['description_ar'];
-                                $description_en=$video['description_en'];
 
-                                for($i=0 ; $i < $n ; $i++ ){
+                for($i=0 ; $i<$n ;$i++){
 
-                                video::create([
-                                    'name_ar' => $name_ar[$i],
-                                    'name_en' => $name_en[$i],
-                                    'url'  => $url[$i],
-                                    'description_ar' =>$description_ar[$i],
-                                    'description_en' =>$description_en[$i],
-                                    'course_id'   => $course->id,
-                                ]);
+                     $request->input('video_name_ar')[$i];
+                     $video = video::create([
+                        'name_ar' => $request->input('video_name_ar')[$i],
+                        'name_en' => $request->input('video_name_en')[$i],
+                        'url'     => $request->input('video_url')[$i],
+                        'description_ar' =>$request->input('video_description_ar')[$i],
+                        'description_en' =>$request->input('video_description_en')[$i],
+                        'course_id'   =>$course->id,
+                    ]);
 
-                                }
+                }
 
-          }
 
           $notifcation = Notification::create([
               'title_en'=> 'New Course',
@@ -138,6 +123,7 @@ class CoursesController extends Controller
           return redirect()->route('course.index');
     }
 }
+
 
 
     /**

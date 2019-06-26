@@ -14,7 +14,7 @@
     <!-- ============================================================== -->
 <div class="row">
 
-            <div class="col-lg-8 offset-2">
+            <div class="col-lg-8 offset-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">

@@ -5,28 +5,7 @@
 
 
 <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <div class="row page-titles">
-        <div class="col-md-5 align-self-center">
-            <h3 class="text-themecolor">Table Layout</h3>
-        </div>
-        <div class="col-md-7 align-self-center">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item">pages</li>
-                <li class="breadcrumb-item active">Table Layout</li>
-            </ol>
-        </div>
-        <div>
-            <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
-        </div>
-    </div>
-
-
-
-    <div class="row">
+    <div class="row" style="margin-top:100px">
 
             <div class="col-lg-8 offset-3">
                 <div class="card">
@@ -39,15 +18,33 @@
                                             <th>User Name</th>
                                             <th>Address</th>
                                             <th>Deliver Time</th>
+                                            <th>Status</th>
                                         </tr>
                                 </thead>
                                 <tbody>
                                          @foreach ($orders as $order)
                                             <tr>
+                                                <td>{{$order->course->name_en}}</td>
                                                 <td>{{$order->user->name}}</td>
-                                                <td>{{$order->course->name}}</td>
                                                 <td>{{$order->address}}</td>
                                                 <td>{{$order->deliver_time}}</td>
+                                                <td>
+                                                   <form action="{{route('order.update',$order->id)}}" method="POST">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                            @if($order->status == 0)
+                                                            <input type="hidden" name="status" value="1">
+                                                             <input  type="submit" value="Approve" class="btn btn-success">
+                                                            @else
+                                                            <input type="hidden" name="status" value="0">
+                                                            <input  type="submit" value="unApprove" class="btn btn-danger">
+
+                                                            @endif
+
+                                                    </form>
+
+
+                                                </td>
                                             </tr>
                                          @endforeach
 
@@ -68,7 +65,6 @@
 
 
 @include('layouts.footer')
-
 
 
 

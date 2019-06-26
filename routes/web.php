@@ -1,19 +1,7 @@
 <?php
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
 
 Route::group(['prefix' => 'admin'], function () {
-    
+
     Route::group(['prefix' => 'login', 'middleware' => 'guest.admin'], function () {
 
     Route::get('/','Admin\loginController@index')->name('admin.login');
@@ -107,8 +95,13 @@ Route::group(['prefix'=>'admins' , 'middleware' => 'auth.admin'],function(){
 
     });
 
+    Route::group(['prefix'=>'/orders'],function(){
 
-    Route::get('/orders', 'Admin\OrdersController@show')->name('orders.index');
+        Route::get('/', 'Admin\OrdersController@show')->name('orders.index');
+
+        Route::patch('/{order}/update', 'Admin\OrdersController@update')->name('order.update');
+
+    });
 
     Route::group(['prefix'=>'/offers'],function(){
 
@@ -170,6 +163,11 @@ Route::group(['prefix'=>'admins' , 'middleware' => 'auth.admin'],function(){
 });
 
 
-// Auth::routes();
+Route::group(['prefix' => 'api'], function () {
 
-// Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('/login', 'UserLoginApiController@userLogin')->name('user.login');
+
+    Route::post('/register', 'UserLoginApiController@register')->name('user.register');
+
+    Route::get('/courses', 'userCoursesApiController@index')->name('user.courses');
+});

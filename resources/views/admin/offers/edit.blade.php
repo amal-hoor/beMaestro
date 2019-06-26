@@ -23,13 +23,8 @@
                                         <label class="control-label">Course Name</label>
                                         <select name="course_id" class="form-control">
                                             @foreach ($courses as $course)
-                                              @if ($course->name == $offer->course->name)
 
-                                                 <option value="{{$course->id}}" selected>{{$offer->course->name}}</option>
-
-                                              @endif
-
-                                        <option value="{{$course->id}}">{{$course->name}}</option>
+                                                 <option value="{{$course->id}}" @if ($course->name_en == $offer->course->name_en) selected @endif>{{$course->name_en}}</option>
 
                                             @endforeach
 

@@ -15,14 +15,14 @@
 
 
     <div class="row offset-3">
-            <div class="col-lg-4">                
+            <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
 
                     <form action="{{route('categories.store')}}" method="post">
                      @csrf
                         <div class="form-group">
-                           <label for="name">الفئه</label>
+                           <label for="name">اسم الفئه</label>
                            <input type="text" name="name_ar" class="form-control">
                         </div>
                         <div class="form-group">
@@ -33,7 +33,6 @@
                         <div class="form-group">
                            <select name="category_id" class="form-control">
                               @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name_ar}}</option>
                                 <option value="{{$category->id}}">{{$category->name_en}}</option>
                                @endforeach
                            </select>

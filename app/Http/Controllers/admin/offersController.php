@@ -54,12 +54,14 @@ class offersController extends Controller
 
         $notification=notification::create([
 
-            'body' => 'new offer is created',
-            'title' => 'new offer',
+            'body_en' => 'new offer is created',
+            'body_ar' => 'عرض جديد ',
+            'title_en' => 'new offer',
+            'title_ar' => 'عرض جديد',
             'offer_id' => $offer->id,
 
         ]);
-        
+
         $users=user::where('role_id',3)->get();
         $notification->users()->attach($users);
 

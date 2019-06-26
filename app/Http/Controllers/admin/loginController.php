@@ -30,7 +30,7 @@ class loginController extends Controller
 
                 $password=$user->password;
 
-                if (Auth::attempt(request(['email' , 'password']))) {
+                if (Auth::attempt(request(['email' , 'password'],1))) {
                     return redirect()->route('admin.index');
 
                 }else{
