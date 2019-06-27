@@ -3,25 +3,25 @@
 @include('layouts.navigation')
 
 
-<div style="margin-top: 100px;width:50%;margin-right:auto;margin-left:auto">
+
         @include('flash::message')
-</div>
-
-<div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
 
 
+<div class="page-wrapper">
+
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+ <div class="container-fluid">
 
     <div class="row">
 
-            <div class="col-lg-8 offset-3">
+        <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table color-table success-table">
-                                <thead>
+                            <table class="table">
+                            <thead class="table-primary">
                                         <tr>
                                             <th>Author</th>
                                             <th>Photo</th>
@@ -44,7 +44,7 @@
                                                 <td>{{$blog->title_ar}}</td>
                                                 <td>{{$blog->content_en}}</td>
                                                 <td>{{$blog->content_ar}}</td>
-                                                
+
                                             <td><a href="{{route('blogcomments.show',$blog->id)}}">view comments</a></td>
                                                 <td><a href="{{route('blog.edit',$blog->id)}}">Edit</a></td>
                                                 <td>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-
+    </div>
     </div><!-- row -->
 
 </div><!-- container_fluid -->

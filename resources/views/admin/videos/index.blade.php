@@ -4,19 +4,21 @@
 
 
 
-<div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
+<div class="page-wrapper">
 
-    <div class="row" style="margin-top:50px">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+ <div class="container-fluid">
 
-            <div class="col-lg-8 offset-3">
+    <div class="row">
+
+        <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table color-table success-table">
-                                <thead>
+                            <table class="table">
+                            <thead class="table-primary">
                                         <tr>
                                             <th>الاسم</th>
                                             <th>Name</th>
@@ -66,6 +68,7 @@
                     </div>
                 </div>
             </div>
+    </div>
 
     </div><!-- row -->
 

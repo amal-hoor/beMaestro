@@ -20,10 +20,8 @@ File: scss
 *******************/
 .topbar {
   background: #2a3e52; }
-  .topbar .top-navbar .navbar-header {
+  .topbar .navbar-header {
     background: #ffffff; }
-    .topbar .top-navbar .navbar-header .navbar-brand b {
-      background: transparent; }
   .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
     display: none;
     color: rgba(255, 255, 255, 0.8); }
@@ -89,8 +87,19 @@ a.link:hover, a.link:focus {
 /*******************
 /*sidebar navigation
 *******************/
-.sidebar-menu > li.active > a {
-  color: #009efb; }
+.label-themecolor {
+  background: #009efb; }
 
-.sidebar-menu > li > a:hover {
+.sidebar-nav > ul > li.active > a {
+  color: #009efb;
+  border-color: #009efb; }
+  .sidebar-nav > ul > li.active > a i {
+    color: #009efb; }
+
+.sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
   color: #009efb; }
+  .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover i {
+    color: #009efb; }
+
+.sidebar-nav > ul > li > a i {
+  color: #a6b7bf; }

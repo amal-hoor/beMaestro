@@ -21,13 +21,13 @@ File: scss
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
 
-
 /******************* 
 Global Styles 
 *******************/
 
 * {
     outline: none;
+    
 }
 
 body {
@@ -37,6 +37,7 @@ body {
     overflow-x: hidden;
     color: $bodytext;
     font-weight: 300;
+    
 }
 
 html {
@@ -44,7 +45,7 @@ html {
     min-height: 100%;
     background: $white;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale; 
 }
 
 a:hover,
@@ -880,16 +881,20 @@ Layouts
 .ps-container {
     -ms-touch-action: auto;
     touch-action: auto;
-    overflow: hidden!important;
+    overflow: hidden!important; 
     -ms-overflow-style: none;
 }
-
 // For Table Responsive Page
 .tablesaw, 
-.fixed-table-container {
+.fixed-table-container ,
+.fixed-table-toolbar .bs-bars, .fixed-table-toolbar .columns, .fixed-table-toolbar .search{
     [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
         position: relative;
         left: 0;
         opacity: 1;
     }
+}  
+
+.fixed-table-toolbar .columns label {
+    color: $light-text !important;
 }

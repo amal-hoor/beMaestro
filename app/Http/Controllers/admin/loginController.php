@@ -28,19 +28,23 @@ class loginController extends Controller
 
             if(Hash::check($request->input('password'), $user->password)){
 
-                $password=$user->password;
-
                 if (Auth::attempt(request(['email' , 'password'],1))) {
                     return redirect()->route('admin.index');
 
                 }else{
 
+                    flash()->warning('Something Went Wrong!');
                     return back();
-
                 }
             }
 
+            flash()->warning('Wrong Password!');
+            return back();
+
         }
+        flash()->warning('Wrong Mail');
+        return back();
+
 
     }
 

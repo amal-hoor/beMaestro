@@ -5,20 +5,23 @@
 
 
 
+<div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+    <div class="container-fluid">
+        <div class="row">
+           <div class="col-lg-8 m-auto">
+              <div class="card">
+                <div class="card-header bg-info">
+                    <h4 class="m-b-0 text-white">Create Offer</h4>
+                </div>
+                <div class="card-body p-5">
 
-<div class="row" style="margin-top:50px">
-        <div class="col-lg-8 offset-3">
-            <div class="card">
-
-                <div class="card-body">
-                <form action="{{route('offers.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('offers.store')}}" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered">
                         @csrf
                         <div class="form-body">
-
-
-                            <div class="row p-t-20">
-                                <div class="col-md-8">
-                                    <div class="form-group">
+                                    <div class="form-group row">
                                         <label class="control-label">Course Name</label>
                                         <select name="course_id" class="form-control">
                                             @foreach ($courses as $course)
@@ -29,25 +32,20 @@
 
                                         </select>
                                     </div>
-                                </div>
-                            </div>
+
                             <!--/row-->
 
-                            <div class="row p-t-20">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
+                                <div class="form-group row">
                                             <label>New Price</label>
                                             <input type="text" class="form-control" name="newprice">
-                                        </div>
-                                    </div>
-                                    <!--/span-->
+
                                 </div>
 
 
 
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>Create Offer</button>
+                            <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Create Offer</button>
                         </div>
 
 
@@ -65,6 +63,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- Row -->
 

@@ -4,15 +4,21 @@
 
 
 
-<div class="container-fluid">
-    <div class="row" style="margin-top:100px">
+<div class="page-wrapper">
 
-            <div class="col-lg-8 offset-3">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+ <div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table color-table success-table">
-                                <thead>
+                            <table class="table">
+                            <thead class="table-primary">
                                         <tr>
                                             <th>Course Name</th>
                                             <th>User Name</th>
@@ -54,7 +60,7 @@
                     </div>
                 </div>
             </div>
-
+    </div>
     </div><!-- row -->
 
 </div><!-- container_fluid -->

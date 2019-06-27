@@ -24,7 +24,6 @@ File: scss
         max-height:315px;   
     }
 }
-
 @media(max-width:1600px) {
     .website-visitor{
         height:333px; 
@@ -33,9 +32,6 @@ File: scss
         min-height:240px;   
     }
 }
-
-
-
 /*============================================================== 
  For Laptop & above all (1370px) 
  ============================================================== */
@@ -54,16 +50,15 @@ File: scss
 
 
 
-
-
 /*-- ============================================================== 
  Small Desktop & above all (1024px) 
  ============================================================== */
 
 @media(min-width:1024px) {
     .page-wrapper {
-        margin-left: 280px;
+        margin-left: 240px;
     }
+    
 }
 
 @media(max-width:1023px) {
@@ -99,15 +94,13 @@ File: scss
             }
         }
     }
-    .d-flex {
-        display: block!important;
-        &.no-block {
-            display: flex!important;
+    .d-flex{
+        display:block!important; 
+        &.no-block{
+            display:flex!important;
         }
     }
 }
-
-
 
 
 
@@ -117,13 +110,12 @@ File: scss
 
 @media(min-width:768px) {
     .navbar-header {
-        width: 280px;
+        width: 240px;
         flex-shrink: 0;
         .navbar-brand {
             padding-top: 0px;
         }
     }
-
     /*This is for the breeadcrumd*/
     .page-titles {
         .breadcrumb {
@@ -150,8 +142,6 @@ File: scss
         -webkit-flex-wrap: nowrap!important;
     }
 }
-
-
 
 
 
@@ -313,12 +303,10 @@ File: scss
     .chat-list li .chat-content {
         width: calc(100% - 80px);
     }
-
+    
     /*Calendar*/
-    .fc-toolbar .fc-left,
-    .fc-toolbar .fc-right,
-    .fc-toolbar .fc-center {
-        float: none;
+    .fc-toolbar .fc-left, .fc-toolbar .fc-right, .fc-toolbar .fc-center{
+        float:none;
         display: block;
         text-align: center;
         margin-top: 10px;

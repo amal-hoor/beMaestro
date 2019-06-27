@@ -4,22 +4,23 @@
 @include('layouts.navigation')
 
 
-<div style="margin-top: 100px;width:50%;margin-right:auto;margin-left:auto">
         @include('flash::message')
-</div>
 
-<div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-<div class="row">
+        <div class="page-wrapper">
 
-            <div class="col-lg-8 offset-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table color-table success-table">
-                                <thead>
+                <!-- ============================================================== -->
+                <!-- Container fluid  -->
+                <!-- ============================================================== -->
+         <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                    <thead class="table-primary">
                                         <tr>
                                             <th>Name</th>
                                             <th>Email</th>
@@ -40,6 +41,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
 
     </div><!-- row -->

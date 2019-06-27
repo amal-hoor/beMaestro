@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2019 at 05:41 PM
+-- Generation Time: Jun 27, 2019 at 06:39 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -70,8 +70,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_id`, `name_ar`, `name_en`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'تسويق', 'marketing', '2019-06-26 12:23:18', '2019-06-26 12:23:18'),
-(2, NULL, 'تصميم', 'design', NULL, NULL);
+(1, 2, 'تسويق', 'marketing', '2019-06-26 12:23:18', '2019-06-27 14:26:54'),
+(2, NULL, 'تصميم2', 'design', NULL, '2019-06-27 14:29:16');
 
 -- --------------------------------------------------------
 
@@ -178,7 +178,8 @@ INSERT INTO `courses` (`id`, `name_ar`, `name_en`, `details_ar`, `details_en`, `
 (14, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 13:01:28', '2019-06-26 13:01:28', 14, 1),
 (15, 'جرافيك', 'graphic', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, eos.', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, eos.', 1200.00, 30, 1, '2019-06-26 13:03:13', '2019-06-26 13:03:13', NULL, 1),
 (16, 'gg', 'dh', '$name_ar', '$name_ar', 100.00, 20, 1, '2019-06-26 13:05:31', '2019-06-26 13:05:31', NULL, 1),
-(17, 'كورس2', 'course2', 'غلاف مناسب للعمل مع صفائف من البيانات. على سبيل المثال ، تحقق من الكود التالي', 'convenient wrapper for working with arrays of data. For example, check out the following code', 3000.00, 50, 1, '2019-06-26 13:37:24', '2019-06-26 13:37:24', 15, 2);
+(17, 'كورس2', 'course2', 'غلاف مناسب للعمل مع صفائف من البيانات. على سبيل المثال ، تحقق من الكود التالي', 'convenient wrapper for working with arrays of data. For example, check out the following code', 3000.00, 50, 1, '2019-06-26 13:37:24', '2019-06-26 13:37:24', 15, 2),
+(18, 'تصميم واجهه', 'course1', 'وايضاً هو التخطيط الذي يرسي الأساس لصنع كل كائن أو نظام. يمكن أن يستخدم كاسم وفعل على حد سواء, وعلى نحو أوسع يعني الفنون التطبيقية والهندسة (أنظر تخصصات التصميم أدناه). \"يصمم\" كفعل, يشير إلى عملية إنشاء ووضع خطة لمنتج, هيكل تنظيمي, نظام, أو أي مكوّن ذو هدف.\r\n\r\n\"تصميم\" كاسم ي', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, voluptatem vitae. Expedita amet eum, saepe omnis aspernatur voluptatum nesciunt voluptatem.', 1000.00, 200, 1, '2019-06-27 14:19:01', '2019-06-27 14:19:01', 17, 1);
 
 -- --------------------------------------------------------
 
@@ -305,7 +306,9 @@ INSERT INTO `notifications` (`id`, `comment_id`, `blog_id`, `course_id`, `title_
 (3, NULL, 4, NULL, 'New Blog', 'New Blog', 'تم اضافه مدونه جديده', 'New Blog has been added', '2019-06-26 11:49:45', '2019-06-26 11:49:45', NULL),
 (4, NULL, 5, NULL, 'New Blog', 'New Blog', 'تم اضافه مدونه جديده', 'New Blog has been added', '2019-06-26 11:54:01', '2019-06-26 11:54:01', NULL),
 (5, NULL, 6, NULL, 'New Blog', 'New Blog', 'تم اضافه مدونه جديده', 'New Blog has been added', '2019-06-26 11:57:21', '2019-06-26 11:57:21', NULL),
-(7, NULL, NULL, 17, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-06-26 13:37:24', '2019-06-26 13:37:24', NULL);
+(7, NULL, NULL, 17, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-06-26 13:37:24', '2019-06-26 13:37:24', NULL),
+(8, NULL, NULL, 18, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-06-27 14:19:01', '2019-06-27 14:19:01', NULL),
+(9, NULL, NULL, NULL, 'عرض جديد', 'new offer', 'عرض جديد ', 'new offer is created', '2019-06-27 14:38:33', '2019-06-27 14:38:33', 3);
 
 -- --------------------------------------------------------
 
@@ -326,8 +329,9 @@ CREATE TABLE `offers` (
 --
 
 INSERT INTO `offers` (`id`, `course_id`, `newprice`, `created_at`, `updated_at`) VALUES
-(1, 1, 1000, '2019-06-26 12:14:55', '2019-06-26 12:14:55'),
-(2, 2, 1001, '2019-06-26 12:16:36', '2019-06-26 12:22:03');
+(1, 3, 1003, '2019-06-26 12:14:55', '2019-06-27 14:32:45'),
+(2, 5, 1001, '2019-06-26 12:16:36', '2019-06-27 14:35:31'),
+(3, 9, 200, '2019-06-27 14:38:33', '2019-06-27 14:38:33');
 
 -- --------------------------------------------------------
 
@@ -351,8 +355,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `course_id`, `user_id`, `address`, `deliver_time`, `created_at`, `updated_at`, `status`) VALUES
-(1, 1, 12, '25 lorem ipsum', '24:13:06', NULL, '2019-06-26 11:19:14', 1),
-(2, 3, 12, '25 lorem ipsum', '17:00:08', NULL, '2019-06-26 12:29:06', 0);
+(1, 1, 12, '25 lorem ipsum', '24:13:06', NULL, '2019-06-27 12:58:10', 0),
+(2, 3, 12, '25 lorem ipsum', '17:00:08', NULL, '2019-06-27 12:58:12', 1);
 
 -- --------------------------------------------------------
 
@@ -399,7 +403,9 @@ INSERT INTO `photos` (`id`, `name`, `created_at`, `updated_at`, `path`) VALUES
 (12, '7.jpg', '2019-06-26 12:56:45', '2019-06-26 12:56:45', 'images/7.jpg'),
 (13, '7.jpg', '2019-06-26 12:57:09', '2019-06-26 12:57:09', 'images/7.jpg'),
 (14, '7.jpg', '2019-06-26 13:01:28', '2019-06-26 13:01:28', 'images/7.jpg'),
-(15, '6.jpg', '2019-06-26 13:37:23', '2019-06-26 13:37:23', 'images/6.jpg');
+(15, '6.jpg', '2019-06-26 13:37:23', '2019-06-26 13:37:23', 'images/6.jpg'),
+(16, '2019-02-07.png', '2019-06-27 14:18:06', '2019-06-27 14:18:06', 'images/2019-02-07.png'),
+(17, '2019-02-07.png', '2019-06-27 14:19:01', '2019-06-27 14:19:01', 'images/2019-02-07.png');
 
 -- --------------------------------------------------------
 
@@ -453,11 +459,10 @@ INSERT INTO `users` (`id`, `country_id`, `role_id`, `name`, `email`, `email_veri
 (2, 1, 3, 'Giovanna Auer', 'giovanna11@example.net', '2019-06-26 08:04:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ASc0ixm1KM', 'w5R3qhmgAr', '2019-06-26 08:04:41', '2019-06-26 08:04:41', 1),
 (3, 2, 3, 'Libby Pollich', 'ignacio71@example.net', '2019-06-26 08:04:40', '$2y$10$v9JopVavmM.xLmjbeQ.seuZBEuuh9JmjSeUybKpmbyR86hCB7yNAu', 'N8qq3IFVFC', 'bteiSrlEkM', '2019-06-26 08:04:41', '2019-06-26 11:32:16', 1),
 (4, 1, 3, 'Jaunita Kassulke', 'breanne96@example.org', '2019-06-26 08:04:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ao6ngTl6m3', '9784mUB0ZJ', '2019-06-26 08:04:41', '2019-06-26 08:04:41', 1),
-(5, 4, 2, 'Dr. Guiseppe Sauer II', 'pouros.taryn@example.net', '2019-06-26 08:04:40', '$2y$10$AsGWPJeGWSm.QETg4yfEoOZPEKdLVNzGlFJchocMUKpoF4CWdjJC.', 'mPjBF6apcD', '3QnrmwYEZm', '2019-06-26 08:04:41', '2019-06-26 11:43:34', 1),
-(6, 4, 3, 'Stone Kshlerin', 'elmer.gusikowski@example.org', '2019-06-26 08:04:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'SbqNp6nwl6', 'Q7sFIUsttL', '2019-06-26 08:04:41', '2019-06-26 08:04:41', 1),
+(5, 4, 2, 'Dr. Guiseppe Sauer', 'pouros.taryn@example.net', '2019-06-26 08:04:40', '$2y$10$Mee97GHUx2ooiY8ml8kFNubLJ3CB0M8XByY1sYuz6vK5IqpmG7e/a', 'mPjBF6apcD', '3QnrmwYEZm', '2019-06-26 08:04:41', '2019-06-27 14:07:23', 1),
 (7, 1, 2, 'Ms. Retha Kozey', 'anabel19@example.org', '2019-06-26 08:04:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'nJ0eRF05wj', 'tCzNp1ouzU', '2019-06-26 08:04:41', '2019-06-26 08:04:41', 1),
 (8, 4, 2, 'Nya Ward', 'adubuque@example.com', '2019-06-26 08:04:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'wtVjpQzoj1', 'D5RvvbDQTl', '2019-06-26 08:04:41', '2019-06-26 08:04:41', 1),
-(9, 3, 2, 'Miss Virgie Schulist', 'mavis21@example.com', '2019-06-26 08:04:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'yKUxDZKk7L', 'NLHlRnihTB', '2019-06-26 08:04:41', '2019-06-26 08:04:41', 1),
+(9, 3, 2, 'Miss Virgie Schulist', 'mavis21@example.com', '2019-06-26 08:04:40', '$2y$10$RZ7xjYeyFoq.LWFraFnjse/EN8WqLXCw8B9/fLZZu08v/r6VPNMp6', 'yKUxDZKk7L', 'NLHlRnihTB', '2019-06-26 08:04:41', '2019-06-27 14:02:23', 1),
 (12, NULL, 1, 'amal', 'amal@yahoo.com', NULL, '$2y$10$R34TBkbY11U20nWutp0.q.S2xx16ex7lMUYVumpz021tYP4MFiaDW', '7nfGnsampBQfBunGBvoOPvslndo19qhvk7nzDIUk70Aub5PET5rJYtqYA7e7', NULL, '2019-06-26 09:01:21', '2019-06-26 09:01:21', 1),
 (13, 3, 1, 'admin', 'admin@yahoo.com', NULL, '$2y$10$j9IYqpf3D3K.A4wtZd8yM.HXdISEo65cxwpD9ZL/jKHbK9Vxx.sAa', NULL, NULL, '2019-06-26 11:33:05', '2019-06-26 11:33:05', 1);
 
@@ -514,7 +519,15 @@ INSERT INTO `user_notifications` (`id`, `user_id`, `notification_id`, `created_a
 (32, 7, 2, NULL, NULL),
 (33, 7, 3, NULL, NULL),
 (34, 7, 4, NULL, NULL),
-(35, 7, 6, NULL, NULL);
+(35, 7, 6, NULL, NULL),
+(36, 8, 1, NULL, NULL),
+(37, 8, 2, NULL, NULL),
+(38, 8, 3, NULL, NULL),
+(39, 8, 4, NULL, NULL),
+(40, 9, 1, NULL, NULL),
+(41, 9, 2, NULL, NULL),
+(42, 9, 3, NULL, NULL),
+(43, 9, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -546,7 +559,8 @@ INSERT INTO `videos` (`id`, `course_id`, `name_ar`, `name_en`, `description_ar`,
 (11, 14, 'ف4', NULL, 'وغيرها، يبلغ عدد سكان الإسكندرية حوالي 4,123,869 نسمة (حسب تعداد 2006) يعملون بالأنشطة التجارية والصناعية والزراعية. تنقسم الإسكندري', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 13:01:28', '2019-06-26 13:01:28'),
 (13, 1, 'w', 'w2', 'lorem  ipsum', 'lorem  ipsum', 'https://www.youtube.com/embed/iKRLrJXNN4M', '2019-06-26 13:17:30', '2019-06-26 13:17:30'),
 (14, 17, 'ف4', 'v4', 'غلاف مناسب للعمل مع صفائف من البيانات. على سبيل المثال ، تحقق من الكود التالي', 'convenient wrapper for working with arrays of data. For example, check out the following code', 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 13:37:24', '2019-06-26 13:37:24'),
-(15, 17, 'ف5', NULL, 'غلاف مناسب للعمل مع صفائف من البيانات. على سبيل المثال ، تحقق من الكود التالي', NULL, 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 13:37:24', '2019-06-26 13:37:24');
+(15, 17, 'ف5', NULL, 'غلاف مناسب للعمل مع صفائف من البيانات. على سبيل المثال ، تحقق من الكود التالي', NULL, 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 13:37:24', '2019-06-26 13:37:24'),
+(16, 18, NULL, NULL, NULL, NULL, NULL, '2019-06-27 14:19:01', '2019-06-27 14:19:01');
 
 --
 -- Indexes for dumped tables
@@ -676,7 +690,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -700,7 +714,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `instructors`
@@ -724,13 +738,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `offers`
 --
 ALTER TABLE `offers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -742,7 +756,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -754,19 +768,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `user_notifications`
 --
 ALTER TABLE `user_notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -9,13 +9,13 @@ File: scss
 $themecolor: #398bf7;
 $themecolor-dark: #028ee1;
 $topbar: #fff;
-$sidebar: #1e242c;
+$sidebar:#242a33;
 $sidebar-text: #687384;
 $sidebar-icons: #424a56;
 $sidebar-dark: #1c2128;
-$sidebar-alt: #242a33;
+$sidebar-alt:#1c2128;
 $themecolor-alt: #26c6da;
-$topbar-alt: #398bf7; 
+$topbar-alt: #398bf7;
 
 /*******************
 /*Top bar
@@ -23,12 +23,8 @@ $topbar-alt: #398bf7;
 
 .topbar {
     background: $topbar;
-    .top-navbar .navbar-header .navbar-brand .dark-logo {
-        display: none;
-    }
     .top-navbar .navbar-header .navbar-brand .light-logo {
-        display: inline-block;
-        color: rgba(255, 255, 255, 0.8);
+        display: none;
     }
     .top-navbar{
         .navbar-nav>.nav-item>span {
@@ -44,9 +40,7 @@ $topbar-alt: #398bf7;
             }
         }
     }
-    .navbar-header {
-        background: $topbar-alt;
-    }
+    
 }
 
 .logo-center .topbar {
@@ -54,15 +48,6 @@ $topbar-alt: #398bf7;
         text-align: center;
         padding-left: 0px;
         box-shadow: none;
-        .navbar-brand {
-            b {
-                background-color: transparent;
-                width: initial;
-            }
-            span {
-                padding-left: 0;
-            }
-        }
     }
     .top-navbar .navbar-header .navbar-brand .dark-logo {
         display: none;
@@ -78,6 +63,9 @@ $topbar-alt: #398bf7;
 /*General Elements
 *******************/
 
+a {
+    color: $themecolor;
+}
 
 a.link {
     &:hover,
@@ -157,38 +145,64 @@ a.link {
 
 
 /*******************
-    sidebar
+/*sidebar navigation
 *******************/
 
-.side-mini-panel {
+.card-no-border .left-sidebar,
+.card-no-border .sidebar-nav {
     background: $sidebar;
-    ul.mini-nav {
-        li {
-            .sidebarmenu {
-                background: $sidebar-alt;
-            }
-            &.selected>a {
-                background: $sidebar-alt;
-                i {
-                    color: $white;
-                }
-            }
-            &.selected h3 {
-                color: $white;
-            }
+}
+
+.mini-sidebar .sidebar-nav {
+    background: transparent;
+}
+
+@media (min-width: 768px) {
+    .mini-sidebar .sidebar-nav #sidebarnav>li>ul {
+        background: $sidebar-dark;
+    }
+}
+
+.sidebar-nav {
+    background: $sidebar;
+}
+
+.user-profile .profile-text a {
+    color: $sidebar-text!important;
+}
+
+.card-no-border .sidebar-footer {
+    background: $sidebar-dark;
+}
+
+.label-themecolor {
+    background: $themecolor;
+}
+
+.sidebar-nav>ul>li.active>a {
+    color: $white;
+    border-color: $themecolor;
+    i {
+        color: $white;
+    }
+}
+
+.sidebar-nav ul li a {
+    &.active,
+    &:hover {
+        color: $white;
+        i {
+            color: $white;
         }
     }
 }
 
-.sidebar-menu {
-    >li {
-        &.active>a {
-            color: $themecolor;
-        }
-    }
-    >li>a {
-        &:hover {
-            color: $themecolor;
-        }
+.sidebar-nav ul li.nav-small-cap {
+    color: $sidebar-text;
+}
+@media (min-width: 768px){
+    .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
+        
+        background: $sidebar-alt;
     }
 }

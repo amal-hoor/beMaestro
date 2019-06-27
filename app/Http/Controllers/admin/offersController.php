@@ -64,20 +64,10 @@ class offersController extends Controller
 
         $users=user::where('role_id',3)->get();
         $notification->users()->attach($users);
-
+        flash('Offer Created.......');
         return redirect()->route('offers.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -113,6 +103,7 @@ class offersController extends Controller
             'course_id' => $request->input('course_id'),
 
         ]);
+        flash('Offer Updated.......');
 
         return redirect()->route('offers.index');
 
@@ -130,6 +121,7 @@ class offersController extends Controller
     {
         $offer=offer::find($id);
         $offer->delete();
+        flash('Offer Deleted.......');
         return back();
     }
 }

@@ -2,25 +2,27 @@
 @include('layouts.sidebar')
 @include('layouts.navigation')
 
-<div style="margin-top: 100px;width:50%;margin-right:auto;margin-left:auto">
-        @include('flash::message')
-</div>
 
+<div class="page-wrapper">
 
-<div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+ <div class="container-fluid">
 
     <div class="row">
 
-            <div class="col-lg-8 offset-3">
+        <div class="col-12">
                 <div class="card">
+                        <div class="p-2">
+                                @include('flash::message')
+                        </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table color-table success-table">
-                                <thead>
+
+                            <table class="table">
+                            <thead class="table-primary">
                                         <tr>
                                             <th>Id</th>
                                             <th>Course Name</th>
@@ -37,7 +39,7 @@
 
                                             <tr>
                                                 <td>{{$offer->id}}</td>
-                                                <td>{{$offer->course->name}}</td>
+                                                <td>{{$offer->course->name_en}}</td>
                                                 <td>{{$offer->course->price}}</td>
                                                 <td>{{$offer->newprice}}</td>
 
@@ -58,10 +60,8 @@
                     </div>
                 </div>
             </div>
+       </div>
 
-    </div><!-- row -->
-
-</div><!-- container_fluid -->
 
 
 
@@ -73,3 +73,4 @@
 
 
 
+</div>

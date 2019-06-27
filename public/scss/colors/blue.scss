@@ -19,15 +19,8 @@ $sidebar-icons: #a6b7bf;
 
 .topbar {
     background: $topbar;
-    .top-navbar {
-        .navbar-header{
-            background: $topbar-alt;
-            .navbar-brand {
-                b {
-                    background: transparent;
-                }
-            }
-        }
+    .navbar-header{
+        background: $topbar-alt;
     }
     
     
@@ -133,15 +126,28 @@ a.link {
 /*sidebar navigation
 *******************/
 
-.sidebar-menu {
-    >li {
-        &.active>a {
-            color: $themecolor;
-        }
+.label-themecolor{
+    background:$themecolor; 
+}
+
+.sidebar-nav>ul>li.active>a {
+    color: $themecolor;
+    border-color: $themecolor;
+    i {
+       color: $themecolor; 
     }
-    >li>a {
-        &:hover {
-            color: $themecolor;
-        }
+}
+
+.sidebar-nav ul li a {
+    &.active,
+    &:hover {
+      color: $themecolor;
+      i {
+        color: $themecolor;
+      }    
     }
+}
+
+.sidebar-nav>ul>li>a i{
+    color:$sidebar-icons;
 }

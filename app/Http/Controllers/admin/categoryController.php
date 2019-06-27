@@ -46,7 +46,7 @@ class categoryController extends Controller
             'name_en'        => $request->input('name_en'),
             'category_id' => $request->input('category_id'),
         ]);
-
+        flash('Category Created.......');
         return back();
     }
 
@@ -82,6 +82,7 @@ class categoryController extends Controller
             'name_en'        => $request->input('name_en'),
             'category_id'    => $request->input('category_id'),
         ]);
+        flash('Category Updated.......');
 
         return redirect()->route('categories.index');
 
@@ -97,6 +98,7 @@ class categoryController extends Controller
     {
         $category=category::find($id);
         $category->delete();
+        flash('Category Deleted.......');
         return back();
     }
 }

@@ -112,19 +112,43 @@ a.link:hover, a.link:focus {
 /*******************
 /*sidebar navigation
 *******************/
-.side-mini-panel {
-  background: #1e242c; }
-  .side-mini-panel ul.mini-nav li .sidebarmenu {
-    background: #242a33; }
-  .side-mini-panel ul.mini-nav li.selected > a {
-    background: #242a33; }
-    .side-mini-panel ul.mini-nav li.selected > a i {
-      color: #ffffff; }
-  .side-mini-panel ul.mini-nav li.selected h3 {
+.card-no-border .left-sidebar,
+.card-no-border .sidebar-nav {
+  background: #242a33; }
+
+.mini-sidebar .sidebar-nav {
+  background: transparent; }
+
+@media (min-width: 768px) {
+  .mini-sidebar .sidebar-nav #sidebarnav > li > ul {
+    background: #1c2128; } }
+
+.sidebar-nav {
+  background: #242a33; }
+
+.user-profile .profile-text a {
+  color: #687384 !important; }
+
+.card-no-border .sidebar-footer {
+  background: #1c2128; }
+
+.label-themecolor {
+  background: #06d79c; }
+
+.sidebar-nav > ul > li.active > a {
+  color: #ffffff;
+  border-color: #06d79c; }
+  .sidebar-nav > ul > li.active > a i {
     color: #ffffff; }
 
-.sidebar-menu > li.active > a {
-  color: #06d79c; }
+.sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
+  color: #ffffff; }
+  .sidebar-nav ul li a.active i, .sidebar-nav ul li a:hover i {
+    color: #ffffff; }
 
-.sidebar-menu > li > a:hover {
-  color: #06d79c; }
+.sidebar-nav ul li.nav-small-cap {
+  color: #687384; }
+
+@media (min-width: 768px) {
+  .mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
+    background: #1c2128; } }

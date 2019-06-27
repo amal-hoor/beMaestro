@@ -3,23 +3,23 @@
 @include('layouts.navigation')
 
 
+<div class="page-wrapper">
 
-<div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+ <div class="container-fluid">
 
+    <div class="row">
 
-
-    <div class="row" style="margin-top:50px">
-
-            <div class="col-lg-8 offset-3 mt-2">
-                    @include('flash::message')
+        <div class="col-12">
+            @include('flash::message')
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table color-table success-table">
-                                <thead>
+                            <table class="table">
+                            <thead class="table-primary">
+
                                         <tr>
                                             <th>Name</th>
                                             <th>Role</th>
@@ -62,6 +62,7 @@
                     </div>
                 </div>
             </div>
+    </div>
 
     </div><!-- row -->
 

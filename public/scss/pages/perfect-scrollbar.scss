@@ -15,7 +15,6 @@ File: scss
 
 
 
-
 /* perfect-scrollbar v0.7.1 */
 
 .ps {
@@ -136,15 +135,9 @@ File: scss
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-#slimtest3.ps .ps__scrollbar-y-rail,
-.mini-nav.ps .ps__scrollbar-y-rail {
+#slimtest3.ps .ps__scrollbar-y-rail {
     left: 3px;
     right: auto;
-}
-
-.mini-nav.ps .sidebar-menu.ps .ps__scrollbar-y-rail {
-    left: auto;
-    right: 3px;
 }
 
 #slimtest4.ps>.ps__scrollbar-y-rail>.ps__scrollbar-y {
