@@ -29,8 +29,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $roles=role::all();
-        $countries=country::all();
+        $roles=Role::all();
+        $countries=Country::all();
         return view('admin.users.create',compact('roles','countries'));
     }
 
@@ -58,7 +58,7 @@ class UsersController extends Controller
             ]);
          }
 
-        user::create([
+        User::create([
 
             'name'       => $request->input('name'),
             'email'      => $request->input('email'),
@@ -83,9 +83,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $roles=role::all();
-        $countries=country::all();
-        $user=user::find($id);
+        $roles=Role::all();
+        $countries=Country::all();
+        $user=User::find($id);
         return view('admin.users.edit',compact('roles','countries','user'));
     }
 
@@ -98,7 +98,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=user::find($id);
+        $user=User::find($id);
 
         request()->validate([
             'name'        => 'required|min:4',
@@ -138,7 +138,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $user=user::find($id);
+        $user=User::find($id);
         $user->delete();
         flash('User Deleted....');
         return redirect()->back();

@@ -18,9 +18,12 @@
 
     <div class="col-lg-8 m-auto">
 
-        <div class="card">
+        <div class="card p-3">
             <div class="card-body">
-
+                    <h3 class="card-title">Update Category</h3>
+                    <hr>
+                   
+            
                     <form action="{{route('categories.update',$category->id)}}" method="post">
                      @csrf
                      @method('PATCH')
@@ -43,6 +46,7 @@
                            </select>
                         </div>
                            <button type="submit" class="btn btn-info">Update Category</button>
+               
                     </form>
 
                     </div>

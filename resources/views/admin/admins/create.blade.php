@@ -10,13 +10,15 @@
 <div class="row">
         <div class="col-lg-10 m-auto">
             <div class="card">
-                <div class="card-header bg-info">
+                {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Create Admin</h4>
-                </div>
+                </div> --}}
                 <div class="card-body p-5">
                     <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal form-bordered">
                         @csrf
                         <div class="form-body">
+                                <h3 class="card-title">Create Admin</h3>
+                                <hr>
 
                             <div class="form-group row">
                                         <label class="control-label">Name</label>
@@ -64,7 +66,7 @@
                            </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Create Admin</button>
+                            <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i> Create Admin</button>
                         </div>
 
 

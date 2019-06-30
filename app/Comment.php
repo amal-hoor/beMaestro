@@ -19,16 +19,16 @@ class Comment extends Model
 
         public function blog()
         {
-            return $this->belongsTo('App\blog', 'blog_id');
+            return $this->belongsTo('App\Blog', 'blog_id');
         }
 
         public function course()
         {
-            return $this->belongsTo('App\course', 'course_id');
+            return $this->belongsTo('App\Course', 'course_id');
         }
 
         public function likes(){
-            return $this->hasMany('App\likes');
+            return $this->hasMany('App\Like');
         }
 
         public function notifications(){

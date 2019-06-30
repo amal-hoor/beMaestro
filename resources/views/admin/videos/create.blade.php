@@ -10,17 +10,20 @@
         <!-- ============================================================== -->
     <div class="container-fluid">
         <div class="row">
-           <div class="col-lg-8 m-auto">
+           <div class="col-lg-10 m-auto">
               <div class="card">
-                <div class="card-header bg-info">
+                {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Create Video</h4>
-                </div>
+                </div> --}}
                 <div class="card-body p-5">
 
                 <form action="{{route('videos.store')}}" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered">
                         @csrf
 
                         <div class="form-body">
+                                <h3 class="card-title">Create Video</h3>
+                                <hr>
+    
 
                                     <div class="form-group row">
                                         <label class="control-label">الاسم</label>
@@ -69,7 +72,7 @@
 
 
                         <div class="form-actions mb-5 ">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>Store Video</button>
+                            <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Store Video</button>
                         </div>
 
 

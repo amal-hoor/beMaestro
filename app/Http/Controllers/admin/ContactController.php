@@ -9,7 +9,7 @@ use App\Contact;
 class ContactController extends Controller
 {
     public function index(){
-        $contacts=contact::all();
+        $contacts=Contact::all();
         return view('admin.contacts.index',compact('contacts'));
     }
 }

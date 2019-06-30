@@ -70,17 +70,9 @@
             </div>
         </div>
 
-    </div><!-- row -->
-
-</div><!-- container_fluid -->
-
-
-
-
-
-
 @include('layouts.footer')
 
+</div><!-- row -->
 
-
+</div><!-- container_fluid -->
 

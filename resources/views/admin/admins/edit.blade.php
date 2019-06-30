@@ -13,14 +13,16 @@
       <div class="row">
         <div class="col-lg-10 m-auto">
             <div class="card">
-                <div class="card-header bg-info">
+                {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Update Admin</h4>
-                </div>
+                </div> --}}
                 <div class="card-body p-5">
                     <form action="{{route('admin.update',$admin->id)}}" method="POST" enctype="multipart/form-data"  class="form-horizontal form-bordered">
                         @csrf
                         @method('PATCH')
                         <div class="form-body">
+                                <h3 class="card-title">Update Admin</h3>
+                                <hr>
 
                                     <div class="form-group row">
                                         <label class="control-label">Name</label>
@@ -87,9 +89,9 @@
             </div>
         </div>
     </div>
-    <!-- Row -->
-
 
 
 @include('layouts.footer')
+</div>
+<!-- Row -->
 </div>

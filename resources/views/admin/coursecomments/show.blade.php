@@ -58,7 +58,7 @@
                         </form>
 
                     <span class="">
-                    <a href="javascript:void(0)"><i class="ti-heart p-2"></i>{{$comment->likes ? $comment->likes->count() : '0'}}</a>
+                    <a href="javascript:void(0)"><i class="ti-heart p-2"></i>{{$comment->likes ? $comment->likes->count() : '0'}}</a> 
                                 </span>
                             </div>
                     </div>

@@ -5,10 +5,16 @@
 
 
 
-<div class="row">
 
+<div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+<div class="container-fluid">
 
-        <div class="col-lg-3 offset-3" style="margin-top:200px">
+    <div class="row">
+    
+        <div class="col-lg-3" style="margin-top:200px">
                     @if ($video->url)
                     <iframe width='auto' height="200"
                     src="{{$video->url}}" frameborder="0"
@@ -17,36 +23,40 @@
                     @endif
         </div>
 
-        <div class="col-lg-6">
-            {{-- <div class="card"> --}}
-               <div class="card-body">
-                    <form action="{{route('videos.update',$video->id)}}" method="POST">
+                   <div class="col-lg-8 m-auto">
+                      <div class="card">
+                        {{-- <div class="card-header bg-info">
+                            <h4 class="m-b-0 text-white">Update Video</h4>
+                        </div> --}}
+                    <div class="card-body p-5">
+        
+                        <form action="{{route('videos.update',$video->id)}}" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered">
                         @csrf
                         @method('PATCH')
                         <div class="form-body">
                             <h3 class="card-title">Update Video</h3>
                             <hr>
 
-                                    <div class="form-group">
+                                    <div class="form-group row">
                                         <label class="control-label">الاسم</label>
                                        <input type="text" name="name_ar" class="form-control" value="{{$video->name_ar}}">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group row">
                                             <label class="control-label">Video Name</label>
                                            <input type="text" name="name_en" class="form-control" value="{{$video->name_en}}">
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group row">
                                             <label class="control-label">الوصف</label>
                                            <textarea type="text" name="description_ar" class="form-control">{{$video->description_ar}}</textarea>
                                         </div>
     
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                                 <label class="control-label">Video Description</label>
                                                <textarea type="text" name="description_en" class="form-control">{{$video->description_en}}</textarea>
                                         </div>
-                                    <div class="form-group">
+                                    <div class="form-group row">
                                         <label class="control-label">Course Name</label>
                                         <select class="form-control custom-select" data-placeholder="Choose a course" name="course_id" tabindex="1">
 
@@ -60,19 +70,20 @@
 
 
 
-                                    <div class="form-group">
+                                    <div class="form-group row">
                                        <select class="form-control" id="select">
                                                 <option value="">Select type</option>
                                                 <option value="video">Video</option>
                                                 <option value="url">URL</option>
                                         </select>
-                                            <div id="input_tag" class="mt-3">
+                                    </div>
+                                            <div id="input_tag" class="mt-3 form-group row">
 
                                             </div>
-                                    </div>
+                                   
 
                         <div class="form-actions mb-5 ">
-                            <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>Update Video</button>
+                            <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Update Video</button>
                         </div>
 
 
@@ -87,15 +98,12 @@
 
                         @endif
                     </form>
-                </div>
-            </div>
-        </div>
-</div>
- <!-- Row -->
-
+               
+         
 
 
 @include('layouts.footer')
+
 
 <script>
         $("#select").change(function(){
@@ -106,3 +114,8 @@
             }
         })
 </script>
+ </div>
+
+</div>
+      
+</div>

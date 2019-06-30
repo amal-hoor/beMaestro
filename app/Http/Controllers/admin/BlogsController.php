@@ -18,7 +18,7 @@ class BlogsController extends Controller
      */
     public function index()
     {
-        $blogs=blog::all();
+        $blogs=Blog::all();
         return view('admin.blogs.index',compact('blogs'));
     }
 
@@ -55,15 +55,15 @@ class BlogsController extends Controller
          $name=$file->getClientOriginalName();
          $file->move('images',$name);
 
-         $photo=photo::create(['name' => $name,'path' => 'images/'.$name]);
+         $photo=Photo::create(['name' => $name,'path' => 'images/'.$name]);
          $photo_id=$photo->id;
 
        }
 
-       $author=user::where('name',$request->input('author_id'))->first();
+       $author=User::where('name',$request->input('author_id'))->first();
        $author_id=$author->id;
 
-       $blog=blog::create([
+       $blog=Blog::create([
 
              'title_ar'     => $request->input('title_ar'),
              'title_en'     => $request->input('title_en'),
@@ -97,7 +97,7 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        $blog=blog::find($id);
+        $blog=Blog::find($id);
         return view('admin.blogs.edit',compact('blog'));
     }
 
@@ -110,8 +110,8 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
-        $blog=blog::find($id);
+      
+        $blog=Blog::find($id);
         request()->validate([
 
             'title_ar'     => 'required|max:255',
@@ -127,12 +127,12 @@ class BlogsController extends Controller
             $name=$file->getClientOriginalName();
             $file->move('images',$name);
 
-            $photo=photo::create(['name' => $name]);
+            $photo=Photo::create(['name' => $name]);
             $blog->photo_id=$photo->id;
             $blog->update();
           }
 
-          $author=user::where('name',$request->input('author_id'))->first();
+          $author=User::where('name',$request->input('author_id'))->first();
 
           $blog->update([
 
@@ -155,7 +155,7 @@ class BlogsController extends Controller
      */
     public function destroy($id)
     {
-        $blog=blog::find($id);
+        $blog=Blog::find($id);
         $blog->delete();
         flash('Blog deleted........');
         return redirect()->back();

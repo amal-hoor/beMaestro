@@ -21,7 +21,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $courses=course::all();
+        $courses=Course::all();
         return view('admin.courses.index',compact('courses'));
     }
 
@@ -32,7 +32,7 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        $categories=category::all();
+        $categories=Category::all();
         return view('admin.courses.create',compact('categories'));
     }
 
@@ -59,7 +59,7 @@ class CoursesController extends Controller
           if($file=$request->file('photo_id')){
             $name=$file->getClientOriginalName();
             $file->move('images',$name);
-            $photo=photo::create(['name' => $name,'path' => 'images/'.$name]);
+            $photo=Photo::create(['name' => $name,'path' => 'images/'.$name]);
             $photo_id=$photo->id;
 
           }else{
@@ -68,10 +68,10 @@ class CoursesController extends Controller
 
 
 
-          $instructor=instructor::where('name',request('instructor_id'))->first();
+          $instructor=Instructor::where('name',request('instructor_id'))->first();
           $instructor_id=$instructor->id;
 
-          $course =course::create([
+          $course =Course::create([
 
                 'name_ar'          => $request->input('name_ar'),
                 'name_en'          => $request->input('name_en'),
@@ -96,7 +96,7 @@ class CoursesController extends Controller
                 for($i=0 ; $i<$n ;$i++){
 
                      $request->input('video_name_ar')[$i];
-                     $video = video::create([
+                     $video = Video::create([
                         'name_ar' => $request->input('video_name_ar')[$i],
                         'name_en' => $request->input('video_name_en')[$i],
                         'url'     => $request->input('video_url')[$i],
@@ -134,7 +134,7 @@ class CoursesController extends Controller
      */
     public function edit($id)
     {
-        $course=course::find($id);
+        $course=Course::find($id);
         return view('admin.courses.edit',compact('course'));
     }
 
@@ -147,7 +147,7 @@ class CoursesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $course=course::find($id);
+        $course=Course::find($id);
         request()->validate([
 
             'name_ar'          => 'required|max:255',
@@ -161,13 +161,13 @@ class CoursesController extends Controller
           ]);
 
 
-        $instructor=instructor::where('name',request('instructor_id'))->first();
+        $instructor=Instructor::where('name',request('instructor_id'))->first();
         $instructor_id=$instructor->id;
 
         if($file=$request->file('photo_id')){
             $name=$file->getClientOriginalName();
             $file->move('images',$name);
-            $photo=photo::create(['name' => $name,'path' => 'images/'.$name]);
+            $photo=Photo::create(['name' => $name,'path' => 'images/'.$name]);
             $photo_id=$photo->id;
           }else{
               $photo_id=null;
@@ -198,7 +198,7 @@ class CoursesController extends Controller
      */
     public function destroy($id)
     {
-        $course=course::find($id);
+        $course=Course::find($id);
         $course->delete();
         flash('Course deleted........');
         return back();

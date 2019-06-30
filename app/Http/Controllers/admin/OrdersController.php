@@ -11,7 +11,7 @@ class OrdersController extends Controller
     public function show()
     {
 
-        $orders=order::all();
+        $orders=Order::all();
         return view('admin.orders.show',compact('orders'));
 
     }
@@ -19,7 +19,7 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
 
-        $order=order::find($id);
+        $order=Order::find($id);
         $order->update([
 
             'status' => $request->input('status'),

@@ -157,7 +157,7 @@ Route::group(['prefix'=>'admins' , 'middleware' => 'auth.admin'],function(){
 
     Route::group(['prefix'=>'/notifications'],function(){
 
-        Route::get('/', 'Admin\NotificationController@index');
+        Route::get('/', 'Admin\NotificationController@index')->name('notifications.index');
 
     });
 

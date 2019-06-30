@@ -12,14 +12,17 @@
         <div class="row">
            <div class="col-lg-10 m-auto">
               <div class="card">
-                <div class="card-header bg-info">
+                {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Create Course</h4>
-                </div>
+                </div> --}}
                 <div class="card-body p-5">
                     <form action="{{route('course.store')}}" enctype="multipart/form-data" method="POST" class="form-horizontal form-bordered">
 
                         @csrf
                         <div class="form-body">
+                                <h3 class="card-title">Create Course</h3>
+                                <hr>
+
                                     <div class="form-group row">
                                         <label class="control-label"> الاسم </label>
                                         <input type="text" name="name_ar" class="form-control" placeholder="ادخل الاسم">
@@ -94,11 +97,11 @@
                                         <div id="videos-data">
                                               {{-- video data --}}
                                         </div>
-                             
+
 
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success mb-4"> <i class="fa fa-check"></i>Create Course</button>
+                            <button type="submit" class="btn btn-info mb-4"> <i class="fa fa-check"></i>Create Course</button>
                         </div>
 
 
@@ -118,7 +121,7 @@
 
 
 
-@include('layouts.footer')
+
 <script>
         $("#videos_number").change(function(){
            var i = $(this).val();
@@ -134,6 +137,7 @@
            </div>
          </div>
       </div>
+      @include('layouts.footer')
     </div>
 </div>
 

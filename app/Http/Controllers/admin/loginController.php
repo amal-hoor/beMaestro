@@ -20,7 +20,7 @@ class loginController extends Controller
     public function adminLogin(request $request){
 
 
-        $user=user::where('email',request('email'))->first();
+        $user=User::where('email',request('email'))->first();
 
         //return $user;
 
@@ -29,7 +29,8 @@ class loginController extends Controller
             if(Hash::check($request->input('password'), $user->password)){
 
                 if (Auth::attempt(request(['email' , 'password'],1))) {
-                    return redirect()->route('admin.index');
+                    
+                    return redirect()->route('admin.home');
 
                 }else{
 

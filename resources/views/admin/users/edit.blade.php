@@ -11,20 +11,20 @@
         <div class="row">
            <div class="col-lg-10 m-auto">
               <div class="card">
-                <div class="card-header bg-info">
+                {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Update User</h4>
-                </div>
+                </div> --}}
                 <div class="card-body p-5">
                     <form action="{{route('user.update',$user->id)}}" method="POST" enctype="multipart/form-data"  class="form-horizontal form-bordered">
                         @csrf
                         @method('PATCH')
                         <div class="form-body">
-
-
-                                    <div class="form-group row">
+                                <h3 class="card-title">Update User</h3>
+                                <hr>
+                                   <div class="form-group row">
                                         <label class="control-label">Name</label>
-                                    <input type="text" name="name" class="form-control" value="{{$user->name}}">
-                                    </div>
+                                       <input type="text" name="name" class="form-control" value="{{$user->name}}">
+                                   </div>
 
 
                                     <div class="form-group row">
@@ -84,7 +84,7 @@
                                 <!--/span-->
                             </div>
 
-                        <div class="form-actions mb-5">
+                        <div class="form-actions ml-3 mb-5">
                             <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Update user</button>
                         </div>
 

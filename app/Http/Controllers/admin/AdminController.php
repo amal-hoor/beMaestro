@@ -28,8 +28,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $roles=role::all();
-        $countries=country::all();
+        $roles=Role::all();
+        $countries=Country::all();
         return view('admin.admins.create',compact('roles','countries'));
     }
 
@@ -60,7 +60,7 @@ class AdminController extends Controller
 
          if(auth()->user()->role_id == 1){
 
-            user::create([
+            User::create([
 
                 'name'       => $request->input('name'),
                 'email'      => $request->input('email'),
@@ -80,16 +80,7 @@ class AdminController extends Controller
         
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+  
 
     /**
      * Show the form for editing the specified resource.
@@ -99,9 +90,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $roles=role::all();
-        $countries=country::all();
-        $admin=user::find($id);
+        $roles=Role::all();
+        $countries=Country::all();
+        $admin=User::find($id);
         return view('admin.admins.edit',compact('roles','countries','admin'));
     }
 
@@ -114,7 +105,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $admin=user::find($id);
+        $admin=User::find($id);
 
         request()->validate([
             'name'        => 'required|min:4',
@@ -154,7 +145,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        $admin=user::find($id);
+        $admin=User::find($id);
         $admin->delete();
         flash('Admin deleted........');
         return redirect()->back();

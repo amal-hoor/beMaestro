@@ -17,7 +17,7 @@ class videosController extends Controller
      */
     public function index()
     {
-        $videos=video::all();
+        $videos=Video::all();
         return view('admin.videos.index',compact('videos'));
     }
 
@@ -28,7 +28,7 @@ class videosController extends Controller
      */
     public function create()
     {
-        $courses=course::all();
+        $courses=Course::all();
         return view('admin.videos.create',compact('courses'));
     }
 
@@ -60,7 +60,7 @@ class videosController extends Controller
         }
     
 
-        video::create([
+        Video::create([
 
             'name_ar'        => $request->input('name_ar'),
             'name_en'        => $request->input('name_en'),
@@ -71,6 +71,7 @@ class videosController extends Controller
 
         ]);
 
+        flash('Video Added.......');
         return redirect()->route('videos.index');
     }
 
@@ -83,8 +84,8 @@ class videosController extends Controller
      */
     public function edit($id)
     {
-        $video=video::find($id);
-        $courses=course::all();
+        $video=Video::find($id);
+        $courses=Course::all();
         return view('admin.videos.edit',compact('video','courses'));
     }
 
@@ -97,7 +98,7 @@ class videosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $video=video::find($id);
+        $video=Video::find($id);
 
             request()->validate([
 
@@ -127,7 +128,7 @@ class videosController extends Controller
         'url'           => $request->input('url')  ? $request->input('url') : $video->url,
 
        ]);
-
+       flash('Video Updated.......');
        return redirect()->route('videos.index');
     }
 
@@ -139,8 +140,9 @@ class videosController extends Controller
      */
     public function destroy($id)
     {
-        $video=video::find($id);
+        $video=Video::find($id);
         $video->delete();
+        flash('Video Deleted.......');
         return back();
     }
 }

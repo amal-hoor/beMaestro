@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class course extends Model
+class Course extends Model
 {
     protected $fillable=[
         'name_ar','name_en','details_ar','details_en','price','hours','instructor_id','status','photo_id','category_id',
@@ -40,7 +40,7 @@ class course extends Model
         }
 
         public function likes(){
-            return $this->hasMany('App\Likes');
+            return $this->hasMany('App\Like');
         }
 
 
@@ -56,7 +56,7 @@ class course extends Model
             return $this->hasMany('App\Notification');
         }
 
-        public function Category(){
+        public function category(){
             return $this->belongsTo('App\Category');
         }
 }

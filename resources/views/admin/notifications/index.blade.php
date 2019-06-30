@@ -2,29 +2,31 @@
 @include('layouts.sidebar')
 @include('layouts.navigation')
 
-<div style="margin-top: 100px;width:50%;margin-right:auto;margin-left:auto">
-        @include('flash::message')
-</div>
+<div class="page-wrapper">
 
-
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
 <div class="container-fluid">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
+
+<div class="row">
 
 
-    <div class="row">
-
-            <div class="col-lg-8 offset-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table color-table success-table">
+    <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <h3 class="">All Notifications</h3>
+                            <hr>
+                        <thead class="table-primary">
                                 <thead>
                                         <tr>
                                             <th>Notified</th>
-                                            <th>Title</th>
-                                            <th>Body</th>
+                                            <th>Title Ar</th>
+                                            <th>Title En</th>
+                                            <th>Body Ar</th>
+                                            <th>Body En</th>
 
                                         </tr>
 
@@ -36,11 +38,16 @@
 
                                                 <td>
                                                     @foreach ($notification->users as $user)
-                                                        <li>{{$user->name}}</li>
+
+                                                            <li class="list-group-item border-0">{{$user->name}}</li>
+
+
                                                     @endforeach
                                                 </td>
-                                                <td>{{$notification->title}}</td>
-                                                <td>{{$notification->body}}</td>
+                                                <td>{{$notification->title_ar}}</td>
+                                                <td>{{$notification->title_en}}</td>
+                                                <td>{{$notification->body_ar}}</td>
+                                                <td>{{$notification->body_en}}</td>
                                          @endforeach
 
                                 </tbody>
@@ -50,16 +57,11 @@
                 </div>
             </div>
 
-    </div><!-- row -->
-
-</div><!-- container_fluid -->
-
-
-
-
-
 
 @include('layouts.footer')
+</div><!-- row -->
+
+</div><!-- container_fluid -->
 
 
 

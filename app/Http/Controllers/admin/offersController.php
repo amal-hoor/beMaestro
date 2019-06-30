@@ -17,7 +17,7 @@ class offersController extends Controller
      */
     public function index()
     {
-        $offers=offer::all();
+        $offers=Offer::all();
         return view('admin.offers.index',compact('offers'));
     }
 
@@ -28,7 +28,7 @@ class offersController extends Controller
      */
     public function create()
     {
-        $courses=course::all();
+        $courses=Course::all();
         return view('admin.offers.create',compact('courses'));
     }
 
@@ -47,12 +47,12 @@ class offersController extends Controller
 
         ]);
 
-        $offer=offer::create([
+        $offer=Offer::create([
             'course_id' => $request->input('course_id'),
             'newprice'  => $request->input('newprice'),
         ]);
 
-        $notification=notification::create([
+        $notification=Notification::create([
 
             'body_en' => 'new offer is created',
             'body_ar' => 'عرض جديد ',
@@ -62,7 +62,7 @@ class offersController extends Controller
 
         ]);
 
-        $users=user::where('role_id',3)->get();
+        $users=User::where('role_id',3)->get();
         $notification->users()->attach($users);
         flash('Offer Created.......');
         return redirect()->route('offers.index');
@@ -77,8 +77,8 @@ class offersController extends Controller
      */
     public function edit($id)
     {
-        $offer=offer::find($id);
-        $courses=course::all();
+        $offer=Offer::find($id);
+        $courses=Course::all();
         return view('admin.offers.edit',compact('offer','courses'));
     }
 
@@ -91,7 +91,7 @@ class offersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $offer=offer::find($id);
+        $offer=Offer::find($id);
         request()->validate([
          'newprice' => 'required',
          'course_id'=> 'required'
@@ -119,7 +119,7 @@ class offersController extends Controller
      */
     public function destroy($id)
     {
-        $offer=offer::find($id);
+        $offer=Offer::find($id);
         $offer->delete();
         flash('Offer Deleted.......');
         return back();

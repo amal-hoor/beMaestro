@@ -6,10 +6,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-use App\Role;
-use App\Country;
-
-
 class User extends Authenticatable
 {
     use Notifiable;
@@ -49,45 +45,37 @@ class User extends Authenticatable
 
 
     public function country(){
-        return $this->belongsTo('App\country');
+        return $this->belongsTo('App\Country');
     }
 
 
     public function comments(){
-        return $this->hasMany('App\comment','user_id');
+        return $this->hasMany('App\Comment','user_id');
     }
 
 
     public function commentsLike()
     {
-        return $this->belongsToMany('App\comment', 'likes', 'user_id', 'comment_id')->withPivot('user_id', 'comment_id');
+        return $this->belongsToMany('App\Comment', 'likes', 'user_id', 'comment_id')->withPivot('user_id', 'comment_id');
     }
 
 
     public function blogsLike()
     {
-        return $this->belongsToMany('App\blog', 'likes', 'user_id', 'blog_id')->withPivot('user_id', 'blog_id');
+        return $this->belongsToMany('App\Blog', 'likes', 'user_id', 'blog_id')->withPivot('user_id', 'blog_id');
     }
 
 
     public function orders()
     {
-        return $this->hasMany('App\order');
+        return $this->hasMany('App\Order');
     }
 
-
-
-    public function isAdmin(){
-        if($this->role->name == 'superadmin' || 'administrator'){
-            return true;
-        }
-            return false;
-    }
 
 
     public function notifications()
     {
-        return $this->belongsToMany('App\Role', 'user_notifications', 'user_id', 'notification_id');
+        return $this->belongsToMany('App\Notification', 'user_notifications', 'user_id', 'notification_id');
     }
 
 

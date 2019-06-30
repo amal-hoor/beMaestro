@@ -16,18 +16,18 @@ class Notification extends Model
         return $this->belongsToMany('App\User','user_notifications','user_id','notification_id');
     }
 
-    public function Comments()
+    public function comments()
     {
         return $this->belongsTo(Comment::class , 'comment_id');
     }
 
-    public function Courses()
+    public function courses()
     {
         return $this->belongsTo(Course::class , 'course_id');
     }
 
 
-    public function Blogs()
+    public function blogs()
     {
         return $this->belongsTo(Blog::class , 'blog_id');
     }

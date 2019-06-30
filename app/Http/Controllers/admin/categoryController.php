@@ -14,19 +14,11 @@ class categoryController extends Controller
      */
     public function index()
     {
-        $categories=category::all();
+        $categories=Category::all();
         return view('admin.categories.index',compact('categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+ 
 
     /**
      * Store a newly created resource in storage.
@@ -41,7 +33,7 @@ class categoryController extends Controller
             'name_en' => 'required',
         ]);
 
-        category::create([
+        Category::create([
             'name_ar'        => $request->input('name_ar'),
             'name_en'        => $request->input('name_en'),
             'category_id' => $request->input('category_id'),
@@ -58,8 +50,8 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
-        $category=category::find($id);
-        $categories=category::where('id' , '!=' , $category->id)->get();
+        $category=Category::find($id);
+        $categories=Category::where('id' , '!=' , $category->id)->get();
         return view('admin.categories.edit',compact('category','categories'));
     }
 
@@ -76,7 +68,7 @@ class categoryController extends Controller
             'name_ar' => 'required',
             'name_en' => 'required',
         ]);
-        $category=category::find($id);
+        $category=Category::find($id);
         $category->update([
             'name_ar'        => $request->input('name_ar'),
             'name_en'        => $request->input('name_en'),
@@ -96,7 +88,7 @@ class categoryController extends Controller
      */
     public function destroy($id)
     {
-        $category=category::find($id);
+        $category=Category::find($id);
         $category->delete();
         flash('Category Deleted.......');
         return back();
