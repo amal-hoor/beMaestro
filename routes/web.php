@@ -50,6 +50,23 @@ Route::group(['prefix'=>'admins' , 'middleware' => 'auth.admin'],function(){
     });
 
 
+    Route::group(['prefix'=>'/clients'],function(){
+
+        Route::get('/', 'Admin\clientController@index')->name('clients.index');
+
+        Route::get('/create', 'Admin\clientController@create')->name('client.create');
+
+        Route::post('/store', 'Admin\clientController@store')->name('client.store');
+
+        Route::get('{user}/edit', 'Admin\clientController@edit')->name('client.edit');
+
+        Route::patch('{user}/update', 'Admin\clientController@update')->name('client.update');
+
+        Route::delete('{user}/delete', 'Admin\clientController@destroy')->name('client.delete');
+
+    });
+
+
     Route::group(['prefix'=>'/blogs'],function(){
 
         Route::get('/', 'Admin\BlogsController@index')->name('blog.index');
@@ -160,6 +177,17 @@ Route::group(['prefix'=>'admins' , 'middleware' => 'auth.admin'],function(){
         Route::get('/', 'Admin\NotificationController@index')->name('notifications.index');
 
     });
+
+    Route::group(['prefix'=>'/settings'],function(){
+
+        Route::get('/', 'Admin\settingController@index')->name('settings.index');
+
+        Route::get('/{setting}/edit', 'Admin\settingController@edit')->name('setting.edit');
+
+        Route::patch('/{setting}/update', 'Admin\settingController@update')->name('setting.update');
+
+    });
+
 
 
 });

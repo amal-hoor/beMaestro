@@ -18,7 +18,7 @@ class categoryController extends Controller
         return view('admin.categories.index',compact('categories'));
     }
 
- 
+
 
     /**
      * Store a newly created resource in storage.
@@ -29,8 +29,8 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         request()->validate([
-            'name_ar' => 'required',
-            'name_en' => 'required',
+            'name_ar' => 'required|min:3',
+            'name_en' => 'required|min:3',
         ]);
 
         Category::create([
@@ -65,8 +65,8 @@ class categoryController extends Controller
     public function update(Request $request, $id)
     {
         request()->validate([
-            'name_ar' => 'required',
-            'name_en' => 'required',
+            'name_ar' => 'required|min:3',
+            'name_en' => 'required|min:3',
         ]);
         $category=Category::find($id);
         $category->update([

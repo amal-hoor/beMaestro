@@ -12,6 +12,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-10 m-auto">
+                @include('layouts.form-errors')
             <div class="card">
                 {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Update Admin</h4>
@@ -26,14 +27,14 @@
 
                                     <div class="form-group row">
                                         <label class="control-label">Name</label>
-                                    <input type="text" name="name" class="form-control" value="{{$admin->name}}">
+                                        <input type="text" name="name" class="form-control" value="{{$admin->name}}" required>
                                     </div>
 
 
 
                                     <div class="form-group row">
                                         <label class="control-label">Email</label>
-                                        <input type="text" name="email" class="form-control" value="{{$admin->email}}">
+                                        <input type="text" name="email" class="form-control" value="{{$admin->email}}" required>
                                     </div>
 
 
@@ -65,7 +66,7 @@
 
                                     <div class="form-group row">
                                         <label>Password</label>
-                                        <input type="text" class="form-control" name="password">
+                                    <input type="text" class="form-control" name="password" value="{{$admin->password}}" required>
 
                                     </div>
 
@@ -73,17 +74,6 @@
                             <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Update Admin</button>
                         </div>
 
-
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach($errors->all() as $error)
-
-                                       <p> {{$error}} </p>
-
-                                @endforeach
-                            </div>
-
-                        @endif
                     </form>
                 </div>
             </div>

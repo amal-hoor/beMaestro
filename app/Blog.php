@@ -33,7 +33,7 @@ class Blog extends Model
 
 
     public function likes(){
-        return $this->hasMany('App\Likes');
+        return $this->hasMany('App\Like');
     }
 
     public function notifications(){

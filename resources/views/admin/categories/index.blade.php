@@ -25,16 +25,17 @@
                         @include('flash::message')
                         </div>
                     <div class="card-body">
+                            @include('layouts.form-errors')
 
                         <form action="{{route('categories.store')}}" method="post">
                         @csrf
                             <div class="form-group">
                             <label for="name">اسم الفئه</label>
-                            <input type="text" name="name_ar" class="form-control">
+                            <input type="text" name="name_ar" class="form-control" required>
                             </div>
                             <div class="form-group">
                             <label for="name">Category Name:</label>
-                            <input type="text" name="name_en" class="form-control">
+                            <input type="text" name="name_en" class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -92,13 +93,8 @@
             </div>
             </div>
 
-    </div><!-- row -->
+@include('layouts.footer')
+</div><!-- row -->
 
 </div><!-- container_fluid -->
 
-
-
-
-
-
-@include('layouts.footer')

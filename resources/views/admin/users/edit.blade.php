@@ -10,10 +10,8 @@
     <div class="container-fluid">
         <div class="row">
            <div class="col-lg-10 m-auto">
+                @include('layouts.form-errors')
               <div class="card">
-                {{-- <div class="card-header bg-info">
-                    <h4 class="m-b-0 text-white">Update User</h4>
-                </div> --}}
                 <div class="card-body p-5">
                     <form action="{{route('user.update',$user->id)}}" method="POST" enctype="multipart/form-data"  class="form-horizontal form-bordered">
                         @csrf
@@ -23,13 +21,13 @@
                                 <hr>
                                    <div class="form-group row">
                                         <label class="control-label">Name</label>
-                                       <input type="text" name="name" class="form-control" value="{{$user->name}}">
+                                       <input type="text" name="name" class="form-control" value="{{$user->name}}" required>
                                    </div>
 
 
                                     <div class="form-group row">
                                         <label class="control-label">Email</label>
-                                        <input type="text" name="email" class="form-control" value="{{$user->email}}">
+                                        <input type="text" name="email" class="form-control" value="{{$user->email}}" required>
                                     </div>
 
 
@@ -62,7 +60,7 @@
 
                                     <div class="form-group row">
                                         <label>Password</label>
-                                        <input type="text" class="form-control" name="password" value="{{$user->passowrd}}">
+                                        <input type="text" class="form-control" name="password" value="{{$user->passowrd}}" required>
                                     </div>
 
 
@@ -89,16 +87,7 @@
                         </div>
 
 
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach($errors->all() as $error)
 
-                                       <p> {{$error}} </p>
-
-                                @endforeach
-                            </div>
-
-                        @endif
                     </form>
                 </div>
             </div>

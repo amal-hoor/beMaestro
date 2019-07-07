@@ -13,10 +13,8 @@
     <div class="container-fluid">
         <div class="row">
            <div class="col-lg-10 m-auto">
+                @include('layouts.form-errors')
               <div class="card">
-                {{-- <div class="card-header bg-info">
-                    <h4 class="m-b-0 text-white">Update Course</h4>
-                </div> --}}
                 <div class="card-body p-5">
                     <form action="{{route('course.update',$course->id)}}" enctype="multipart/form-data" method="POST" class="form-horizontal form-bordered">
 
@@ -29,31 +27,31 @@
 
                                     <div class="form-group row">
                                         <label class="control-label">الاسم</label>
-                                        <input type="text" name="name_ar" class="form-control" value="{{$course->name_ar}}">
+                                        <input type="text" name="name_ar" class="form-control" value="{{$course->name_ar}}" required>
                                      </div>
                                     <div class="form-group row">
                                         <label class="control-label">Name</label>
-                                       <input type="text" name="name_en" class="form-control" value="{{$course->name_en}}">
+                                       <input type="text" name="name_en" class="form-control" value="{{$course->name_en}}" required>
                                     </div>
 
 
 
                                     <div class="form-group row">
                                             <label>Instructor</label>
-                                        <input type="text" class="form-control" name="instructor_id" value="{{$course->instructor->name}}">
-                                        </div>
+                                        <input type="text" class="form-control" name="instructor_id" value="{{$course->instructor->name}}" required>
+                                    </div>
 
                                     </div>
 
                                     <div class="form-group row">
                                         <label class="control-label">Photo</label>
                                         <input type="file" name="photo_id" class="form-control">
-                                 </div>
+                                    </div>
 
 
 
                                  <div class="form-group row">
-                                        <label class="control-label">التفاصيل</label>
+                                    <label class="control-label">التفاصيل</label>
                                     <textarea name="details_ar" class="form-control" rows="3">{{$course->details_ar}}</textarea>
 
                                 </div>
@@ -65,14 +63,14 @@
 
                                 <div class="form-group row">
                                             <label class="control-label">Price</label>
-                                        <input type="text" name="price" class="form-control" value="{{$course->price}}">
+                                        <input type="text" name="price" class="form-control" value="{{$course->price}}" required>
 
                                </div>
 
 
                                <div class="form-group row">
                                                 <label class="control-label">Hours</label>
-                                                <input type="text" name="hours" class="form-control" value="{{$course->hours}}">
+                                                <input type="text" name="hours" class="form-control" value="{{$course->hours}}" required>
 
                                </div>
 

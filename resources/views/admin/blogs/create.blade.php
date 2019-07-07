@@ -14,6 +14,7 @@
     <div class="container-fluid">
         <div class="row">
            <div class="col-lg-10 m-auto">
+                @include('layouts.form-errors')
               <div class="card">
                 {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Create Blog</h4>
@@ -29,11 +30,11 @@
 
                                     <div class="form-group row">
                                         <label class="control-label">العنوان</label>
-                                        <input type="text" name="title_ar" class="form-control" placeholder="ادخل العنوان">
+                                        <input type="text" name="title_ar" class="form-control" placeholder="ادخل العنوان" required>
                                     </div>
                                     <div class="form-group row">
                                         <label class="control-label">Title</label>
-                                        <input type="text" name="title_en" class="form-control" placeholder="Enter Title English">
+                                        <input type="text" name="title_en" class="form-control" placeholder="Enter Title English" required>
                                     </div>
 
 
@@ -57,7 +58,11 @@
 
                                     <div class="form-group row">
                                         <label>Author</label>
-                                        <input type="text" class="form-control" name="author_id">
+                                        <select name="author_id" class="form-control">
+                                            @foreach($authors as $author)
+                                              <option value="{{$author->id}}">{{$author->name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
 
@@ -65,17 +70,6 @@
                             <button type="submit" class="btn btn-info mb-2"> <i class="fa fa-check"></i> Create Blog</button>
                         </div>
 
-
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach($errors->all() as $error)
-
-                                       <p> {{$error}} </p>
-
-                                @endforeach
-                            </div>
-
-                        @endif
                     </form>
                  </div>
               </div>
@@ -83,7 +77,7 @@
 
 
 
-
+        </div>
 @include('layouts.footer')
 
 </div>

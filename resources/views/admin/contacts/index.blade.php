@@ -44,13 +44,7 @@
             </div>
             </div>
 
-    </div><!-- row -->
+@include('layouts.footer')
+</div><!-- row -->
 
 </div><!-- container_fluid -->
-
-
-
-
-
-
-@include('layouts.footer')

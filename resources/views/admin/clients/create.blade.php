@@ -11,16 +11,17 @@
 
 
         <div class="col-lg-10 m-auto">
-               
+            @include('layouts.form-errors')
+
             <div class="card">
                 {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Create Admin</h4>
                 </div> --}}
                 <div class="card-body p-5">
-                    <form action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal form-bordered">
+                    <form action="{{route('client.store')}}" method="POST" enctype="multipart/form-data"  class="form-horizontal form-bordered">
                         @csrf
                         <div class="form-body">
-                                <h3 class="card-title">Create Admin</h3>
+                                <h3 class="card-title">Create Client</h3>
                                 <hr>
 
                             <div class="form-group row">
@@ -39,17 +40,6 @@
 
 
                             <div class="form-group row">
-                                        <label class="control-label">Roles</label>
-                                        <select class="form-control custom-select" data-placeholder="Choose a Category" name="role_id" tabindex="1">
-
-                                            @foreach($roles as $role)
-                                              <option value="{{$role->id}}">{{$role->name}}</option>
-                                            @endforeach
-                                        </select>
-                            </div>
-
-
-                            <div class="form-group row">
                                     <label class="control-label">Country</label>
                                         <select class="form-control custom-select" data-placeholder="Choose a Category" name="country_id" tabindex="1">
 
@@ -59,17 +49,14 @@
                                         </select>
                             </div>
 
-
-
                             <div class="form-group row">
+                                    <label class="control-label">Mobile</label>
+                                    <input type="text" name="mobile" class="form-control" placeholder="Enter Mobile Number" required>
+                        </div>
 
-                                        <label>Password</label>
-                                        <input type="text" class="form-control" name="password" required>
-
-                           </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i> Create Admin</button>
+                            <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i> Create Client</button>
                         </div>
 
 

@@ -33,6 +33,13 @@
                     </li>
 
 
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple-outline"></i><span class="hide-menu">Clients <span class="label label-rouded label-themecolor pull-right">4</span></span></a>
+                        <ul aria-expanded="false" class="collapse">
+                            <li><a href="{{route('clients.index')}}">All Clients </a></li>
+                            <li><a href="{{route('client.create')}}">Create Client</a></li>
+                        </ul>
+                    </li>
+
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-check-all"></i><span class="hide-menu">Courses</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('course.index')}}">All Courses</a></li>
@@ -82,6 +89,12 @@
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-cellphone-settings"></i><span class="hide-menu">Contacts</span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('contacts.index')}}">All Contacts</a></li>
+                        </ul>
+                    </li>
+
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-mouse"></i><span class="hide-menu">Settings</span></a>
+                        <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{route('settings.index')}}">Site Settings</a></li>
                         </ul>
                     </li>
 

@@ -13,6 +13,7 @@
     <div class="container-fluid">
         <div class="row">
            <div class="col-lg-8 m-auto">
+                @include('layouts.form-errors')
               <div class="card">
                 {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Update Offer</h4>
@@ -41,7 +42,7 @@
 
                                         <div class="form-group row">
                                             <label>New Price</label>
-                                           <input type="text" class="form-control" name="newprice" value="{{$offer->newprice}}">
+                                           <input type="text" class="form-control" name="newprice" value="{{$offer->newprice}}" required>
                                         </div>
 
 
@@ -53,16 +54,6 @@
                         </div>
 
 
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach($errors->all() as $error)
-
-                                       <p> {{$error}} </p>
-
-                                @endforeach
-                            </div>
-
-                        @endif
                     </form>
                 </div>
             </div>

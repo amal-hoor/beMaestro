@@ -15,25 +15,25 @@
 
 <div class="row">
         @include('flash::message')
-
+        @include('layouts.form-errors')
     <div class="col-lg-8 m-auto">
 
         <div class="card p-3">
             <div class="card-body">
                     <h3 class="card-title">Update Category</h3>
                     <hr>
-                   
-            
+
+
                     <form action="{{route('categories.update',$category->id)}}" method="post">
                      @csrf
                      @method('PATCH')
                         <div class="form-group row">
                                 <label for="name_ar">اسم الفئه</label>
-                                <input type="text" name="name_ar" class="form-control" value="{{$category->name_ar}}">
+                                <input type="text" name="name_ar" class="form-control" value="{{$category->name_ar}}" required>
                         </div>
                         <div class="form-group row">
                                 <label for="name">Category Name:</label>
-                                <input type="text" name="name_en" class="form-control" value="{{$category->name_en}}">
+                                <input type="text" name="name_en" class="form-control" value="{{$category->name_en}}" required>
                         </div>
 
                         <div class="form-group row">
@@ -46,7 +46,7 @@
                            </select>
                         </div>
                            <button type="submit" class="btn btn-info">Update Category</button>
-               
+
                     </form>
 
                     </div>

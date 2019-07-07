@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Blog;
 use App\User;
 use App\Photo;
+use App\Role;
 use App\Notification;
 
 class BlogsController extends Controller
@@ -29,7 +30,9 @@ class BlogsController extends Controller
      */
     public function create()
     {
-        return view('admin.blogs.create');
+        $role=Role::where('name','author')->first();
+        $authors=User::where('role_id',$role->id)->get();
+        return view('admin.blogs.create',compact('authors'));
     }
 
     /**
@@ -60,8 +63,7 @@ class BlogsController extends Controller
 
        }
 
-       $author=User::where('name',$request->input('author_id'))->first();
-       $author_id=$author->id;
+
 
        $blog=Blog::create([
 
@@ -69,8 +71,8 @@ class BlogsController extends Controller
              'title_en'     => $request->input('title_en'),
              'content_ar'   => $request->input('content_ar'),
              'content_en'   => $request->input('content_en'),
-             'author_id' => $author_id,
-             'photo_id'  => $photo_id,
+             'author_id'    => $request->input('author_id'),
+             'photo_id'     => $photo_id,
 
        ]);
 
@@ -98,7 +100,9 @@ class BlogsController extends Controller
     public function edit($id)
     {
         $blog=Blog::find($id);
-        return view('admin.blogs.edit',compact('blog'));
+        $role=Role::where('name','author')->first();
+        $authors=User::where('role_id',$role->id)->get();
+        return view('admin.blogs.edit',compact('blog','authors'));
     }
 
     /**
@@ -110,7 +114,7 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+
         $blog=Blog::find($id);
         request()->validate([
 
@@ -132,7 +136,7 @@ class BlogsController extends Controller
             $blog->update();
           }
 
-          $author=User::where('name',$request->input('author_id'))->first();
+
 
           $blog->update([
 
@@ -140,7 +144,7 @@ class BlogsController extends Controller
                 'title_en'     => $request->input('title_en'),
                 'content_ar'   => $request->input('content_ar'),
                 'content_en'   => $request->input('content_en'),
-                'author_id'    => $author->id,
+                'author_id'    => $request->input('author_id'),
 
           ]);
           flash('Blog Updated........');
@@ -161,6 +165,7 @@ class BlogsController extends Controller
         return redirect()->back();
     }
 }
+
 
 
 

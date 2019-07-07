@@ -11,10 +11,8 @@
     <div class="container-fluid">
         <div class="row">
            <div class="col-lg-10 m-auto">
+                @include('layouts.form-errors')
               <div class="card">
-                {{-- <div class="card-header bg-info">
-                    <h4 class="m-b-0 text-white">Create Video</h4>
-                </div> --}}
                 <div class="card-body p-5">
 
                 <form action="{{route('videos.store')}}" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered">
@@ -23,11 +21,11 @@
                         <div class="form-body">
                                 <h3 class="card-title">Create Video</h3>
                                 <hr>
-    
+
 
                                     <div class="form-group row">
                                         <label class="control-label">الاسم</label>
-                                        <input type="text" name="name_ar" class="form-control">
+                                        <input type="text" name="name_ar" class="form-control" required>
                                     </div>
                                     <div class="form-group row">
                                             <label class="control-label">Video Name</label>
@@ -36,12 +34,12 @@
 
                                     <div class="form-group row">
                                                     <label class="control-label">الوصف</label>
-                                                    <input type="text" name="description_ar" class="form-control">
+                                                    <input type="text" name="description_ar" class="form-control" required>
                                     </div>
 
                                     <div class="form-group row">
                                             <label class="control-label">Details</label>
-                                            <input type="text" name="description_en" class="form-control">
+                                            <input type="text" name="description_en" class="form-control" required>
                                     </div>
 
                                     <div class="form-group row">
@@ -76,19 +74,7 @@
                         </div>
 
 
-                        @if($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach($errors->all() as $error)
 
-                                       <p> {{$error}} </p>
-
-                                @endforeach
-                            </div>
-
-                        @endif
-
-
-@include('layouts.footer')
 
                         <script>
                                 $("#select").change(function(){
@@ -103,7 +89,10 @@
               </div>
            </div>
        </div>
+
    </div><!-- Row -->
 </div>
+
+@include('layouts.footer')
 
 
