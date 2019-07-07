@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2019 at 06:39 PM
+-- Generation Time: Jul 07, 2019 at 01:35 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -45,7 +45,7 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `author_id`, `photo_id`, `title_ar`, `title_en`, `content_ar`, `content_en`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'free courses', 'كورسات', 'مع الجامعة المفتوحة ، يمكنك الدراسة متى وأينما تختار. لدينا طلاب في أكثر من 128 دولة ، ولدينا سمعة عالمية كشركة رائدة في مجال التعلم المرن. يعني تعليمنا المرن أيضًا ، إذا كنت تسافر كثيرًا أو كنت بحاجة إلى الانتقال ، يمكنك متابعة الدراسة أينما ذهبت.', 'With The Open University you can study whenever and wherever you choose. We have students in over 128 countries, and a global reputation as a pioneer in the field of flexible learning. Our flexible teaching also means, if you travel often or need to relocate, you can continue to study wherever you go.', NULL, NULL),
+(1, 15, 1, 'كورسات', 'courses1', 'مع الجامعة المفتوحة ، يمكنك الدراسة متى وأينما تختار. لدينا طلاب في أكثر من 128 دولة ، ولدينا سمعة عالمية كشركة رائدة في مجال التعلم المرن. يعني تعليمنا المرن أيضًا ، إذا كنت تسافر كثيرًا أو كنت بحاجة إلى الانتقال ، يمكنك متابعة الدراسة أينما ذهبت.', 'With The Open University you can study whenever and wherever you choose. We have students in over 128 countries, and a global reputation as a pioneer in the field of flexible learning. Our flexible teaching also means, if you travel often or need to relocate, you can continue to study wherever you go.', NULL, '2019-07-06 12:35:37'),
 (2, 2, 1, 'كورسات مجانيه', 'courses2', 'مع الجامعة المفتوحة ، يمكنك الدراسة متى وأينما تختار. لدينا طلاب في أكثر من 128 دولة ، ولدينا سمعة عالمية كشركة رائدة في مجال التعلم المرن. يعني تعليمنا المرن أيضًا ، إذا كنت تسافر كثيرًا أو كنت بحاجة إلى الانتقال ، يمكنك متابعة الدراسة أينما ذهبت.', 'With The Open University you can study whenever and wherever you choose. We have students in over 128 countries, and a global reputation as a pioneer in the field of flexible learning. Our flexible teaching also means, if you travel often or need to relocate, you can continue to study wherever you go.', NULL, NULL),
 (4, 12, 3, 'لارافل', 'LARAVEL', '، يمكنك الدراسة متى وأينما تختار. لدينا طلاب في أكثر من 128 دولة ، ولدينا سمعة عالمية كشركة رائدة في مجال التعلم المرن. يعني تعليمنا المرن أيضًا ، إذا كنت تسافر كثيرًا أو كنت بحاجة إلى الانتقال ، يمكنك متابعة الدراسة أينما', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima asperiores eveniet in maxime ipsam suscipit sunt, nulla repudiandae delectus.', '2019-06-26 11:49:45', '2019-06-26 11:49:45'),
 (6, 12, 5, '5.4 لارافل', 'LARAVEL5.4', 'ويتركز أغلب سكان مصر في وادي النيل وفي الحضر ويشكل وادي النيل والدلتا أقل من 4% من المساحة الكلية للبلاد أي حوالي 33000 كم2، وأكبر الكتل السكانية هي القاهرة الكبرى التي بها تقريباً ربع السكان، تليها الإسكندرية؛ كما يعيش أغلب السكان الباقين في الدلتا وعلى ساحلي البحر المتوسط والبحر الأحمر ومدن قناة السويس، وتشغل هذه الأماكن ما مساحته 40 ألف كيلومتر مربع.', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore consequatur quidem, beatae esse odio praesentium aspernatur quia hic vel voluptas?', '2019-06-26 11:57:21', '2019-06-26 11:57:21');
@@ -71,7 +71,34 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `category_id`, `name_ar`, `name_en`, `created_at`, `updated_at`) VALUES
 (1, 2, 'تسويق', 'marketing', '2019-06-26 12:23:18', '2019-06-27 14:26:54'),
-(2, NULL, 'تصميم2', 'design', NULL, '2019-06-27 14:29:16');
+(2, NULL, 'تصميم2', 'design', NULL, '2019-06-27 14:29:16'),
+(3, 2, 'تصميم', 'design2', '2019-07-06 11:51:37', '2019-07-06 11:51:37'),
+(4, 1, 'شش', 'سي', '2019-07-06 11:51:57', '2019-07-06 11:51:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clients`
+--
+
+CREATE TABLE `clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `country_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` bigint(20) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `country_id`, `name`, `email`, `mobile`, `created_at`, `updated_at`) VALUES
+(1, 1, 'ahmed', 'ahmed@yahoo.com', 12333322, NULL, '2019-07-07 07:16:12'),
+(2, 3, 'amal', 'amal@yahoo.com', 12222222, '2019-07-06 13:39:30', '2019-07-06 13:39:30'),
+(3, 4, 'eman', 'eman@yahoo.com', 983737, '2019-07-07 07:17:13', '2019-07-07 07:17:13');
 
 -- --------------------------------------------------------
 
@@ -95,7 +122,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `blog_id`, `course_id`, `user_id`, `status`, `content`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 2, 0, 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من...', NULL, '2019-06-26 12:13:40'),
+(1, 1, 1, 2, 0, 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من...', NULL, '2019-06-28 15:13:37'),
 (2, 2, 3, 4, 0, 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من...', NULL, NULL);
 
 -- --------------------------------------------------------
@@ -171,15 +198,11 @@ INSERT INTO `courses` (`id`, `name_ar`, `name_en`, `details_ar`, `details_en`, `
 (7, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:54:17', '2019-06-26 12:54:17', 7, 1),
 (8, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:54:35', '2019-06-26 12:54:35', 8, 1),
 (9, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:55:39', '2019-06-26 12:55:39', 9, 1),
-(10, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:56:15', '2019-06-26 12:56:15', 10, 1),
 (11, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:56:39', '2019-06-26 12:56:39', 11, 1),
 (12, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:56:45', '2019-06-26 12:56:45', 12, 1),
 (13, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:57:09', '2019-06-26 12:57:09', 13, 1),
 (14, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 13:01:28', '2019-06-26 13:01:28', 14, 1),
-(15, 'جرافيك', 'graphic', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, eos.', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, eos.', 1200.00, 30, 1, '2019-06-26 13:03:13', '2019-06-26 13:03:13', NULL, 1),
-(16, 'gg', 'dh', '$name_ar', '$name_ar', 100.00, 20, 1, '2019-06-26 13:05:31', '2019-06-26 13:05:31', NULL, 1),
-(17, 'كورس2', 'course2', 'غلاف مناسب للعمل مع صفائف من البيانات. على سبيل المثال ، تحقق من الكود التالي', 'convenient wrapper for working with arrays of data. For example, check out the following code', 3000.00, 50, 1, '2019-06-26 13:37:24', '2019-06-26 13:37:24', 15, 2),
-(18, 'تصميم واجهه', 'course1', 'وايضاً هو التخطيط الذي يرسي الأساس لصنع كل كائن أو نظام. يمكن أن يستخدم كاسم وفعل على حد سواء, وعلى نحو أوسع يعني الفنون التطبيقية والهندسة (أنظر تخصصات التصميم أدناه). \"يصمم\" كفعل, يشير إلى عملية إنشاء ووضع خطة لمنتج, هيكل تنظيمي, نظام, أو أي مكوّن ذو هدف.\r\n\r\n\"تصميم\" كاسم ي', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, voluptatem vitae. Expedita amet eum, saepe omnis aspernatur voluptatum nesciunt voluptatem.', 1000.00, 200, 1, '2019-06-27 14:19:01', '2019-06-27 14:19:01', 17, 1);
+(15, 'كورس1', 'course1', 'تفاصيل', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, repudiandae aliquid accusantium laborum similique explicabo enim eaque fugiat possimus laboriosam.', 10000.00, 20, 1, '2019-07-06 12:41:42', '2019-07-06 12:41:42', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -274,7 +297,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (147, '2019_06_24_112132_add_category_id_column_to_courses_table', 9),
 (148, '2019_06_24_144417_create_contacts_table', 9),
 (149, '2019_06_26_100059_add_api_token_column_to_users_table', 10),
-(150, '2019_06_26_125013_add_status_column_to_order_table', 11);
+(150, '2019_06_26_125013_add_status_column_to_order_table', 11),
+(152, '2019_07_06_150454_create_clients_table', 12),
+(153, '2019_07_07_092522_create_settings_table', 13);
 
 -- --------------------------------------------------------
 
@@ -308,7 +333,9 @@ INSERT INTO `notifications` (`id`, `comment_id`, `blog_id`, `course_id`, `title_
 (5, NULL, 6, NULL, 'New Blog', 'New Blog', 'تم اضافه مدونه جديده', 'New Blog has been added', '2019-06-26 11:57:21', '2019-06-26 11:57:21', NULL),
 (7, NULL, NULL, 17, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-06-26 13:37:24', '2019-06-26 13:37:24', NULL),
 (8, NULL, NULL, 18, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-06-27 14:19:01', '2019-06-27 14:19:01', NULL),
-(9, NULL, NULL, NULL, 'عرض جديد', 'new offer', 'عرض جديد ', 'new offer is created', '2019-06-27 14:38:33', '2019-06-27 14:38:33', 3);
+(9, NULL, NULL, NULL, 'عرض جديد', 'new offer', 'عرض جديد ', 'new offer is created', '2019-06-27 14:38:33', '2019-06-27 14:38:33', 3),
+(10, NULL, 7, NULL, 'New Blog', 'New Blog', 'تم اضافه مدونه جديده', 'New Blog has been added', '2019-07-06 12:29:44', '2019-07-06 12:29:44', NULL),
+(11, NULL, NULL, 15, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-07-06 12:41:42', '2019-07-06 12:41:42', NULL);
 
 -- --------------------------------------------------------
 
@@ -405,7 +432,16 @@ INSERT INTO `photos` (`id`, `name`, `created_at`, `updated_at`, `path`) VALUES
 (14, '7.jpg', '2019-06-26 13:01:28', '2019-06-26 13:01:28', 'images/7.jpg'),
 (15, '6.jpg', '2019-06-26 13:37:23', '2019-06-26 13:37:23', 'images/6.jpg'),
 (16, '2019-02-07.png', '2019-06-27 14:18:06', '2019-06-27 14:18:06', 'images/2019-02-07.png'),
-(17, '2019-02-07.png', '2019-06-27 14:19:01', '2019-06-27 14:19:01', 'images/2019-02-07.png');
+(17, '2019-02-07.png', '2019-06-27 14:19:01', '2019-06-27 14:19:01', 'images/2019-02-07.png'),
+(18, '5.jpg', '2019-07-06 12:18:07', '2019-07-06 12:18:07', 'images/5.jpg'),
+(19, '5.jpg', '2019-07-06 12:18:24', '2019-07-06 12:18:24', 'images/5.jpg'),
+(20, '5.jpg', '2019-07-06 12:19:04', '2019-07-06 12:19:04', 'images/5.jpg'),
+(21, '5.jpg', '2019-07-06 12:19:26', '2019-07-06 12:19:26', 'images/5.jpg'),
+(22, '5.jpg', '2019-07-06 12:20:04', '2019-07-06 12:20:04', 'images/5.jpg'),
+(23, '5.jpg', '2019-07-06 12:20:19', '2019-07-06 12:20:19', 'images/5.jpg'),
+(24, '5.jpg', '2019-07-06 12:20:37', '2019-07-06 12:20:37', 'images/5.jpg'),
+(25, '5.jpg', '2019-07-06 12:20:45', '2019-07-06 12:20:45', 'images/5.jpg'),
+(26, '3.jpg', '2019-07-06 12:29:44', '2019-07-06 12:29:44', 'images/3.jpg');
 
 -- --------------------------------------------------------
 
@@ -427,7 +463,34 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'admin\r\n', '2019-06-26 08:04:41', '2019-06-26 08:04:41'),
 (2, 'administrator', '2019-06-26 08:04:41', '2019-06-26 08:04:41'),
-(3, 'subscriber', '2019-06-26 08:04:41', '2019-06-26 08:04:41');
+(3, 'subscriber', '2019-06-26 08:04:41', '2019-06-26 08:04:41'),
+(4, 'author', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `facebook_link` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `twitter_link` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `limkedin_link` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `youtube_link` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `download_link` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `title`, `logo`, `facebook_link`, `twitter_link`, `limkedin_link`, `youtube_link`, `download_link`, `created_at`, `updated_at`) VALUES
+(1, 'bemaestro titles', 'logo.webp', 'http://facebook.com', 'http://twitter.com', 'http://linkedin.com', 'http://youtube.com', 'http://bemaestro.com', NULL, '2019-07-07 08:46:09');
 
 -- --------------------------------------------------------
 
@@ -463,8 +526,10 @@ INSERT INTO `users` (`id`, `country_id`, `role_id`, `name`, `email`, `email_veri
 (7, 1, 2, 'Ms. Retha Kozey', 'anabel19@example.org', '2019-06-26 08:04:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'nJ0eRF05wj', 'tCzNp1ouzU', '2019-06-26 08:04:41', '2019-06-26 08:04:41', 1),
 (8, 4, 2, 'Nya Ward', 'adubuque@example.com', '2019-06-26 08:04:40', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'wtVjpQzoj1', 'D5RvvbDQTl', '2019-06-26 08:04:41', '2019-06-26 08:04:41', 1),
 (9, 3, 2, 'Miss Virgie Schulist', 'mavis21@example.com', '2019-06-26 08:04:40', '$2y$10$RZ7xjYeyFoq.LWFraFnjse/EN8WqLXCw8B9/fLZZu08v/r6VPNMp6', 'yKUxDZKk7L', 'NLHlRnihTB', '2019-06-26 08:04:41', '2019-06-27 14:02:23', 1),
-(12, NULL, 1, 'amal', 'amal@yahoo.com', NULL, '$2y$10$R34TBkbY11U20nWutp0.q.S2xx16ex7lMUYVumpz021tYP4MFiaDW', '7nfGnsampBQfBunGBvoOPvslndo19qhvk7nzDIUk70Aub5PET5rJYtqYA7e7', NULL, '2019-06-26 09:01:21', '2019-06-26 09:01:21', 1),
-(13, 3, 1, 'admin', 'admin@yahoo.com', NULL, '$2y$10$j9IYqpf3D3K.A4wtZd8yM.HXdISEo65cxwpD9ZL/jKHbK9Vxx.sAa', NULL, NULL, '2019-06-26 11:33:05', '2019-06-26 11:33:05', 1);
+(12, 3, 1, 'amal', 'amal@yahoo.com', NULL, '$2y$10$R34TBkbY11U20nWutp0.q.S2xx16ex7lMUYVumpz021tYP4MFiaDW', '7nfGnsampBQfBunGBvoOPvslndo19qhvk7nzDIUk70Aub5PET5rJYtqYA7e7', NULL, '2019-06-26 09:01:21', '2019-06-26 09:01:21', 1),
+(13, 3, 1, 'admin', 'admin@yahoo.com', NULL, '$2y$10$j9IYqpf3D3K.A4wtZd8yM.HXdISEo65cxwpD9ZL/jKHbK9Vxx.sAa', NULL, NULL, '2019-06-26 11:33:05', '2019-06-26 11:33:05', 1),
+(14, 4, 4, 'ahmed', 'ahmed@yahoo.com', NULL, '$2y$10$qKpJ4ymyp7QkGFYGAngiL.dFlBGg.KQQv8wv/V5RiG.kX/S9RdkO2', NULL, NULL, '2019-07-06 11:45:55', '2019-07-06 11:45:55', 1),
+(15, 3, 4, 'adse', 'adse@yahoo.com', NULL, '$2y$10$IPyS1gPN.qLcIwu8.XTTiOjpLN4H/YyJ2qXCgyJ7DBvBmehWRySNq', NULL, NULL, '2019-07-06 12:06:05', '2019-07-06 12:06:05', 1);
 
 -- --------------------------------------------------------
 
@@ -485,32 +550,26 @@ CREATE TABLE `user_notifications` (
 --
 
 INSERT INTO `user_notifications` (`id`, `user_id`, `notification_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, NULL, NULL),
-(2, 1, 2, NULL, NULL),
-(3, 1, 4, NULL, NULL),
+(2, 13, 2, NULL, NULL),
+(3, 13, 4, NULL, NULL),
 (4, 1, 6, NULL, NULL),
 (5, 1, 10, NULL, NULL),
-(6, 2, 1, NULL, NULL),
 (7, 2, 2, NULL, NULL),
 (8, 2, 3, NULL, NULL),
 (9, 2, 4, NULL, NULL),
 (10, 2, 6, NULL, NULL),
-(11, 3, 1, NULL, NULL),
 (12, 3, 2, NULL, NULL),
 (13, 3, 3, NULL, NULL),
 (14, 3, 4, NULL, NULL),
 (15, 3, 6, NULL, NULL),
-(16, 4, 1, NULL, NULL),
 (17, 4, 2, NULL, NULL),
 (18, 4, 3, NULL, NULL),
 (19, 4, 4, NULL, NULL),
 (20, 4, 6, NULL, NULL),
-(21, 5, 1, NULL, NULL),
 (22, 5, 2, NULL, NULL),
 (23, 5, 3, NULL, NULL),
 (24, 5, 4, NULL, NULL),
 (25, 5, 6, NULL, NULL),
-(26, 6, 1, NULL, NULL),
 (27, 6, 2, NULL, NULL),
 (28, 6, 3, NULL, NULL),
 (29, 6, 4, NULL, NULL),
@@ -527,7 +586,15 @@ INSERT INTO `user_notifications` (`id`, `user_id`, `notification_id`, `created_a
 (40, 9, 1, NULL, NULL),
 (41, 9, 2, NULL, NULL),
 (42, 9, 3, NULL, NULL),
-(43, 9, 4, NULL, NULL);
+(43, 9, 4, NULL, NULL),
+(44, 10, 1, NULL, NULL),
+(45, 10, 2, NULL, NULL),
+(46, 10, 3, NULL, NULL),
+(47, 10, 4, NULL, NULL),
+(48, 11, 1, NULL, NULL),
+(49, 11, 2, NULL, NULL),
+(50, 11, 3, NULL, NULL),
+(51, 11, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -552,15 +619,12 @@ CREATE TABLE `videos` (
 --
 
 INSERT INTO `videos` (`id`, `course_id`, `name_ar`, `name_en`, `description_ar`, `description_en`, `url`, `created_at`, `updated_at`) VALUES
-(1, 1, 'ف1', 'v1', 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من خلال دمج الصور والنصوص وغيرها من العناصر مع بعضها البعض في تصميم واحد', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati laborum quia et cumque delectus voluptate ratione nisi doloribus quibusdam repellendus.', 'https://www.youtube.com/embed/iKRLrJXNN4M', '2019-06-26 09:21:56', '2019-06-26 09:21:56'),
-(2, 1, 'ف2', 'v2', 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من خلال دمج الصور والنصوص وغيرها من العناصر مع بعضها البعض في تصميم واحد', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati laborum quia et cumque delectus voluptate ratione nisi doloribus quibusdam repellendus.', 'https://www.youtube.com/embed/iKRLrJXNN4M', '2019-06-26 09:21:56', '2019-06-26 09:21:56'),
+(1, 3, 'ف1', 'v1', 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من خلال دمج الصور والنصوص وغيرها من العناصر مع بعضها البعض في تصميم واحد', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati laborum quia et cumque delectus voluptate ratione nisi doloribus quibusdam repellendus.', 'https://www.youtube.com/embed/sgn5jRuZb6o', '2019-06-26 09:21:56', '2019-06-28 07:36:17'),
 (7, 2, 'فيديو5', 'v5', 'إنشاء الصور المتحركة واجراء تعديلات بسيطة على مقاطع الفيديو في الإصدارات الحديثة.', 'How to Build iOS Style Switch or Toggle Using Only HTML, CSS, & Vanilla JS', 'https://www.youtube.com/embed/iKRLrJXNN4M', '2019-06-26 12:31:43', '2019-06-26 12:31:43'),
 (10, 13, 'ف4', NULL, 'وغيرها، يبلغ عدد سكان الإسكندرية حوالي 4,123,869 نسمة (حسب تعداد 2006) يعملون بالأنشطة التجارية والصناعية والزراعية. تنقسم الإسكندري', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 12:57:09', '2019-06-26 12:57:09'),
 (11, 14, 'ف4', NULL, 'وغيرها، يبلغ عدد سكان الإسكندرية حوالي 4,123,869 نسمة (حسب تعداد 2006) يعملون بالأنشطة التجارية والصناعية والزراعية. تنقسم الإسكندري', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 13:01:28', '2019-06-26 13:01:28'),
-(13, 1, 'w', 'w2', 'lorem  ipsum', 'lorem  ipsum', 'https://www.youtube.com/embed/iKRLrJXNN4M', '2019-06-26 13:17:30', '2019-06-26 13:17:30'),
-(14, 17, 'ف4', 'v4', 'غلاف مناسب للعمل مع صفائف من البيانات. على سبيل المثال ، تحقق من الكود التالي', 'convenient wrapper for working with arrays of data. For example, check out the following code', 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 13:37:24', '2019-06-26 13:37:24'),
-(15, 17, 'ف5', NULL, 'غلاف مناسب للعمل مع صفائف من البيانات. على سبيل المثال ، تحقق من الكود التالي', NULL, 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 13:37:24', '2019-06-26 13:37:24'),
-(16, 18, NULL, NULL, NULL, NULL, NULL, '2019-06-27 14:19:01', '2019-06-27 14:19:01');
+(13, 3, 'w1', 'w2', 'lorem  ipsum', 'lorem  ipsum', 'https://www.youtube.com/embed/sgn5jRuZb6o', '2019-06-26 13:17:30', '2019-06-28 07:41:26'),
+(14, 15, NULL, NULL, NULL, NULL, NULL, '2019-07-06 12:41:42', '2019-07-06 12:41:42');
 
 --
 -- Indexes for dumped tables
@@ -576,6 +640,12 @@ ALTER TABLE `blogs`
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -657,6 +727,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -690,6 +766,12 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `clients`
+--
+ALTER TABLE `clients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
@@ -714,7 +796,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `instructors`
@@ -732,13 +814,13 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=151;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `offers`
@@ -756,31 +838,37 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_notifications`
 --
 ALTER TABLE `user_notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
