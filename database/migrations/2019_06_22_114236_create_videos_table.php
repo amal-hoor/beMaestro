@@ -20,7 +20,7 @@ class CreateVideosTable extends Migration
             $table->string('name_en')->nullable();
             $table->string('description_ar')->nullable();
             $table->string('description_en')->nullable();
-            $table->string('url')->nullable();
+            $table->string('path')->nullable();
             $table->timestamps();
         });
     }

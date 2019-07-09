@@ -33,7 +33,8 @@ class CoursesController extends Controller
     public function create()
     {
         $categories=Category::all();
-        return view('admin.courses.create',compact('categories'));
+        $instructors=Instructor::all();
+        return view('admin.courses.create',compact('categories','instructors'));
     }
 
     /**
@@ -67,17 +68,13 @@ class CoursesController extends Controller
           }
 
 
-
-          $instructor=Instructor::where('name',request('instructor_id'))->first();
-          $instructor_id=$instructor->id;
-
           $course =Course::create([
 
                 'name_ar'          => $request->input('name_ar'),
                 'name_en'          => $request->input('name_en'),
                 'details_ar'       => $request->input('details_ar'),
                 'details_en'       => $request->input('details_en'),
-                'instructor_id'    => 1,
+                'instructor_id'    => $request->input('instructor_id'),
                 'price'            => $request->input('price'),
                 'hours'            => $request->input('hours'),
                 'photo_id'         => $photo_id,
@@ -87,25 +84,21 @@ class CoursesController extends Controller
 
 
           if($request->input('videos_number')){
-
-
                 $n=$request->input('videos_number');
-
-
-
                 for($i=0 ; $i<$n ;$i++){
 
-                     $request->input('video_name_ar')[$i];
+                     //$request->input('video_name_ar')[$i];
+
                      $video = Video::create([
                         'name_ar' => $request->input('video_name_ar')[$i],
                         'name_en' => $request->input('video_name_en')[$i],
-                        'url'     => $request->input('video_url')[$i],
+                        'path'     => public_path().'/uploads/'.$request->input('video_name_en')[$i],
                         'description_ar' =>$request->input('video_description_ar')[$i],
                         'description_en' =>$request->input('video_description_en')[$i],
                         'course_id'   =>$course->id,
                     ]);
 
-                }
+                 }
 
 
           $notifcation = Notification::create([

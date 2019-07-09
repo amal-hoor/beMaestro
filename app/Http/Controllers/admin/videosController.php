@@ -41,41 +41,42 @@ class videosController extends Controller
     public function store(Request $request)
     {
 
-        // ini_set('memory_limit', '-1');
-        // ini_set('post_max_size', '200M');
         request()->validate([
 
-            'name_ar'        => 'required',
-            'name_en'        => 'required',
-            'description_ar' => 'required',
-            'description_en' => 'required',
+            'video_name_ar'        => 'required',
+            'video_name_en'        => 'required',
+            'video_description_ar' => 'required',
+            'video_description_en' => 'required',
             'course_id'      => 'required',
 
         ]);
 
-        if($file=$request->file('path')){
-            $fileNameToStore=$request->file('path')->getClientOriginalName();
-            $path = public_path().'/videos/';
-            $path = $request->file('path')->move($path, $fileNameToStore);
+
+        if($request->input('videos_number')){
+            $n=$request->input('videos_number');
+
+            for($i=0 ; $i<$n ;$i++){
+
+                 //$request->input('video_name_ar')[$i];
+
+                 $video = Video::create([
+                    'name_ar' => $request->input('video_name_ar')[$i],
+                    'name_en' => $request->input('video_name_en')[$i],
+                    'description_ar' =>$request->input('video_description_ar')[$i],
+                    'description_en' =>$request->input('video_description_en')[$i],
+                    'course_id'   =>$request->input('course_id'),
+                    'path'     => public_path().'/uploads/'.$request->input('video_name_en')[$i],
+                ]);
+
+
+            }
         }
-    
-
-        Video::create([
-
-            'name_ar'        => $request->input('name_ar'),
-            'name_en'        => $request->input('name_en'),
-            'description_ar' => $request->input('description_ar'),
-            'description_en' => $request->input('description_en'),
-            'course_id' => $request->input('course_id'),
-            'url'       => $request->input('url')  ? $request->input('url') : '',
-
-        ]);
 
         flash('Video Added.......');
         return redirect()->route('videos.index');
     }
 
- 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -99,35 +100,26 @@ class videosController extends Controller
     public function update(Request $request, $id)
     {
         $video=Video::find($id);
-
             request()->validate([
 
-                'name_ar'         => 'required',
-                'name_en'         => 'required',
-                'description_ar'  => 'required',
-                'description_en'  => 'required',
-                'course_id' => 'required',
-                'url'       => 'required',
+                'name_ar'        => 'required',
+                'name_en'        => 'required',
+                'description_ar' => 'required',
+                'description_en' => 'required',
+                'course_id'      => 'required',
 
             ]);
 
-            if($file=$request->file('path')){
-                $fileNameToStore=$request->file('path')->getClientOriginalName();
-                $path = public_path().'/videos/';
-                $path = $request->file('path')->move($path, $fileNameToStore);
-            }
+            $video->update([
 
+                'name_ar'        => $request->input('name_ar'),
+                'name_en'        => $request->input('name_en'),
+                'description_ar' => $request->input('description_ar'),
+                'description_en' => $request->input('description_en'),
+                'course_id'      => $request->input('course_id'),
+                'path'           => public_path().'/uploads/'.$request->input('name_en'),
 
-       $video->update([
-
-        'name_ar'      => $request->input('name_ar'),
-        'name_en'      => $request->input('name_en'),
-        'description_ar' => $request->input('description_ar'),
-        'description_en' => $request->input('description_en'),
-        'course_id'    => $request->input('course_id'),
-        'url'           => $request->input('url')  ? $request->input('url') : $video->url,
-
-       ]);
+            ]);
        flash('Video Updated.......');
        return redirect()->route('videos.index');
     }

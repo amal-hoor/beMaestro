@@ -14,16 +14,9 @@
 
     <div class="row">
     @include('layouts.form-errors')
-        <div class="col-lg-3" style="margin-top:200px">
-                    @if ($video->url)
-                    <iframe width='auto' height="200"
-                    src="{{$video->url}}" frameborder="0"
-                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                   </iframe>
-                    @endif
-        </div>
 
-                   <div class="col-lg-8 m-auto">
+
+                   <div class="col-lg-10 m-auto">
                       <div class="card">
                     <div class="card-body p-5">
 
@@ -66,38 +59,12 @@
                                     </div>
 
 
-
-                                    <div class="form-group row">
-                                       <select class="form-control" id="select">
-                                                <option value="">Select type</option>
-                                                <option value="video">Video</option>
-                                                <option value="url">URL</option>
-                                        </select>
-                                    </div>
-                                            <div id="input_tag" class="mt-3 form-group row">
-
-                                            </div>
-
-
                         <div class="form-actions mb-5 ">
                             <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Update Video</button>
                         </div>
 
-
-
-
                     </form>
 
-
-<script>
-        $("#select").change(function(){
-            if($(this).val() == 'url'){
-                $("#input_tag").html('<input type="text" name="url" class="form-control" required>');
-            }else{
-                $("#input_tag").html('<input type="file" name="path" class="form-control" required>');
-            }
-        })
-</script>
  </div>
 
 </div>

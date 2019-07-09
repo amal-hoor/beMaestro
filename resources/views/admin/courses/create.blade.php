@@ -26,18 +26,22 @@
 
                                     <div class="form-group row">
                                         <label class="control-label"> الاسم </label>
-                                        <input type="text" name="name_ar" class="form-control" placeholder="ادخل الاسم" required>
+                                        <input type="text" name="name_ar" class="form-control" placeholder="ادخل الاسم"  >
                                     </div>
                                     <div class="form-group row">
                                             <label class="control-label">Name</label>
-                                            <input type="text" name="name_en" class="form-control" placeholder="Enter Name" required>
+                                            <input type="text" name="name_en" class="form-control" placeholder="Enter Name"  >
                                     </div>
 
 
 
                                     <div class="form-group row">
                                             <label>Instructor</label>
-                                            <input type="text" class="form-control" name="instructor_id" required>
+                                            <select name="instructor_id" class="form-control">
+                                                @foreach($instructors as $instructor)
+                                                  <option value="{{$instructor->id}}">{{$instructor->name}}</option>
+                                                @endforeach
+                                            </select>
 
                                    </div>
 
@@ -62,7 +66,7 @@
 
                                      <div class="form-group row">
                                             <label class="control-label">Price</label>
-                                            <input type="text" name="price" class="form-control" required>
+                                            <input type="text" name="price" class="form-control"  >
 
                                     </div>
 
@@ -84,17 +88,14 @@
 
                                      <div class="form-group row">
                                                 <label class="control-label">Hours</label>
-                                                <input type="text" name="hours" class="form-control" required>
+                                                <input type="text" name="hours" class="form-control"  >
 
                                      </div>
 
                                      <div class="form-group row">
                                         <label class="control-label">Videos Number</label>
-                                        <input id="videos_number" type="number" name="videos_number" class="form-control" required>
-                                </div>
-
-
-
+                                        <input id="videos_number" type="number" name="videos_number" class="form-control">
+                                     </div>
                                         <div id="videos-data">
                                               {{-- video data --}}
                                         </div>
@@ -110,14 +111,14 @@
     <!-- Row -->
 
 
-
+@include('layouts.footer')
 
 <script>
         $("#videos_number").change(function(){
            var i = $(this).val();
            var x;
            for(x=0;x<i;x++){
-               $("#videos-data").append('<div class="form-group row"><label class="control-label">الاسم'+parseInt(x+1)+'</label><input type="text" name="video_name_ar[]" placeholder="الاسم" class="form-control" required></div><div class="form-group row"><label class="control-label">Video Name '+parseInt(x+1)+'</label><input type="text" name="video_name_en[]" placeholder="Video Name" class="form-control" required></div><div class="form-group row"><label class="control-label">الوصف'+ parseInt(x+1) +'</label><textarea class="form-control" name="video_description_ar[]" placeholder="الوصف"></textarea> </div><div class="form-group row"><label class="control-label">Video Description '+ parseInt(x+1) +'</label><textarea class="form-control" name="video_description_en[]" placeholder="Video Description"></textarea> </div><div class="form-group row"><label class="control-label">Video URL '+ parseInt(x+1) +'</label>  <input type="text" name="video_url[]" class="form-control" required> </div><hr>');
+               $("#videos-data").append('<div class="form-group row"><label class="control-label">الاسم'+parseInt(x+1)+'</label><input type="text" name="video_name_ar[]" placeholder="الاسم" class="form-control"></div><div class="form-group row"><label class="control-label">Video Name '+parseInt(x+1)+'</label><input type="text" name="video_name_en[]" placeholder="Video Name" class="form-control"></div><div class="form-group row"><label class="control-label">الوصف'+ parseInt(x+1) +'</label><textarea class="form-control" name="video_description_ar[]" placeholder="الوصف"></textarea> </div><div class="form-group row"><label class="control-label">Video Description '+ parseInt(x+1) +'</label><textarea class="form-control" name="video_description_en[]" placeholder="Video Description"></textarea> </div>');
            }
         });
 </script>
@@ -127,7 +128,7 @@
            </div>
          </div>
       </div>
-      @include('layouts.footer')
+
     </div>
 </div>
 

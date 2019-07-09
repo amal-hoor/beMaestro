@@ -41,14 +41,9 @@
                                             <td>{{$video->name_en}}</td>
                                             <td>{{$video->description_ar}}</td>
                                             <td>{{$video->description_en}}</td>
-                                            <td>{{$video->course->name_en}}</td>
+                                            <td>{{$video->course ? $video->course ->name_en : 'no related course'}}</td>
                                             <td>
-                                                @if($video->url)
-                                                <iframe width="200" height="200"
-                                                 src="{{$video->url}}" frameborder="0"
-                                                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                                                </iframe>
-                                                @endif
+                                              <video src="{{$video->path}}" width="50" height="50"></video>
                                             </td>
 
                                             <td><a href="{{route('videos.edit',$video->id)}}">Edit</a></td>
