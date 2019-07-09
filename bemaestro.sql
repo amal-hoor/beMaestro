@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2019 at 01:35 PM
+-- Generation Time: Jul 09, 2019 at 04:14 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -190,19 +190,12 @@ CREATE TABLE `courses` (
 
 INSERT INTO `courses` (`id`, `name_ar`, `name_en`, `details_ar`, `details_en`, `price`, `hours`, `instructor_id`, `created_at`, `updated_at`, `photo_id`, `category_id`) VALUES
 (1, 'فوتوشوب', 'photoshop3', 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من خلال دمج الصور والنصوص وغيرها من العناصر مع بعضها البعض في تصميم واحد', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, molestiae asperiores. Inventore, eum. Similique soluta tenetur, ipsam quis enim unde.', 1200.00, 50, 1, '2019-06-26 09:21:56', '2019-06-26 12:09:24', NULL, NULL),
-(2, 'فوتوشوب', 'photoshop2', 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من خلال دمج الصور والنصوص وغيرها من العناصر مع بعضها البعض في تصميم واحد', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, molestiae asperiores. Inventore, eum. Similique soluta tenetur, ipsam quis enim unde.', 1200.00, 50, 1, '2019-06-26 09:23:11', '2019-06-26 09:23:11', NULL, NULL),
-(3, 'فوتوشوب', 'photoshop3', 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من خلال دمج الصور والنصوص وغيرها من العناصر مع بعضها البعض في تصميم واحد', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda, molestiae asperiores. Inventore, eum. Similique soluta tenetur, ipsam quis enim unde.', 1200.00, 50, 1, '2019-06-26 09:26:31', '2019-06-26 09:26:31', NULL, NULL),
-(4, 'فوتوشوب', 'photoshop2', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam natus maiores eum neque iusto aperiam, fugiat tenetur temporibus amet veniam!', 1000.00, 20, 1, '2019-06-26 12:49:42', '2019-06-26 12:49:42', NULL, 2),
-(5, 'فوتوشوب', 'photoshop2', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam natus maiores eum neque iusto aperiam, fugiat tenetur temporibus amet veniam!', 1000.00, 20, 1, '2019-06-26 12:51:03', '2019-06-26 12:51:03', NULL, 2),
-(6, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:52:40', '2019-06-26 12:52:40', 6, 1),
-(7, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:54:17', '2019-06-26 12:54:17', 7, 1),
-(8, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:54:35', '2019-06-26 12:54:35', 8, 1),
-(9, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:55:39', '2019-06-26 12:55:39', 9, 1),
-(11, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:56:39', '2019-06-26 12:56:39', 11, 1),
 (12, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:56:45', '2019-06-26 12:56:45', 12, 1),
 (13, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 12:57:09', '2019-06-26 12:57:09', 13, 1),
 (14, 'تصميم', 'design', 'تضم الإسكندرية بين طياتها الكثير من المعالم المميزة، إذ يوجد بها أكبر', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 12000.00, 20, 1, '2019-06-26 13:01:28', '2019-06-26 13:01:28', 14, 1),
-(15, 'كورس1', 'course1', 'تفاصيل', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, repudiandae aliquid accusantium laborum similique explicabo enim eaque fugiat possimus laboriosam.', 10000.00, 20, 1, '2019-07-06 12:41:42', '2019-07-06 12:41:42', NULL, 1);
+(15, 'كورس1', 'course1', 'تفاصيل', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, repudiandae aliquid accusantium laborum similique explicabo enim eaque fugiat possimus laboriosam.', 10000.00, 20, 1, '2019-07-06 12:41:42', '2019-07-06 12:41:42', NULL, 1),
+(16, 'كورس1', 'course1', 'اي تفاصيل', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, a?', 1000.00, 200, 4, '2019-07-09 11:22:25', '2019-07-09 11:22:25', NULL, 1),
+(17, 'كورس4', 'Course4', 'وتعني فريق مدريد الملكي لكرة القدم) هو فريق كرة قدم محترف إسباني', 'lorem ipsum', 100.00, 88, 2, '2019-07-09 12:10:46', '2019-07-09 12:10:46', NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -335,7 +328,9 @@ INSERT INTO `notifications` (`id`, `comment_id`, `blog_id`, `course_id`, `title_
 (8, NULL, NULL, 18, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-06-27 14:19:01', '2019-06-27 14:19:01', NULL),
 (9, NULL, NULL, NULL, 'عرض جديد', 'new offer', 'عرض جديد ', 'new offer is created', '2019-06-27 14:38:33', '2019-06-27 14:38:33', 3),
 (10, NULL, 7, NULL, 'New Blog', 'New Blog', 'تم اضافه مدونه جديده', 'New Blog has been added', '2019-07-06 12:29:44', '2019-07-06 12:29:44', NULL),
-(11, NULL, NULL, 15, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-07-06 12:41:42', '2019-07-06 12:41:42', NULL);
+(11, NULL, NULL, 15, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-07-06 12:41:42', '2019-07-06 12:41:42', NULL),
+(12, NULL, NULL, 16, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-07-09 11:22:25', '2019-07-09 11:22:25', NULL),
+(13, NULL, NULL, 17, 'كورس جديد', 'New Course', 'تم اضافه كورس جديد', 'New Course has been added', '2019-07-09 12:10:46', '2019-07-09 12:10:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -594,7 +589,15 @@ INSERT INTO `user_notifications` (`id`, `user_id`, `notification_id`, `created_a
 (48, 11, 1, NULL, NULL),
 (49, 11, 2, NULL, NULL),
 (50, 11, 3, NULL, NULL),
-(51, 11, 4, NULL, NULL);
+(51, 11, 4, NULL, NULL),
+(52, 12, 1, NULL, NULL),
+(53, 12, 2, NULL, NULL),
+(54, 12, 3, NULL, NULL),
+(55, 12, 4, NULL, NULL),
+(56, 13, 1, NULL, NULL),
+(57, 13, 2, NULL, NULL),
+(58, 13, 3, NULL, NULL),
+(59, 13, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -609,7 +612,7 @@ CREATE TABLE `videos` (
   `name_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description_ar` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description_en` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `url` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `path` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -618,13 +621,21 @@ CREATE TABLE `videos` (
 -- Dumping data for table `videos`
 --
 
-INSERT INTO `videos` (`id`, `course_id`, `name_ar`, `name_en`, `description_ar`, `description_en`, `url`, `created_at`, `updated_at`) VALUES
+INSERT INTO `videos` (`id`, `course_id`, `name_ar`, `name_en`, `description_ar`, `description_en`, `path`, `created_at`, `updated_at`) VALUES
 (1, 3, 'ف1', 'v1', 'إنشاء التصاميم البصرية المتنوعة والبانرات، وذلك من خلال دمج الصور والنصوص وغيرها من العناصر مع بعضها البعض في تصميم واحد', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati laborum quia et cumque delectus voluptate ratione nisi doloribus quibusdam repellendus.', 'https://www.youtube.com/embed/sgn5jRuZb6o', '2019-06-26 09:21:56', '2019-06-28 07:36:17'),
 (7, 2, 'فيديو5', 'v5', 'إنشاء الصور المتحركة واجراء تعديلات بسيطة على مقاطع الفيديو في الإصدارات الحديثة.', 'How to Build iOS Style Switch or Toggle Using Only HTML, CSS, & Vanilla JS', 'https://www.youtube.com/embed/iKRLrJXNN4M', '2019-06-26 12:31:43', '2019-06-26 12:31:43'),
 (10, 13, 'ف4', NULL, 'وغيرها، يبلغ عدد سكان الإسكندرية حوالي 4,123,869 نسمة (حسب تعداد 2006) يعملون بالأنشطة التجارية والصناعية والزراعية. تنقسم الإسكندري', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 12:57:09', '2019-06-26 12:57:09'),
 (11, 14, 'ف4', NULL, 'وغيرها، يبلغ عدد سكان الإسكندرية حوالي 4,123,869 نسمة (حسب تعداد 2006) يعملون بالأنشطة التجارية والصناعية والزراعية. تنقسم الإسكندري', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aut in eveniet, rem recusandae ab. Explicabo quos dolorum illo dolorem!', 'https://www.youtube.com/embed/KJKcup31kw0', '2019-06-26 13:01:28', '2019-06-26 13:01:28'),
 (13, 3, 'w1', 'w2', 'lorem  ipsum', 'lorem  ipsum', 'https://www.youtube.com/embed/sgn5jRuZb6o', '2019-06-26 13:17:30', '2019-06-28 07:41:26'),
-(14, 15, NULL, NULL, NULL, NULL, NULL, '2019-07-06 12:41:42', '2019-07-06 12:41:42');
+(15, 1, 'تت1', 'v1', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, fuga!', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, fuga!', 'C:\\xampp\\htdocs\\beMaestro\\public\\uploads\\v1.jpg', '2019-07-09 09:22:13', '2019-07-09 09:22:13'),
+(16, 1, 'v1', 'ds', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, velit.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, velit.', 'C:\\xampp\\htdocs\\beMaestro\\public/uploads/ds', '2019-07-09 10:06:33', '2019-07-09 10:06:33'),
+(17, 1, 'hfg', 'gf', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, velit.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, velit.', 'C:\\xampp\\htdocs\\beMaestro\\public/uploads/gf', '2019-07-09 10:07:06', '2019-07-09 10:07:06'),
+(18, 1, 'فيديو1', 'video1', 'عقد الخمسينيات من القرن العشرين، وبحلول عقد الثمانينيات من', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, adipisci.', 'C:\\xampp\\htdocs\\beMaestro\\public/uploads/', '2019-07-09 10:43:34', '2019-07-09 10:43:34'),
+(19, 3, 'فيديو2', 'video2', 'عقد الخمسينيات من القرن العشرين، وبحلول عقد الثمانينيات من', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, adipisci.', 'C:\\xampp\\htdocs\\beMaestro\\public/uploads/video2', '2019-07-09 10:43:34', '2019-07-09 11:03:33'),
+(20, 16, 'فيديو ن', 'vv', 'اي وصف', 'lorem ipsum', 'C:\\xampp\\htdocs\\beMaestro\\public/uploads/vv', '2019-07-09 11:22:25', '2019-07-09 11:22:25'),
+(21, 16, NULL, 'vvva', 'اي وصف', 'lorem ipsum', 'C:\\xampp\\htdocs\\beMaestro\\public/uploads/vvva', '2019-07-09 11:22:25', '2019-07-09 11:22:25'),
+(22, 12, '2-Way Binding in Vue with V-Model - Vue.js 2.0 Fundamentals (Part 6)', '2-Way Binding in Vue with V-Model - Vue.js 2.0 Fundamentals (Part 6)', 'وتعني فريق مدريد الملكي لكرة القدم) هو فريق كرة قدم محترف إسباني', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, fuga!', 'C:\\xampp\\htdocs\\beMaestro\\public/uploads/2-Way Binding in Vue with V-Model - Vue.js 2.0 Fundamentals (Part 6)', '2019-07-09 12:03:09', '2019-07-09 12:03:09'),
+(23, 17, 'فيديو7', 'video7', 'وتعني فريق مدريد الملكي لكرة القدم) هو فريق كرة قدم محترف إسباني', 'lorem ipsum', 'C:\\xampp\\htdocs\\beMaestro\\public/uploads/video7', '2019-07-09 12:10:46', '2019-07-09 12:10:46');
 
 --
 -- Indexes for dumped tables
@@ -796,7 +807,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `instructors`
@@ -820,7 +831,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `offers`
@@ -862,13 +873,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_notifications`
 --
 ALTER TABLE `user_notifications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
