@@ -196,5 +196,12 @@ class CoursesController extends Controller
         flash('Course deleted........');
         return back();
     }
+
+    public function addVideosToCourse()
+    {
+          $videos=Video::all();
+          $courses=Course::all();
+          return view('admin.courses.addVideo',compact('videos','courses'));
+    }
 }
 

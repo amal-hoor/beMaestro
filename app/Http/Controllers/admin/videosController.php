@@ -65,7 +65,7 @@ class videosController extends Controller
                     'description_ar' =>$request->input('video_description_ar')[$i],
                     'description_en' =>$request->input('video_description_en')[$i],
                     'course_id'   =>$request->input('course_id'),
-                    'path'     => public_path().'/uploads/'.$request->input('video_name_en')[$i],
+                    'path'     => '/uploads/'.$request->input('video_name_en')[$i],
                 ]);
 
 

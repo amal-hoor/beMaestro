@@ -105,6 +105,8 @@ Route::group(['prefix'=>'admins' , 'middleware' => 'auth.admin'],function(){
 
         Route::patch('{course}/update', 'Admin\CoursesController@update')->name('course.update');
 
+        Route::get('/addvideos', 'Admin\CoursesController@addVideosToCourse')->name('coures.video.add');
+
 
 
        Route::get('/{course}/comments/showcoursecomments', 'Admin\CourseCommentsController@show')->name('coursecomments.show');
