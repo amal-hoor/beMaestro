@@ -1,16 +1,6 @@
+@extends('layouts.admin')
 
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
-
-
-
-
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-    <div class="container-fluid">
+@section('content')
         <div class="row">
            <div class="col-lg-10 m-auto">
                 @include('layouts.form-errors')
@@ -81,6 +71,7 @@
                         <div class="form-actions">
                             <button type="submit" class="btn btn-info mb-2"> <i class="fa fa-check"></i>update Setting</button>
                         </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -88,15 +79,7 @@
 
     </div>
 
-
-@include('layouts.footer')
-</div>
-<!-- Row -->
-</div>
-
-
-
-
+@endsection
 
 
 

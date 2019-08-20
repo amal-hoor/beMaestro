@@ -1,17 +1,7 @@
-@include('layouts.header')
-@include('layouts.navigation')
-@include('layouts.sidebar')
+@extends('layouts.admin')
 
+@section('content')
 
-        <div class="page-wrapper">
-
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
 
                     <div class="">
@@ -117,13 +107,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-                    </div>
-
+                            </div>
             </div>
-        </div>
-
-
-@include('layouts.footer')
+    @endsection

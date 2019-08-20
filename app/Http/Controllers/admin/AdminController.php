@@ -17,7 +17,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins =User::where('role_id',2)->get();
+        $admins =User::where('role_id',1)->get();
         return view('admin.admins.index',compact('admins'));
     }
 
@@ -47,29 +47,18 @@ class AdminController extends Controller
             'name'        => 'required|min:4|max:255',
             'email'       => 'required|email|string|unique:users',
             'role_id'     => 'required',
-            'country_id'  => 'required',
             'password'    => 'required|min:6'
         ]);
 
-        if(trim($request->input('password')) == ''){
-
-            request()->validate([
-                'password' => 'required|min:6',
-            ]);
-         }
-
          if(auth()->user()->role_id == 1){
-
             User::create([
 
                 'name'       => $request->input('name'),
                 'email'      => $request->input('email'),
                 'role_id'    => $request->input('role_id'),
-                'country_id' => $request->input('country_id'),
                 'password'   => Hash::make($request->input('password'))
     
             ]);
-
             flash('Admin added.......');
             return redirect()->route('admin.index');
          }else{
@@ -91,9 +80,8 @@ class AdminController extends Controller
     public function edit($id)
     {
         $roles=Role::all();
-        $countries=Country::all();
         $admin=User::find($id);
-        return view('admin.admins.edit',compact('roles','countries','admin'));
+        return view('admin.admins.edit',compact('roles','admin'));
     }
 
     /**
@@ -111,24 +99,13 @@ class AdminController extends Controller
             'name'        => 'required|min:4',
             'email'       => 'required|string|email',
             'role_id'     => 'required',
-            'country_id'  => 'required',
-            'password'    => 'required|min:6'
         ]);
-
-
-        if(trim($request->input('password')) == ''){
-
-           request()->validate([
-               'password' => 'required|min:6',
-           ]);
-        }
 
         $admin->update([
 
             'name'       => $request->input('name'),
             'email'      => $request->input('email'),
             'role_id'    => $request->input('role_id'),
-            'country_id' => $request->input('country_id'),
             'password'   => Hash::make($request->input('password'))
 
         ]);
@@ -146,6 +123,7 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $admin=User::find($id);
+        $admin->notifications()->detach();
         $admin->delete();
         flash('Admin deleted........');
         return redirect()->back();

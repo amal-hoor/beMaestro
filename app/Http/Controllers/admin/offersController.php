@@ -42,14 +42,24 @@ class offersController extends Controller
     {
         request()->validate([
 
-            'newprice'  => 'required',
-            'course_id' =>'required',
+            'newprice'       => 'required',
+            'course_id'      =>'required',
+            'description_ar' => 'required',
+            'description_en' => 'required',
+            'amount'         => 'required',
+            'from_date'      => 'required',
+            'to_date'        => 'required',
 
         ]);
 
         $offer=Offer::create([
             'course_id' => $request->input('course_id'),
             'newprice'  => $request->input('newprice'),
+            'description_ar' => $request->input('description_ar'),
+            'description_en' => $request->input('description_en'),
+            'amount'         => $request->input('amount'),
+            'from_date'      => $request->input('from_date'),
+            'to_date'        => $request->input('to_date'),
         ]);
 
         $notification=Notification::create([
@@ -62,7 +72,7 @@ class offersController extends Controller
 
         ]);
 
-        $users=User::where('role_id',3)->get();
+        $users=User::where('role_id',2)->get();
         $notification->users()->attach($users);
         flash('Offer Created.......');
         return redirect()->route('offers.index');
@@ -93,21 +103,26 @@ class offersController extends Controller
     {
         $offer=Offer::find($id);
         request()->validate([
-         'newprice' => 'required',
-         'course_id'=> 'required'
+            'newprice'       => 'required',
+            'course_id'      => 'required',
+            'amount'         => 'required',
+            'description_ar' => 'required',
+            'description_en' => 'required'
         ]);
 
         $offer->update([
 
             'newprice'  => $request->input('newprice'),
             'course_id' => $request->input('course_id'),
+            'amount'         => $request->input('amount'),
+            'description_ar' => $request->input('description_ar'),
+            'description_en' => $request->input('description_en'),
+            'from_date'      => request('from_date') ? $request->input('from_date') : $offer->from_date,
+            'to_date'      => request('to_date') ? $request->input('to_date') : $offer->to_date,
 
         ]);
         flash('Offer Updated.......');
-
         return redirect()->route('offers.index');
-
-
 
     }
 
@@ -119,8 +134,7 @@ class offersController extends Controller
      */
     public function destroy($id)
     {
-        $offer=Offer::find($id);
-        $offer->delete();
+        $offer=Offer::find($id)->delete();
         flash('Offer Deleted.......');
         return back();
     }

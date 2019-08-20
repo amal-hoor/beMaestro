@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
-use App\Role;
 use App\Country;
+use App\Comment;
 
 class UsersController extends Controller
 {
@@ -18,7 +19,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users =User::where('role_id',"!=",2)->where('role_id',"!=",1)->get();
+        $users =User::where('role_id',2)->get();
         return view('admin.users.index',compact('users'));
     }
 
@@ -29,9 +30,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $roles=Role::all();
         $countries=Country::all();
-        return view('admin.users.create',compact('roles','countries'));
+        return view('admin.users.create',compact('countries'));
     }
 
     /**
@@ -46,30 +46,23 @@ class UsersController extends Controller
         request()->validate([
             'name'        => 'required|min:4|max:255',
             'email'       => 'required|email|string|unique:users',
-            'role_id'     => 'required',
             'country_id'  => 'required',
-            'password'    => 'required|min:6'
+            'password'    => 'required|min:6',
+            'phone'       => 'required|min:11',
         ]);
-
-        if(trim($request->input('password')) == ''){
-
-            request()->validate([
-                'password' => 'required|min:6',
-            ]);
-         }
 
         User::create([
 
             'name'       => $request->input('name'),
             'email'      => $request->input('email'),
-            'role_id'    => $request->input('role_id'),
             'country_id' => $request->input('country_id'),
             'password'   => Hash::make($request->input('password')),
-            'block'      => $request->input('block')
+            'block'      => $request->input('block'),
+            'phone'      => $request->input('phone'),
+            'role_id'     => 2
 
         ]);
         flash('User Created....');
-
         return redirect()->route('user.index');
     }
 
@@ -83,10 +76,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $roles=Role::all();
         $countries=Country::all();
         $user=User::find($id);
-        return view('admin.users.edit',compact('roles','countries','user'));
+        return view('admin.users.edit',compact('countries','user'));
     }
 
     /**
@@ -103,30 +95,19 @@ class UsersController extends Controller
         request()->validate([
             'name'        => 'required|min:4',
             'email'       => 'required|string|email',
-            'role_id'     => 'required',
             'country_id'  => 'required',
-            'password'    => 'required|min:6'
+            'phone'       => 'required|min:11',
         ]);
-
-
-        if(trim($request->input('password')) == ''){
-
-           request()->validate([
-               'password' => 'required|min:6',
-           ]);
-        }
 
         $user->update([
 
             'name'       => $request->input('name'),
             'email'      => $request->input('email'),
-            'role_id'    => $request->input('role_id'),
             'country_id' => $request->input('country_id'),
-            'password'   => Hash::make($request->input('password')),
             'block'      => $request->input('block'),
-
+            'phone'      => $request->input('phone'),
         ]);
-        flash('User Uodated.....');
+        flash('User Updated.....');
         return redirect()->route('user.index');
     }
 
@@ -139,6 +120,9 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user=User::find($id);
+        $comments=Comment::where('user_id',$user->id)->delete();
+        $orders=Order::where('user_id',$user->id)->delete();
+        $user->notifications()->detach();
         $user->delete();
         flash('User Deleted....');
         return redirect()->back();

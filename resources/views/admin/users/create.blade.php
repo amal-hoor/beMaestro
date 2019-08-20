@@ -1,17 +1,6 @@
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-
-
-
-
-
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-    <div class="container-fluid">
+@section('content')
         <div class="row">
            <div class="col-lg-10 m-auto">
                @include('layouts.form-errors')
@@ -40,18 +29,11 @@
                             </div>
                             <!--/row-->
 
-
                             <div class="form-group row">
-                                        <label class="control-label">Roles</label>
-                                        <select class="form-control custom-select" data-placeholder="Choose a Category" name="role_id" tabindex="1">
-
-                                            @foreach($roles as $role)
-                                              <option value="{{$role->id}}">{{$role->name}}</option>
-                                            @endforeach
-                                        </select>
+                                <label class="control-label">Phone</label>
+                                <input type="number" name="phone" class="form-control" placeholder="enter phone number" required>
                             </div>
                             <!--/row-->
-
 
                             <div class="form-group row">
                                     <label class="control-label">Country</label>
@@ -91,10 +73,4 @@
         </div>
     </div>
     <!-- Row -->
-
-
-
-@include('layouts.footer')
-
-</div>
-</div>
+@endsection

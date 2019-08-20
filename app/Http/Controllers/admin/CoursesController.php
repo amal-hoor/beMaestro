@@ -21,8 +21,8 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        $courses=Course::all();
-        return view('admin.courses.index',compact('courses'));
+        $courses = Course::all();
+        return view('admin.courses.index', compact('courses'));
     }
 
     /**
@@ -32,90 +32,97 @@ class CoursesController extends Controller
      */
     public function create()
     {
-        $categories=Category::all();
-        $instructors=Instructor::all();
-        return view('admin.courses.create',compact('categories','instructors'));
+        $categories = Category::all();
+        $instructors = Instructor::all();
+        return view('admin.courses.create', compact('categories', 'instructors'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-     {
+    {
         request()->validate([
+            'name_ar' => 'required|max:255',
+            'name_en' => 'required|max:255',
+            'instructor_id' => 'required',
+            'details_ar' => 'required',
+            'details_en' => 'required',
+            'price' => 'required',
+            'hours' => 'required',
+            'from_date' => 'required',
+            'to_date' => 'required',
+        ]);
 
-            'name_ar'             => 'required|max:255',
-            'name_en'             => 'required|max:255',
-            'instructor_id'       => 'required',
-            'details_ar'          => 'required',
-            'details_en'          => 'required',
-            'price'               => 'required',
-            'hours'               => 'required',
+        if ($file = $request->file('photo_id')) {
+            $name = $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = Photo::create(['name' => $name, 'path' => 'images/' . $name]);
+            $photo_id = $photo->id;
 
-          ]);
+        } else {
+            $photo_id = null;
+        }
 
-          if($file=$request->file('photo_id')){
-            $name=$file->getClientOriginalName();
-            $file->move('images',$name);
-            $photo=Photo::create(['name' => $name,'path' => 'images/'.$name]);
-            $photo_id=$photo->id;
+          $courses=Course::where('static',1)->get();
+          $static=$request->input('static');
+          if($courses->count() >= 3){
+              flash('maximum number of static courses is three ..... course not created');
+              return redirect()->route('course.index');
+          }else {
+              $course = Course::create([
+                  'name_ar' => $request->input('name_ar'),
+                  'name_en' => $request->input('name_en'),
+                  'details_ar' => $request->input('details_ar'),
+                  'details_en' => $request->input('details_en'),
+                  'instructor_id' => $request->input('instructor_id'),
+                  'price' => $request->input('price'),
+                  'hours' => $request->input('hours'),
+                  'photo_id' => $photo_id,
+                  'category_id' => $request->input('category_id'),
+                  'is_free' => $request->input('is_free'),
+                  'from_date' => $request->input('from_date'),
+                  'to_date' => $request->input('to_date'),
+                  'static' => $static,
 
-          }else{
-              $photo_id=null;
+              ]);
           }
 
+        if ($request->input('videos_number')) {
+            $n = $request->input('videos_number');
+            for ($i = 0; $i < $n; $i++) {
 
-          $course =Course::create([
+                //$request->input('video_name_ar')[$i];
 
-                'name_ar'          => $request->input('name_ar'),
-                'name_en'          => $request->input('name_en'),
-                'details_ar'       => $request->input('details_ar'),
-                'details_en'       => $request->input('details_en'),
-                'instructor_id'    => $request->input('instructor_id'),
-                'price'            => $request->input('price'),
-                'hours'            => $request->input('hours'),
-                'photo_id'         => $photo_id,
-                'category_id'      => $request->input('category_id'),
+                $video = Video::create([
+                    'name_ar' => $request->input('video_name_ar')[$i],
+                    'name_en' => $request->input('video_name_en')[$i],
+                    'path' => public_path() . '/uploads/' . $request->input('video_name_en')[$i],
+                    'description_ar' => $request->input('video_description_ar')[$i],
+                    'description_en' => $request->input('video_description_en')[$i],
+                    'course_id' => $course->id,
+                ]);
 
-          ]);
+            }
+        }
 
+        $notifcation = Notification::create([
+            'title_en' => 'New Course',
+            'title_ar' => 'كورس جديد',
+            'body_en' => 'New Course has been added',
+            'body_ar' => 'تم اضافه كورس جديد',
+            'course_id' => $course->id
+        ]);
 
-          if($request->input('videos_number')){
-                $n=$request->input('videos_number');
-                for($i=0 ; $i<$n ;$i++){
+        $users = User::where('role_id',2)->get();
+        $notifcation->users()->attach($users);
 
-                     //$request->input('video_name_ar')[$i];
-
-                     $video = Video::create([
-                        'name_ar' => $request->input('video_name_ar')[$i],
-                        'name_en' => $request->input('video_name_en')[$i],
-                        'path'     => public_path().'/uploads/'.$request->input('video_name_en')[$i],
-                        'description_ar' =>$request->input('video_description_ar')[$i],
-                        'description_en' =>$request->input('video_description_en')[$i],
-                        'course_id'   =>$course->id,
-                    ]);
-
-                 }
-
-
-          $notifcation = Notification::create([
-              'title_en'=> 'New Course',
-              'title_ar'=> 'كورس جديد',
-              'body_en'=> 'New Course has been added',
-              'body_ar'=> 'تم اضافه كورس جديد',
-              'course_id' => $course->id
-          ]);
-
-          $users = User::where('role_id' , 3)->get();
-          $notifcation->users()->attach($users);
-
-          flash('Course Added........');
-          return redirect()->route('course.index');
+        flash('Course Added........');
+        return redirect()->route('course.index');
     }
-}
 
 
 
@@ -142,7 +149,6 @@ class CoursesController extends Controller
     {
         $course=Course::find($id);
         request()->validate([
-
             'name_ar'          => 'required|max:255',
             'name_en'          => 'required|max:255',
             'instructor_id'    => 'required',
@@ -150,7 +156,6 @@ class CoursesController extends Controller
             'details_en'       => 'required',
             'price'            => 'required',
             'hours'            => 'required',
-
           ]);
 
 
@@ -166,18 +171,27 @@ class CoursesController extends Controller
               $photo_id=null;
           }
 
-        $course->update([
+        $courses=Course::where('static',1)->get();
+        $static=$request->input('static');
+        if($courses->count() >= 3){
+            flash('maximum number of static courses is three ..... course not updated');
+            return redirect()->route('course.index');
+        }else {
+            $course->update([
 
-              'name_ar'         =>$request->input('name_ar'),
-              'name_en'         =>$request->input('name_en'),
-              'details_ar'      => $request->input('details_ar'),
-              'details_en'      => $request->input('details_en'),
-              'instructor_id'=> $instructor_id,
-              'price'        => $request->input('price'),
-              'hours'        => $request->input('hours'),
-              'photo_id'     => $photo_id,
+                'name_ar' => $request->input('name_ar'),
+                'name_en' => $request->input('name_en'),
+                'details_ar' => $request->input('details_ar'),
+                'details_en' => $request->input('details_en'),
+                'instructor_id' => $instructor_id,
+                'price' => $request->input('price'),
+                'hours' => $request->input('hours'),
+                'from_date' => request('from_date') ? $request->input('from_date') : $course->from_date,
+                'to_date' => request('to_date') ? $request->input('to_date') : $course->to_date,
+                'photo_id' => $photo_id,
 
-        ]);
+            ]);
+        }
         flash('Course updated........');
         return redirect()->route('course.index');
 
@@ -192,6 +206,12 @@ class CoursesController extends Controller
     public function destroy($id)
     {
         $course=Course::find($id);
+        $comment_ids=$course->comments()->pluck('id')->toArray();
+        $likes=Like::whereIn('comment_id',$comment_ids)->delete();
+        $course->comments()->delete();
+        $course->likes()->delete();
+        $course->offers()->delete();
+        $course->videos()->delete();
         $course->delete();
         flash('Course deleted........');
         return back();
@@ -203,5 +223,7 @@ class CoursesController extends Controller
           $courses=Course::all();
           return view('admin.courses.addVideo',compact('videos','courses'));
     }
+
+
 }
 

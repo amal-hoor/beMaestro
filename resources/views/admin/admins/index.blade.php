@@ -1,17 +1,6 @@
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-
-
-
-
-    <div class="page-wrapper">
-
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-     <div class="container-fluid">
+@section('content')
 
         <div class="row">
 
@@ -22,11 +11,10 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table">
-                                <thead class="table-primary">
+                                <thead class="table-info">
                                         <tr>
                                             <th>Name</th>
                                             <th>Role</th>
-                                            <th>Country</th>
                                             <th>Email</th>
                                             <th>Edit Admin</th>
                                             <th>Delete Admin</th>
@@ -38,7 +26,6 @@
                                             <tr>
                                                 <td>{{$admin->name}}</td>
                                                 <td>{{$admin->role->name}}</td>
-                                                <td>{{$admin->country->name}}</td>
                                                 <td>{{$admin->email}}</td>
                                                 <td><a href="{{route('admin.edit',$admin->id)}}">Edit</a></td>
                                                 <td>
@@ -57,12 +44,4 @@
                 </div>
             </div>
         </div>
-
-
-@include('layouts.footer')
-
-
-   </div>
-
-</div>
-
+@endsection

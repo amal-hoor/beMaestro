@@ -1,10 +1,10 @@
 
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
+
+@section('content')
 
 <div class="row" style="margin-top:100px">
-<div class="col-lg-6 offset-4">
+<div class="col-lg-8 m-auto">
 
 <div class="timeline-badge info"> </div>
 <div class="timeline-panel">
@@ -70,7 +70,7 @@
 
 </div>
 
-@include('layouts.footer')
+@endsection
 
 
 

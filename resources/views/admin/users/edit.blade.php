@@ -1,13 +1,6 @@
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-    <div class="container-fluid">
+@section('content')
         <div class="row">
            <div class="col-lg-10 m-auto">
                 @include('layouts.form-errors')
@@ -30,19 +23,10 @@
                                         <input type="text" name="email" class="form-control" value="{{$user->email}}" required>
                                     </div>
 
-
                                     <div class="form-group row">
-                                        <label class="control-label">Roles</label>
-                                        <select class="form-control custom-select" data-placeholder="Choose a Category" name="role_id" tabindex="1">
-
-                                            @foreach($roles as $role)
-
-                                              <option value="{{$role->id}}"  @if($user->role->name == $role->name) selected @endif>{{$role->name}}</option>
-
-                                            @endforeach
-                                        </select>
+                                        <label class="control-label">Phone</label>
+                                        <input type="number" name="phone" class="form-control" value="{{$user->phone}}" required>
                                     </div>
-
 
                                     <div class="form-group row">
                                         <label class="control-label">Country</label>
@@ -57,10 +41,9 @@
                                     </div>
 
 
-
                                     <div class="form-group row">
                                         <label>Password</label>
-                                        <input type="text" class="form-control" name="password" value="{{$user->passowrd}}" required>
+                                        <input type="text" class="form-control" name="password">
                                     </div>
 
 
@@ -92,10 +75,5 @@
                 </div>
             </div>
         </div>
-    </div>
     <!-- Row -->
-
-
-
-@include('layouts.footer')
-</div>
+@endsection

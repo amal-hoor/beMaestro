@@ -1,15 +1,6 @@
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-
-
-<div class="page-wrapper">
-
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
- <div class="container-fluid">
+@section('content')
 
     <div class="row">
 
@@ -22,8 +13,8 @@
                                         <tr>
                                             <th>Course Name</th>
                                             <th>User Name</th>
-                                            <th>Address</th>
-                                            <th>Deliver Time</th>
+                                            <th>User Phone</th>
+                                            <th>User Email</th>
                                             <th>Status</th>
                                         </tr>
                                 </thead>
@@ -32,8 +23,8 @@
                                             <tr>
                                                 <td>{{$order->course->name_en}}</td>
                                                 <td>{{$order->user->name}}</td>
-                                                <td>{{$order->address}}</td>
-                                                <td>{{$order->deliver_time}}</td>
+                                                <td>{{$order->user->phone}}</td>
+                                                <td>{{$order->user->email}}</td>
                                                 <td>
                                                    <form action="{{route('order.update',$order->id)}}" method="POST">
                                                         @csrf
@@ -63,10 +54,5 @@
     </div>
 
 
-@include('layouts.footer')
-</div><!-- row -->
-
-</div><!-- container_fluid -->
-
-
+@endsection
 

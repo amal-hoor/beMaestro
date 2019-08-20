@@ -1,14 +1,7 @@
 
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-    <div class="container-fluid">
+@section('content')
         <div class="row">
            <div class="col-lg-10 m-auto">
             @include('layouts.form-errors')
@@ -67,10 +60,29 @@
                                      <div class="form-group row">
                                             <label class="control-label">Price</label>
                                             <input type="text" name="price" class="form-control"  >
-
                                     </div>
 
 
+                                    <div class="form-group row">
+                                        <label class="control-label">Free or Not</label>
+                                        <select name="is_free" class="form-control">
+                                            <option value="1">Free</option>
+                                            <option value="0">Not Free</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label >From -> To</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <input type="date" name="from_date" class="form-control">
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="date" name="to_date" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
 
 
                                     <div class="form-group row">
@@ -88,8 +100,15 @@
 
                                      <div class="form-group row">
                                                 <label class="control-label">Hours</label>
-                                                <input type="text" name="hours" class="form-control"  >
+                                                <input type="text" name="hours" class="form-control">
 
+                                     </div>
+
+                                     <div class="form-group row">
+                                         <select class="form-control">
+                                             <option value="1">Static</option>
+                                             <option value="0">Not Static</option>
+                                         </select>
                                      </div>
 
                                      <div class="form-group row">
@@ -101,7 +120,6 @@
                                         </div>
 
 
-
                         <div class="form-actions">
                             <button type="submit" class="btn btn-info mb-4"> <i class="fa fa-check"></i>Create Course</button>
                         </div>
@@ -109,9 +127,6 @@
 
 
     <!-- Row -->
-
-
-@include('layouts.footer')
 
 <script>
         $("#videos_number").change(function(){
@@ -122,15 +137,11 @@
            }
         });
 </script>
+                        </div>
   </form>
                 </div>
               </div>
            </div>
          </div>
-      </div>
 
-    </div>
-</div>
-
-
-
+@endsection

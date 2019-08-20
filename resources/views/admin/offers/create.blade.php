@@ -1,15 +1,6 @@
+@extends('layouts.admin')
 
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
-
-
-
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-    <div class="container-fluid">
+@section('content')
         <div class="row">
            <div class="col-lg-8 m-auto">
                 @include('layouts.form-errors')
@@ -28,11 +19,8 @@
                                         <label class="control-label">Course Name</label>
                                         <select name="course_id" class="form-control">
                                             @foreach ($courses as $course)
-
                                                <option value="{{$course->id}}">{{$course->name_en}}</option>
-
                                             @endforeach
-
                                         </select>
                                     </div>
 
@@ -41,25 +29,46 @@
                                 <div class="form-group row">
                                             <label>New Price</label>
                                             <input type="text" class="form-control" name="newprice" required>
-
                                 </div>
 
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Create Offer</button>
-                        </div>
+                            <div class="form-group row">
+                                <label>وصف العرض</label>
+                                <textarea name="description_ar" class="form-control" placeholder="ادخل وصف العرض"></textarea>
+                            </div>
 
+                            <div class="form-group row">
+                                <label>description</label>
+                                <textarea name="description_en" class="form-control" placeholder="description...."></textarea>
+                            </div>
+
+                            <div class="form-group row">
+                                <label>Amount</label>
+                                <input type="number" class="form-control" name="amount" required>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-6">
+                                    <label>From Date</label>
+                                    <input type="date" class="form-control" name="from_date" required>
+                                </div>
+                                <div class="col-6">
+                                    <label>To Date</label>
+                                    <input type="date" class="form-control" name="to_date" required>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                               <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Create Offer</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    </div>
     <!-- Row -->
 
-
-
-@include('layouts.footer')
-
+@endsection
 
 
 

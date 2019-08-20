@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
+use App\Like;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\User;
@@ -49,7 +50,7 @@ class BlogsController extends Controller
          'title_en'     => 'required|max:255',
          'content_ar'   => 'required|min:5',
          'content_en'   => 'required|min:5',
-         'author_id' => 'required',
+         'author_id'    => 'required',
 
        ]);
 
@@ -57,7 +58,6 @@ class BlogsController extends Controller
 
          $name=$file->getClientOriginalName();
          $file->move('images',$name);
-
          $photo=Photo::create(['name' => $name,'path' => 'images/'.$name]);
          $photo_id=$photo->id;
 
@@ -78,13 +78,13 @@ class BlogsController extends Controller
 
        $notifcation = Notification::create([
         'title_en'=> 'New Blog',
-        'title_ar'=> 'New Blog',
+        'title_ar'=> 'مدونه جديده',
         'body_en'=> 'New Blog has been added',
         'body_ar'=> 'تم اضافه مدونه جديده',
         'blog_id' => $blog->id
-    ]);
+       ]);
 
-    $users = User::where('role_id' , 3)->get();
+    $users = User::where('role_id',2)->get();
     $notifcation->users()->attach($users);
 
        flash('Blog Added........');
@@ -160,6 +160,10 @@ class BlogsController extends Controller
     public function destroy($id)
     {
         $blog=Blog::find($id);
+        $comment_ids=$blog->comments()->pluck('id')->toArray();
+        $likes=Like::whereIn('comment_id',$comment_ids)->delete();
+        $blog->comments()->delete();
+        $blog->likes()->delete();
         $blog->delete();
         flash('Blog deleted........');
         return redirect()->back();

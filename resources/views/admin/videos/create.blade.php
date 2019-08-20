@@ -1,14 +1,7 @@
 
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-    <div class="container-fluid">
+@section('content')
         <div class="row">
            <div class="col-lg-10 m-auto">
                 @include('layouts.form-errors')
@@ -47,18 +40,27 @@
 
 
 
-                        @include('layouts.footer')
 
+
+                        </div>
+                   </form>
+
+                    @section('scripts')
                         <script>
-                                $("#videos_number").change(function(){
-                                   var i = $(this).val();
-                                   var x;
-                                   for(x=0;x<i;x++){
-                                       $("#videos-data").append('<div class="form-group row"><label class="control-label">الاسم'+parseInt(x+1)+'</label><input type="text" name="video_name_ar[]" placeholder="الاسم" class="form-control"></div><div class="form-group row"><label class="control-label">Video Name '+parseInt(x+1)+'</label><input type="text" name="video_name_en[]" placeholder="Video Name" class="form-control"></div><div class="form-group row"><label class="control-label">الوصف'+ parseInt(x+1) +'</label><textarea class="form-control" name="video_description_ar[]" placeholder="الوصف"></textarea> </div><div class="form-group row"><label class="control-label">Video Description '+ parseInt(x+1) +'</label><textarea class="form-control" name="video_description_en[]" placeholder="Video Description"></textarea> </div><div class="form-group row"><hr>');
-                                   }
-                                });
+                            $("#videos_number").change(function(){
+                                var i = $(this).val();
+                                var x;
+                                for(x=0;x<i;x++){
+                                    $("#videos-data").append('<div class="form-group row"><label class="control-label">الاسم'+parseInt(x+1)+'</label><input type="text" name="video_name_ar[]" placeholder="الاسم" class="form-control"></div><div class="form-group row"><label class="control-label">Video Name '+parseInt(x+1)+'</label><input type="text" name="video_name_en[]" placeholder="Video Name" class="form-control"></div><div class="form-group row"><label class="control-label">الوصف'+ parseInt(x+1) +'</label><textarea class="form-control" name="video_description_ar[]" placeholder="الوصف"></textarea> </div><div class="form-group row"><label class="control-label">Video Description '+ parseInt(x+1) +'</label><textarea class="form-control" name="video_description_en[]" placeholder="Video Description"></textarea> </div><div class="form-group row"><hr>');
+                                }
+                            });
                         </script>
-            </form>
+                    @endsection
+                </div>
+              </div>
+           </div>
+        </div>
+@endsection
                                 {{-- <div class="form-group row">
                                     <button class="btn btn-info" id="add_video">add video <span class="p-2">+</span></button>
                                 </div>

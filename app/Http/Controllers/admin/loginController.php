@@ -46,7 +46,6 @@ class loginController extends Controller
         flash()->warning('Wrong Mail');
         return back();
 
-
     }
 
 

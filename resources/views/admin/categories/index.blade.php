@@ -1,18 +1,6 @@
+@extends('layouts.admin')
 
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
-
-
-
-
-
-<div class="page-wrapper">
-
-                <!-- ============================================================== -->
-                <!-- Container fluid  -->
-                <!-- ============================================================== -->
-    <div class="container-fluid">
+@section('content')
 
         <div class="row">
 
@@ -91,10 +79,6 @@
                 </div>
 
             </div>
-            </div>
+        </div>
 
-@include('layouts.footer')
-</div><!-- row -->
-
-</div><!-- container_fluid -->
-
+@endsection

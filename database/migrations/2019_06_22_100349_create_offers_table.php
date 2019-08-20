@@ -17,6 +17,11 @@ class CreateOffersTable extends Migration
             $table->bigIncrements('id');
             $table->integer('course_id');
             $table->bigInteger('newprice');
+            $table->text('description_ar');
+            $table->text('description_en');
+            $table->bigInteger('amount');
+            $table->dateTime('from_date');
+            $table->dateTime('to_date');
             $table->timestamps();
         });
     }

@@ -17,8 +17,9 @@ class NotificationController extends Controller
      */
     public function index()
     {
-        $notifications=Notification::all();
-        return view('admin.notifications.index',compact('notifications'));
+        //$notifications=Notification::all();
+        $users=User::where('role_id',1)->with('notifications')->get();
+        return view('admin.notifications.index',compact('users'));
     }
 
   

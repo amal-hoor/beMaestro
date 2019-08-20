@@ -1,14 +1,6 @@
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-
-<div class="page-wrapper">
-
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
- <div class="container-fluid">
+@section('content')
 
     <div class="row">
 
@@ -22,9 +14,9 @@
 
                                         <tr>
                                             <th>Name</th>
-                                            <th>Role</th>
                                             <th>Country</th>
                                             <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Edit User</th>
                                             <th>Delete User</th>
                                             <th>Status</th>
@@ -35,9 +27,9 @@
                                     @foreach($users as $user)
                                             <tr>
                                                 <td>{{$user->name}}</td>
-                                                <td>{{$user->role->name}}</td>
-                                                <td>{{$user->country->name}}</td>
+                                                <td>@if($user->country){{$user->country->name}} @else No Country @endif</td>
                                                 <td>{{$user->email}}</td>
+                                                <td>{{$user->phone}}</td>
                                                 <td><a href="{{route('user.edit',$user->id)}}">Edit</a></td>
                                                 <td>
                                                     <form action="{{route('user.delete',$user->id)}}" method="POST">
@@ -64,11 +56,6 @@
             </div>
     </div>
 
-@include('layouts.footer')
-</div><!-- row -->
-
-</div><!-- container_fluid -->
-
-
+@endsection
 
 

@@ -1,16 +1,6 @@
+@extends('layouts.admin')
 
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
-
-
-
-
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-    <div class="container-fluid">
+@section('content')
         <div class="row">
            <div class="col-lg-8 m-auto">
                 @include('layouts.form-errors')
@@ -46,13 +36,37 @@
                                         </div>
 
 
+                            <div class="form-group row">
+                                <label>وصف العرض</label>
+                                <textarea name="description_ar" class="form-control">{{$offer->description_ar}}</textarea>
+                            </div>
 
+                            <div class="form-group row">
+                                <label>description</label>
+                                <textarea name="description_en" class="form-control">{{$offer->description_en}}</textarea>
+                            </div>
+
+                            <div class="form-group row">
+                                <label>Amount</label>
+                                <input type="number" class="form-control" name="amount" value="{{$offer->amount}}">
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-6">
+                                    <small>From : <span class="text-success">{{$offer->from_date}}</span></small>
+                                    <input type="date" class="form-control" name="from_date">
+                                </div>
+                                <div class="col-6">
+                                    <small>To : <span class="text-danger">{{$offer->to_date}}</span></small>
+                                    <input type="date" class="form-control" name="to_date">
+                                </div>
+                            </div>
 
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Update Offer</button>
                         </div>
-
+                        </div>
 
                     </form>
                 </div>
@@ -62,11 +76,4 @@
     <!-- Row -->
 
 
-
-@include('layouts.footer')
-
-
-
-
-    </div>
-
+@endsection

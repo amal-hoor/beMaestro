@@ -1,16 +1,7 @@
 
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-
-
-
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-<div class="container-fluid">
+@section('content')
 
     <div class="row">
     @include('layouts.form-errors')
@@ -62,15 +53,15 @@
                         <div class="form-actions mb-5 ">
                             <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i>Update Video</button>
                         </div>
-
+                        </div>
                     </form>
 
- </div>
+             </div>
 
-</div>
+           </div>
 
-</div>
+       </div>
     </div>
 
-@include('layouts.footer')
+@endsection
 

@@ -1,18 +1,14 @@
-@include('layouts.header')
-@include('layouts.sidebar')
-@include('layouts.navigation')
+@extends('layouts.admin')
 
-<div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
-        <div class="container-fluid">
+@section('content')
+
 <div class="row">
 
 
         <div class="col-lg-10 m-auto">
                
             <div class="card">
+                @include('layouts.form-errors')
                 {{-- <div class="card-header bg-info">
                     <h4 class="m-b-0 text-white">Create Admin</h4>
                 </div> --}}
@@ -50,39 +46,21 @@
 
 
                             <div class="form-group row">
-                                    <label class="control-label">Country</label>
-                                        <select class="form-control custom-select" data-placeholder="Choose a Category" name="country_id" tabindex="1">
-
-                                            @foreach($countries as $country)
-                                              <option value="{{$country->id}}">{{$country->name}}</option>
-                                            @endforeach
-                                        </select>
-                            </div>
-
-
-
-                            <div class="form-group row">
-
                                         <label>Password</label>
                                         <input type="text" class="form-control" name="password" required>
-
                            </div>
 
                         <div class="form-actions">
                             <button type="submit" class="btn btn-info"> <i class="fa fa-check"></i> Create Admin</button>
                         </div>
-
+                        </div>
 
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
     <!-- Row -->
 
-@include('layouts.footer')
-
-
-</div>
-</div>
+@endsection
