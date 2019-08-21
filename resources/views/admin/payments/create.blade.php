@@ -19,11 +19,11 @@
 
                             <div class="form-group row">
                                 <label class="control-label">الاسم</label>
-                                <input type="text" name="name_ar" class="form-control" placeholder="ادخل الاسم" required>
+                                <input type="text" name="name_ar" class="form-control" placeholder="ادخل الاسم">
                             </div>
                             <div class="form-group row">
                                 <label class="control-label">Name</label>
-                                <input type="text" name="name_en" class="form-control" placeholder="Enter Name English" required>
+                                <input type="text" name="name_en" class="form-control" placeholder="Enter Name English">
                             </div>
 
                             <div class="form-group row">
@@ -51,14 +51,23 @@
                                 </select>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group">
+
                                 <label class="control-label">Number</label>
-                                <input type="text" class="form-control" name="number" placeholder="enter number" required>
+                                <div class="row">
+                                    <div class="col-3">
+                                       <a class="btn btn-info btn-block" id="add_number"><i class="mdi mdi-plus"></i>Number</a>
+                                    </div>
+                                    <div class="col-9">
+                                       <input type="text" class="form-control" name="number[]" placeholder="enter number">
+                                        <hr>
+                                        <div id="convert_number" class="mt-2">
+
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                            {{--<div class="form-group row">--}}
-                                {{--<label class="control-label">Number</label>--}}
-                                {{--<input type="text" class="form-control" name="number[]" placeholder="enter number" required>--}}
-                            {{--</div>--}}
 
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-info mb-2"> <i class="fa fa-check"></i> Create Payment Method</button>
@@ -72,4 +81,10 @@
     </div>
 @endsection
 
-
+@section('scripts')
+<script>
+    $("#add_number").click(function(){
+            $("#convert_number").append('<div class="form-group row"><input type="text" name="number[]" placeholder="enter number" class="form-control"></div>');
+    });
+</script>
+@endsection

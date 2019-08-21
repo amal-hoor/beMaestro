@@ -35,7 +35,13 @@
                                     <td>{{str_limit($payment->description_en,30)}}</td>
                                     <td>{{$payment->type_ar}}</td>
                                     <td>{{$payment->type_en}}</td>
-                                    <td>{{$payment->numbers}}</td>
+                                    <td>
+                                        @if(isset($payment->numbers))
+                                            @foreach(json_decode($payment->numbers) as $number)
+                                                {{ $number }} ,
+                                            @endforeach
+                                        @endif
+                                    </td>
 
                                     <td><a href="{{ route('paymentmethods.edit',$payment->id) }}">Edit</a></td>
                                     <td>

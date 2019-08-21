@@ -85,7 +85,7 @@
                         $instructors_number=$instructors->count();
                     @endphp
 
-                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><<i class="mdi mdi-school"></i><span class="hide-menu">Instructors<span class="label label-rouded label-themecolor pull-right">{{$instructors_number}}</span></span></a>
+                    <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-school"></i><span class="hide-menu">Instructors<span class="label label-rouded label-themecolor pull-right">{{$instructors_number}}</span></span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="{{route('instructor.index')}}">All Instructors </a></li>
                             <li><a href="{{route('instructor.create')}}">Create Instructor</a></li>

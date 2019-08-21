@@ -20,6 +20,18 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+//    'facebook' => [
+//        'client_id' => '375154683421635',  // Your Facebook App ID
+//        'client_secret' =>'e4094acecf024181510c499fd71cfdce', // Your Facebook App Secret
+//        'redirect' => 'http://localhost/beMaestro/public/callback',
+//    ],
+
+    'facebook' => [
+        'client_id'     => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect'      => env('FACEBOOK_URL'),
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

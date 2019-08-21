@@ -291,6 +291,10 @@ Route::group(['prefix' => 'front' , 'namespace' => 'front'], function () {
 
     //});
 
+    Route::get('login/{provider}', 'SocialController@redirect');
+
+    Route::get('/login/{provider}/callback','SocialController@Callback');
+
     Route::get('/home', 'homeController@index')->name('front.home');
 
     Route::post('/contact', 'homeController@store')->name('front.contact');

@@ -54,7 +54,12 @@
 
                             <div class="form-group row">
                                 <label class="control-label">Number</label>
-                                <input type="text" class="form-control" name="number" placeholder="enter number" value="{{$payment->numbers}}">
+                                @if(isset($payment->numbers))
+                                    @foreach(json_decode($payment->numbers) as $number)
+                                        <input type="text" class="form-control mt-1" name="number[]" placeholder="enter number" value="{{$number}}">
+                                    @endforeach
+                                @endif
+                                {{--<input type="text" class="form-control" name="number" placeholder="enter number" value="{{$payment->numbers}}">--}}
                             </div>
 
                             <div class="form-actions">

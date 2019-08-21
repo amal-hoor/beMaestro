@@ -120,7 +120,7 @@
             <div class="col-md-3 col-sm-6">
                     <!-- Login -->
                     <div class="login">
-                        {{--<p data-toggle="modal" data-target="#exampleModal"> Login </p>--}}
+                            {{--<p data-toggle="modal" data-target="#exampleModal"> Login </p>--}}
                         @if(Auth::check())
                             <p> <a href="{{ route('front.logout') }}" class="text-danger">@lang('home.logout')</a> </p>
                         @else
@@ -161,7 +161,7 @@
                                         <p> @lang('home.register') </p>
 
                                         <ul class="social-modal">
-                                            <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+                                            <li> <a href="{{url('front/login/facebook')}}"> <i class="fab fa-facebook-f"></i> </a> </li>
                                             <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
                                         </ul>
                                     </div>

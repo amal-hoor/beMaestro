@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2019 at 04:40 PM
+-- Generation Time: Aug 21, 2019 at 05:58 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -327,7 +327,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (245, '2019_08_07_150904_create_programes_table', 11),
 (246, '2019_08_15_095039_add_static_column_to_courses_table', 12),
 (250, '2019_08_17_111540_add_details_column_to_instructors_table', 13),
-(251, '2019_08_20_105249_create_payment_methods_table', 14);
+(251, '2019_08_20_105249_create_payment_methods_table', 14),
+(253, '2019_08_21_122923_add_provider_columns_to_users_table', 15);
 
 -- --------------------------------------------------------
 
@@ -451,7 +452,9 @@ CREATE TABLE `payment_methods` (
 --
 
 INSERT INTO `payment_methods` (`id`, `name_ar`, `name_en`, `description_ar`, `description_en`, `type_ar`, `type_en`, `numbers`, `created_at`, `updated_at`) VALUES
-(1, 'موبينيل كاش', 'mobinil cash', 'رنچ كاش خدمة مقدمة من اورنچ بالتعاون مع بنك الامارات دبى الوطني تساعدك على إرسال و استقبال الأموال في الحال.اشترك مجاناً في خدمة اورنج مونى الآن.', 'Orange Cash is a service offered by Orange in cooperation with Emirates NBD to help you send and receive money immediately. Join Orange Money now for free.', 'رقم تليفون', 'mobile', '011222222,013323232', '2019-08-20 12:27:20', '2019-08-20 12:27:20');
+(1, 'موبينيل كاش', 'mobinil cash', 'رنچ كاش خدمة مقدمة من اورنچ بالتعاون مع بنك الامارات دبى الوطني تساعدك على إرسال و استقبال الأموال في الحال.اشترك مجاناً في خدمة اورنج مونى الآن.', 'Orange Cash is a service offered by Orange in cooperation with Emirates NBD to help you send and receive money immediately. Join Orange Money now for free.', 'رقم تليفون', 'mobile', '[\"01122334455\",\"01233444455\"]', '2019-08-20 12:27:20', '2019-08-21 13:32:39'),
+(2, 'موبينيل كاش', 'mobinil cash', 'اورنچ كاش خدمة مقدمة من اورنچ بالتعاون مع بنك الامارات دبى الوطني تساعدك على إرسال و استقبال الأموال في الحال.اشترك مجاناً في خدمة اورنج مونى الآن', 'Orange Cash is a service provided by Orange in cooperation with Emirates NBD to help you send and receive money immediately.', 'رقم تليفون', 'mobile', NULL, '2019-08-21 12:06:41', '2019-08-21 12:06:41'),
+(3, 'فودافون كاش', 'vodaphone cash', 'اورنچ كاش خدمة مقدمة من اورنچ بالتعاون مع بنك الامارات دبى الوطني تساعدك على إرسال و استقبال الأموال في الحال.اشترك مجاناً في خدمة اورنج مونى الآن', 'Orange Cash is a service provided by Orange in cooperation with Emirates NBD to help you send and receive money immediately.', 'رقم تليفون', 'mobile', '[\"01122334455\",\"01233444444\"]', '2019-08-21 12:10:15', '2019-08-21 12:10:15');
 
 -- --------------------------------------------------------
 
@@ -573,31 +576,33 @@ CREATE TABLE `users` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `api_token` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `block` int(11) NOT NULL DEFAULT '1',
-  `phone` bigint(20) DEFAULT NULL
+  `phone` bigint(20) DEFAULT NULL,
+  `provider` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `country_id`, `role_id`, `name`, `email`, `email_verified_at`, `password`, `api_token`, `remember_token`, `created_at`, `updated_at`, `block`, `phone`) VALUES
-(1, 1, 3, 'Barbara Weber', 'lkozey@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'XN53kaP6gH', 'hk4xh7u4eb', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826432),
-(3, 4, 1, 'Samson Hayes', 'schimmel.garnett@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ReLrhz7q2V', 'dBREefFjA3', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826439),
-(6, 1, 2, 'Ms. Lucy Torphy II', 'will.lueilwitz@example.org', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '9Inlo5STpA', 'iewEyIcRHb', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826473),
-(7, 2, 3, 'Celia Hartmann', 'lolita41@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'TBPSsYuddc', 'rWPPPXHPH2', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826477),
-(8, 4, 1, 'Estel Klein', 'zoconnell@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Hlyw51DfZC', 'x6cBAmvGGE', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826468),
-(9, 3, 4, 'Miss Kiana Boehm I', 'walter.stanton@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NUonizFEzT', 'xj21dycFhC', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826449),
-(10, 1, 3, 'Samanta Sanford', 'maurine.mitchell@example.net', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'OP4iK6DErn', 'SjUAIjrX44', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826432),
-(12, NULL, 4, 'amal1', 'amal1@yahoo.com', NULL, '$2y$10$6/24JXARADBdm1YTcPUg7.SPA1QTxPfAPjidhv7KzCZbrvOIP3xga', 'jTNfkCDh8rh7xN6U3nv6TyLUazJj4qdLgmnTdse0pZF624bcewq4KaP0gT3b', NULL, '2019-08-07 11:35:53', '2019-08-18 06:12:05', 1, 11233445566),
-(13, NULL, 1, 'admin', 'admin@mail.com', NULL, '$2y$10$MUZ469.pP607HljIlu0PAeESUb4uFoopmX8iObNKKMaMngFsDvQSq', NULL, NULL, '2019-08-07 14:19:53', '2019-08-07 14:19:53', 1, NULL),
-(20, 2, 2, 'ahmed', 'ahmed@yahoo.com', NULL, '$2y$10$4cRCWlSFJ.Y7fRZ7P.06HuWBxM90YDDOi2VIiXivcfSGbKw0/SWY6', NULL, NULL, '2019-08-17 12:51:19', '2019-08-17 12:51:19', 1, 112233445544),
-(21, NULL, 2, 'mohamed', 'mohamed@yahoo.com', NULL, '$2y$10$jGogIjHoR42vhJLvJDlVQ.nEHoWh27KpIp23JbSmRMiniLOnQZ4z2', NULL, NULL, '2019-08-20 08:13:47', '2019-08-20 08:13:47', 1, 1222222222);
+INSERT INTO `users` (`id`, `country_id`, `role_id`, `name`, `email`, `email_verified_at`, `password`, `api_token`, `remember_token`, `created_at`, `updated_at`, `block`, `phone`, `provider`, `provider_id`) VALUES
+(1, 1, 3, 'Barbara Weber', 'lkozey@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'XN53kaP6gH', 'hk4xh7u4eb', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826432, NULL, NULL),
+(3, 4, 1, 'Samson Hayes', 'schimmel.garnett@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ReLrhz7q2V', 'dBREefFjA3', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826439, NULL, NULL),
+(6, 1, 2, 'Ms. Lucy Torphy II', 'will.lueilwitz@example.org', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '9Inlo5STpA', 'iewEyIcRHb', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826473, NULL, NULL),
+(7, 2, 3, 'Celia Hartmann', 'lolita41@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'TBPSsYuddc', 'rWPPPXHPH2', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826477, NULL, NULL),
+(8, 4, 1, 'Estel Klein', 'zoconnell@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Hlyw51DfZC', 'x6cBAmvGGE', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826468, NULL, NULL),
+(9, 3, 4, 'Miss Kiana Boehm I', 'walter.stanton@example.com', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'NUonizFEzT', 'xj21dycFhC', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826449, NULL, NULL),
+(10, 1, 3, 'Samanta Sanford', 'maurine.mitchell@example.net', '2019-08-06 10:01:50', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'OP4iK6DErn', 'SjUAIjrX44', '2019-08-06 10:01:50', '2019-08-06 10:01:50', 1, 155826432, NULL, NULL),
+(12, NULL, 4, 'amal1', 'amal1@yahoo.com', NULL, '$2y$10$6/24JXARADBdm1YTcPUg7.SPA1QTxPfAPjidhv7KzCZbrvOIP3xga', 'jTNfkCDh8rh7xN6U3nv6TyLUazJj4qdLgmnTdse0pZF624bcewq4KaP0gT3b', NULL, '2019-08-07 11:35:53', '2019-08-18 06:12:05', 1, 11233445566, NULL, NULL),
+(13, NULL, 1, 'admin', 'admin@mail.com', NULL, '$2y$10$MUZ469.pP607HljIlu0PAeESUb4uFoopmX8iObNKKMaMngFsDvQSq', NULL, NULL, '2019-08-07 14:19:53', '2019-08-07 14:19:53', 1, NULL, NULL, NULL),
+(20, 2, 2, 'ahmed', 'ahmed@yahoo.com', NULL, '$2y$10$4cRCWlSFJ.Y7fRZ7P.06HuWBxM90YDDOi2VIiXivcfSGbKw0/SWY6', NULL, NULL, '2019-08-17 12:51:19', '2019-08-17 12:51:19', 1, 112233445544, NULL, NULL),
+(22, NULL, 2, 'mohamed', 'mohamed@yahoo.com', NULL, '$2y$10$OpVN4z.QqCZB7Ld7PkOMZu3j7wru8XCpNJXSNb3TL49V4Kp5kz2HS', NULL, NULL, '2019-08-21 08:59:55', '2019-08-21 08:59:55', 1, 11223344555, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -876,7 +881,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -900,7 +905,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `payment_methods`
 --
 ALTER TABLE `payment_methods`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `photos`
@@ -930,7 +935,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `user_notifications`

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','country_id','role_id','block','api_token','phone'
+        'name', 'email', 'password','country_id','role_id','block','api_token','phone','provider','provider_id',
     ];
 
     /**
@@ -75,6 +75,10 @@ class User extends Authenticatable
     public function notifications()
     {
         return $this->belongsToMany('App\Notification', 'user_notifications', 'user_id', 'notification_id');
+    }
+
+    public function identities() {
+        return $this->hasMany('App\SocialIdentity');
     }
 
 

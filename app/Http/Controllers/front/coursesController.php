@@ -48,24 +48,27 @@ class coursesController extends Controller
      */
     public function showCourses(Request $request)
     {
-        if($request->input('name_en')){
-            $category=Category::where('name_en','like','%'.$request->input('name_en').'%')->first();
-        }
-        if($request->input('name_ar')){
-            $category=Category::where('name_ar','like','%'.$request->input('name_ar').'%')->first();
-        }
-           if(!$category){
-               $message='Some thing wrong';
-               $courses='';
-               //return $message;
-           }
-           if($category){
-               $courses=Course::where('category_id',$category->id)->get();
-               $message='';
-               //return $courses;
-           }
+//        if($request->input('name_en')){
+//            $category=Category::where('name_en','like','%'.$request->input('name_en').'%')->first();
+//        }
+//        if($request->input('name_ar')){
+//            $category=Category::where('name_ar','like','%'.$request->input('name_ar').'%')->first();
+//        }
+//           if(!$category){
+//               $message='Some thing wrong';
+//               $courses='';
+//               //return $message;
+//           }
+//           if($category){
+//               $courses=Course::where('category_id',$category->id)->get();
+//               $message='';
+//               //return $courses;
+//           }
 
-        return view('front.courses_search',compact('courses','message'));
+        $category_ids=Category::where('name_ar','like','%'.$request->input('name_ar').'%')->orWhere('name_en','like','%'.$request->input('name_en').'%')->pluck('id')->toArray();
+        //return $category_ids;
+        $courses=Course::whereIn('category_id',$category_ids)->get();
+        return view('front.courses_search',compact('courses'));
     }
 
 }

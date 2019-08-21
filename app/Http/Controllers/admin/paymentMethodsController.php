@@ -37,6 +37,7 @@ class paymentMethodsController extends Controller
      */
     public function store(Request $request)
     {
+       //return implode($request->input('number'),',');
         request()->validate([
             'name_ar' => 'required',
             'name_en' => 'required',
@@ -54,7 +55,7 @@ class paymentMethodsController extends Controller
             'description_en' => $request->input('description_en'),
             'type_ar' => $request->input('type_ar'),
             'type_en' => $request->input('type_en'),
-            'number' =>  $request->input('numbers'),
+            'numbers' =>  json_encode($request->input('number')),
         ]);
         flash('Payment Method is Created......');
         return redirect()->route('paymentmethods.index');
@@ -91,6 +92,7 @@ class paymentMethodsController extends Controller
             'type_en' => 'required',
             'number' => 'required',
         ]);
+
         $payment=PaymentMethod::find($id);
         $payment->update([
             'name_ar' => $request->input('name_ar'),
@@ -99,7 +101,7 @@ class paymentMethodsController extends Controller
             'description_en' => $request->input('description_en'),
             'type_ar' => $request->input('type_ar'),
             'type_en' => $request->input('type_en'),
-            'number' => $request->input('numbers'),
+            'numbers' => json_encode($request->input('number')),
         ]);
         flash('Payment Method is Updated......');
         return redirect()->route('paymentmethods.index');
